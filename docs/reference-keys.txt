@@ -5,3 +5,10 @@ epigraph
 foreword
 list-of-abbreviations-and-acronyms
 cronology
+version-control-systems
+why-using-it-out-of-cs
+git
+github
+creating-an-account
+creating-a-repository
+section

@@ -4,10 +4,14 @@
 %
 \documentclass[
 ]{book}
+\title{CC Primer: Compute Canada for geoscientists in a rush}
+\author{Ricardo Barros Lourenco}
+\date{Last revision: 2022-02-01}
+
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -109,15 +113,11 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-
-\title{CC Primer: Compute Canada for geoscientists in a rush}
-\author{Ricardo Barros Lourenco}
-\date{Last revision: 2022-02-01}
 
 \begin{document}
 \maketitle
@@ -145,7 +145,7 @@ Please use this BibTeX fragment:
 \NormalTok{  title     }\OtherTok{=} \StringTok{"CC Primer: Compute Canada for geoscientists in a rush"}\NormalTok{,}
 \NormalTok{  author    }\OtherTok{=} \StringTok{"Barros Lourenco, Ricardo"}\NormalTok{,}
 \NormalTok{  year      }\OtherTok{=} \DecValTok{2022}\NormalTok{,}
-\NormalTok{  doi       }\OtherTok{=} \StringTok{"10.5281/zenodo.5937907"}
+\NormalTok{  doi       }\OtherTok{=} \StringTok{"10.5281/zenodo.5937906"}
 \NormalTok{  note      }\OtherTok{=}\NormalTok{ \{\textbackslash{}url\{https}\SpecialCharTok{:}\ErrorTok{//}\NormalTok{ricardobarroslourenco.github.io}\SpecialCharTok{/}\NormalTok{CCprimer}\SpecialCharTok{/}\NormalTok{\}(visited yyyy}\SpecialCharTok{{-}}\NormalTok{mm}\SpecialCharTok{{-}}\NormalTok{dd)\}}
 \NormalTok{\}}
 \end{Highlighting}
@@ -155,7 +155,7 @@ Please use this BibTeX fragment:
 \section{Epigraph}\label{epigraph}}
 
 \begin{quote}
-"Here's to the crazy ones.
+``Here's to the crazy ones.
 The misfits.
 The rebels.
 The troublemakers.
@@ -177,7 +177,7 @@ While some may see them as the crazy ones,
 we see genius.
 
 Because the people who are crazy enough to think
-they can change the world, are the ones who do."
+they can change the world, are the ones who do.''
 
 --- Apple Computer, \emph{``Think different''} campaign. TBWA-Chiat-Day.
 \end{quote}
@@ -192,6 +192,32 @@ they can change the world, are the ones who do."
 \section{Cronology}\label{cronology}}
 
 2022-01-31 - Beginning of v0.1.
+
+\hypertarget{version-control-systems}{%
+\chapter{Version Control Systems}\label{version-control-systems}}
+
+\emph{Version Control Systems} \citet{wiki_version_control} (VCS - also named as \emph{Revision Control},
+\emph{Source Code Control}, \emph{Source Code Management}) are Computer Systems
+traditionally used to manage the complexities of software development, majorly
+Computer Systems involving multiple software modules, and large development teams.
+
+\hypertarget{why-using-it-out-of-cs}{%
+\section{Why using it (out of CS)?}\label{why-using-it-out-of-cs}}
+
+\hypertarget{git}{%
+\section{Git}\label{git}}
+
+\hypertarget{github}{%
+\section{GitHub}\label{github}}
+
+\hypertarget{creating-an-account}{%
+\subsection{Creating an account}\label{creating-an-account}}
+
+\hypertarget{creating-a-repository}{%
+\subsection{Creating a repository}\label{creating-a-repository}}
+
+\hypertarget{section}{%
+\subsection{}\label{section}}
 
   \bibliography{book.bib,packages.bib}
 

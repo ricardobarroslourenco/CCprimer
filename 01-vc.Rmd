@@ -4,15 +4,21 @@ _Source Code Control_, _Source Code Management_) are Computer Systems
 traditionally used to manage the complexities of software development, majorly 
 Computer Systems involving multiple software modules, and large development teams.
 
+<!-- https://en.wikipedia.org/wiki/Version_control -->
+
 ## Why using it (out of CS)?
 
 ## Git
 
 ### Installing a git client on your machine
 
-#### Ubuntu
+#### Ubuntu (or any other *.nix environment)
 #### Apple
 #### Windows
+
+### Setting up your local git client
+<!-- https://docs.github.com/pt/get-started/getting-started-with-git/setting-your-username-in-git -->
+<!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 
 ## GitHub
 

@@ -8,7 +8,12 @@ cronology
 version-control-systems
 why-using-it-out-of-cs
 git
+installing-a-git-client-on-your-machine
+ubuntu
+apple
+windows
 github
 creating-an-account
 creating-a-repository
-section
+retrieving-code-from-a-repository
+submitting-code-to-a-repository

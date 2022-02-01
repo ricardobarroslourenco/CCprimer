@@ -27,7 +27,7 @@ Please use this BibTeX fragment:
   title     = "CC Primer: Compute Canada for geoscientists in a rush",
   author    = "Barros Lourenco, Ricardo",
   year      = 2022,
-  doi       = "10.5281/zenodo.5937907"
+  doi       = "10.5281/zenodo.5937906"
   note      = {\url{https://ricardobarroslourenco.github.io/CCprimer/}(visited yyyy-mm-dd)}
 }
 ```

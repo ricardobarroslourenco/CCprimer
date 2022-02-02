@@ -1,0 +1,3 @@
+# End matter
+## Appendix A - Useful References
+<!-- List references such as websites, and other written material supporting geocomputation efforts -->

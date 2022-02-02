@@ -8,6 +8,9 @@ Computer Systems involving multiple software modules, and large development team
 
 ## Why using it (out of CS)?
 
+## VCS: Local repository vs. Remote repository
+
+
 ## Git
 
 ### Installing a git client on your machine
@@ -23,9 +26,25 @@ Computer Systems involving multiple software modules, and large development team
 ## GitHub
 
 ### Creating an account
+<!-- https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address -->
 
 ### Creating a repository
+<!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
 
 ### Retrieving code from a repository
+<!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone -->
+<!-- https://www.atlassian.com/git/tutorials/syncing/git-pull -->
 
 ### Submitting code to a repository
+<!-- https://www.atlassian.com/git/tutorials/saving-changes/git-commit --> 
+<!-- https://www.atlassian.com/git/tutorials/syncing/git-push -->
+
+### Conciliating _"conflicts"_
+#### Git Merge
+<!-- https://www.atlassian.com/git/tutorials/using-branches/git-merge -->
+#### Git Rebase
+<!-- https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase -->
+
+### Contributing to open-source projects
+#### Creating a pull request
+<!-- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests -->

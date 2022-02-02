@@ -4,14 +4,10 @@
 %
 \documentclass[
 ]{book}
-\title{CC Primer: Compute Canada for geoscientists in a rush}
-\author{Ricardo Barros Lourenco}
-\date{Last revision: 2022-02-01}
-
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -113,11 +109,15 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifLuaTeX
+\ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+
+\title{CC Primer: Compute Canada for geoscientists in a rush}
+\author{Ricardo Barros Lourenco}
+\date{Last revision: 2022-02-01}
 
 \begin{document}
 \maketitle
@@ -155,7 +155,7 @@ Please use this BibTeX fragment:
 \section{Epigraph}\label{epigraph}}
 
 \begin{quote}
-``Here's to the crazy ones.
+"Here's to the crazy ones.
 The misfits.
 The rebels.
 The troublemakers.
@@ -177,7 +177,7 @@ While some may see them as the crazy ones,
 we see genius.
 
 Because the people who are crazy enough to think
-they can change the world, are the ones who do.''
+they can change the world, are the ones who do."
 
 --- Apple Computer, \emph{``Think different''} campaign. TBWA-Chiat-Day.
 \end{quote}
@@ -210,14 +210,17 @@ Computer Systems involving multiple software modules, and large development team
 \hypertarget{installing-a-git-client-on-your-machine}{%
 \subsection{Installing a git client on your machine}\label{installing-a-git-client-on-your-machine}}
 
-\hypertarget{ubuntu}{%
-\subsubsection{Ubuntu}\label{ubuntu}}
+\hypertarget{ubuntu-or-any-other-.nix-environment}{%
+\subsubsection{Ubuntu (or any other *.nix environment)}\label{ubuntu-or-any-other-.nix-environment}}
 
 \hypertarget{apple}{%
 \subsubsection{Apple}\label{apple}}
 
 \hypertarget{windows}{%
 \subsubsection{Windows}\label{windows}}
+
+\hypertarget{setting-up-your-local-git-client}{%
+\subsection{Setting up your local git client}\label{setting-up-your-local-git-client}}
 
 \hypertarget{github}{%
 \section{GitHub}\label{github}}

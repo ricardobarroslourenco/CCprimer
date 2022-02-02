@@ -9,9 +9,10 @@ version-control-systems
 why-using-it-out-of-cs
 git
 installing-a-git-client-on-your-machine
-ubuntu
+ubuntu-or-any-other-.nix-environment
 apple
 windows
+setting-up-your-local-git-client
 github
 creating-an-account
 creating-a-repository

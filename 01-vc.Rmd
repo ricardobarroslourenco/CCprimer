@@ -28,6 +28,9 @@ Computer Systems involving multiple software modules, and large development team
 ### Creating an account
 <!-- https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address -->
 
+### Insert GitHub credentials on your local Git
+<!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
+
 ### Creating a repository
 <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
 

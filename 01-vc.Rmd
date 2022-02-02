@@ -4,9 +4,30 @@ _Source Code Control_, _Source Code Management_) are Computer Systems
 traditionally used to manage the complexities of software development, majorly 
 Computer Systems involving multiple software modules, and large development teams.
 
-<!-- https://en.wikipedia.org/wiki/Version_control -->
+Such systems help to organize such development, especially when collaboration of
+multiple developers is done, and several times people are doing code changes in a same, or close, 
+part of the code, which may break it, or even generate unexpected results that would not be traceable.
 
 ## Why using it (out of CS)?
+Science is becoming more collaborative everyday, with groups of people contributing within a 
+same research group, across groups and across institutions. At the same time, efforts on Open Science, and Reproducible Science are demanded by the scientific community as a way to measure progress in transparent and objective criteria, as well as providing accountability on such developments. Since 
+the interactions between academics and industries are becoming more frequent, scientists are also called
+to bring a same accountability level as if they were stakeholders of such companies.
+
+Given this scenario, CVS systems are often used in a way to provide towards the scientific method (when using computational resources):
+
+- Open Science
+-- Open data: 
+-- Open source-code:
+-- Open access:
+-- Open peer-review:
+-- Open educational resources:
+- FAIR data
+-- Data is Findable:
+-- Data is accessible:
+-- Data (and code) are interoperable:
+-- Data (and experiments) are reusable:
+- Reproducible experiments: 
 
 ## VCS: Local repository vs. Remote repository
 

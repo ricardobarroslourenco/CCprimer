@@ -1,3 +1,11 @@
-# End matter
-## Appendix A - Useful References
+<!-- # End matter -->
+<!-- ## Appendix A - Useful References -->
 <!-- List references such as websites, and other written material supporting geocomputation efforts -->
+
+
+<!-- ```{r include=FALSE} -->
+<!-- # automatically create a bib database for R packages -->
+<!-- knitr::write_bib(c( -->
+<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
+<!-- ), 'packages.bib') -->
+<!-- ``` -->

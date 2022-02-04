@@ -117,7 +117,7 @@
 
 \title{CC Primer: Compute Canada for geoscientists in a rush}
 \author{Ricardo Barros Lourenco}
-\date{Last revision: 2022-02-01}
+\date{Last revision: 2022-02-04}
 
 \begin{document}
 \maketitle
@@ -151,47 +151,15 @@ Please use this BibTeX fragment:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{epigraph}{%
-\section{Epigraph}\label{epigraph}}
-
-\begin{quote}
-"Here's to the crazy ones.
-The misfits.
-The rebels.
-The troublemakers.
-The round pegs in the square holes.
-
-The ones who see things differently.
-
-They're not fond of rules.
-And they have no respect for the status quo.
-
-You can quote them, disagree with them, glorify or vilify them.
-About the only thing you can't do is ignore them.
-
-Because they change things.
-
-They push the human race forward.
-
-While some may see them as the crazy ones,
-we see genius.
-
-Because the people who are crazy enough to think
-they can change the world, are the ones who do."
-
---- Apple Computer, \emph{``Think different''} campaign. TBWA-Chiat-Day.
-\end{quote}
-
-\hypertarget{foreword}{%
-\section{Foreword}\label{foreword}}
-
-\hypertarget{list-of-abbreviations-and-acronyms}{%
-\section{List of abbreviations and acronyms}\label{list-of-abbreviations-and-acronyms}}
+Obs.: Note that the DOI is of a previous version (10.5281/zenodo.5937906) when
+comapred to the badge displayed on this website, because it relates to all versions
+of this document, rather than a especific one.
 
 \hypertarget{cronology}{%
 \section{Cronology}\label{cronology}}
 
-2022-01-31 - Beginning of v0.1.
+2022-01-31 - Beginning of v0.1. (This version is quite unstable, and versioning
+during this stage will be limited).
 
 \hypertarget{version-control-systems}{%
 \chapter{Version Control Systems}\label{version-control-systems}}
@@ -201,26 +169,150 @@ they can change the world, are the ones who do."
 traditionally used to manage the complexities of software development, majorly
 Computer Systems involving multiple software modules, and large development teams.
 
-\hypertarget{why-using-it-out-of-cs}{%
-\section{Why using it (out of CS)?}\label{why-using-it-out-of-cs}}
+Such systems help to organize such development, especially when collaboration of
+multiple developers is done, and several times people are doing code changes in a same, or close,
+part of the code, which may break it, or even generate unexpected results that would not be traceable.
 
 \hypertarget{vcs-local-repository-vs.-remote-repository}{%
 \section{VCS: Local repository vs.~Remote repository}\label{vcs-local-repository-vs.-remote-repository}}
 
+Common VCS's (ex.: \href{https://en.wikipedia.org/wiki/Concurrent_Versions_System}{CVS},
+\href{https://en.wikipedia.org/wiki/Concurrent_Versions_System}{SVN} and
+\href{https://en.wikipedia.org/wiki/Git}{Git}) always are client-server systems.
+
+The VCS client is not merely a means to access a central repository hosted
+at the VCS server, but actually is part of running checks and balances that are
+necessary when adding code to the central repository. A situation that demands that
+is when multiple users are doing a change in a same piece of code, and checking
+it only at the central repository may complicate more a situation already
+complicated (simultaneous contribution). Therefore, it hosts, locally
+a local copy of the codebase, which reflects a view of that codebase in time
+(more preciselly when that local user retrieved a copy from the central repository
+for editing).
+
+Once the changes are done, the user saves a local copy of these at the local repository,
+and if these meet the criteria for changes (and this may vary a lot among systems),
+the user is able to persist this change at the local repository, as a new version of
+the codebase. This process is known as \emph{commit} (in this case, a local one).
+
 \hypertarget{git}{%
 \section{Git}\label{git}}
+
+\href{https://git-scm.com/}{Git} is a contemporary VCS that is used as the backbone
+of operations run on GitHub. So, when planning to operate with GitHub, it is
+almost certain that you will need to install a Git client on your machine.
+
+We can say \emph{almost} because GitHub provides an own client,
+\href{https://desktop.github.com/}{GitHub Desktop} which provides a Graphical User
+Interface(GUI) to a git client.
+
+We will not cover such GUI usage since on Compute Canada you will not have access
+to GitHub Desktop on their machines, but only to
+a regular Git client (that you can use to access either GitHub, or another Git
+compliant server such as a private repository built with
+\href{https://about.gitlab.com/}{GitLab}).
 
 \hypertarget{installing-a-git-client-on-your-machine}{%
 \subsection{Installing a git client on your machine}\label{installing-a-git-client-on-your-machine}}
 
-\hypertarget{ubuntu-or-any-other-.nix-environment}{%
-\subsubsection{Ubuntu (or any other *.nix environment)}\label{ubuntu-or-any-other-.nix-environment}}
+\hypertarget{ubuntu-or-any-other-debian-based-environment}{%
+\subsubsection{Ubuntu (or any other Debian-based environment)}\label{ubuntu-or-any-other-debian-based-environment}}
+
+First update your Operating System (OS) repository indexes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ sudo apt{-}get update}
+\end{Highlighting}
+\end{Shaded}
+
+Then proceed to install:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ sudo apt{-}get install git}
+\end{Highlighting}
+\end{Shaded}
+
+Note: If you use Ubuntu, git is already provided as a base repository on this
+distribution. If you use another linux, and this does not work for you, please
+\href{https://github.com/ricardobarroslourenco/CCprimer/issues}{open an issue} on
+this project and use the label \emph{requests}, and I will try to solve and include
+here for future reference.
 
 \hypertarget{apple}{%
 \subsubsection{Apple}\label{apple}}
 
+Apple is an OS that not use repositories by default, and git is not provided in
+the main set of software. So you would have three main options to install git:
+
+\begin{itemize}
+\tightlist
+\item
+  Install Xcode (\emph{Preferred}): Apple has a software development kit (SDK) named
+  \href{https://developer.apple.com/xcode/}{XCode} which provides git among several other
+  software for MacOS and iOS software development. The advantage of using XCode´s
+  git distribution is that it comes adjusted for your OS and is supported by Apple,
+  whcih avoids conflicts and security issues.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    To install XCode (and git by consequence), open the App Store, and search
+    XCode as a software developed by Apple, and install it. To test, open the
+    Terminal App, and run \emph{git}. You should receive an output of basic
+    description of commands available on git.
+  \end{itemize}
+\item
+  Install Homebrew, and then install Git (if you are a Homebrew user, or uses a
+  lot of *.nix software not supported by Apple it is useful):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://brew.sh/}{Download and install homebrew} from their website;
+  \item
+    Install git as:
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ brew install git}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In the terminal, run \emph{git} and you should receive an output of basic
+    description of commands available on git.
+  \end{itemize}
+\item
+  Install a standalone version of git (\emph{not recommended}): You can download and
+  install from git´s website a standalone client (I will not be covering this
+  approach, because git will not be updated via this kind a install, posing a
+  security risk and install this at your own risk - and effort!)
+\end{itemize}
+
 \hypertarget{windows}{%
 \subsubsection{Windows}\label{windows}}
+
+Since Windows works with standalone installations, the install follows as this:
+
+\begin{itemize}
+\tightlist
+\item
+  Go to the Git website and \href{https://git-scm.com/download/win}{download} the
+  latest client (download the standalone version, unless you have severe storage
+  limitations on your machine);
+\item
+  Once downloaded, run the installer with admin permissions and follow the
+  default installation;
+\item
+  When installed, open PowerShell (PS) (or the command prompt, if you do not
+  have PS installed), and run \emph{git} and hit enter. You should receive an output of basic
+  description of commands available on git.
+\end{itemize}
 
 \hypertarget{setting-up-your-local-git-client}{%
 \subsection{Setting up your local git client}\label{setting-up-your-local-git-client}}
@@ -230,6 +322,9 @@ Computer Systems involving multiple software modules, and large development team
 
 \hypertarget{creating-an-account}{%
 \subsection{Creating an account}\label{creating-an-account}}
+
+\hypertarget{insert-github-credentials-on-your-local-git}{%
+\subsection{Insert GitHub credentials on your local Git}\label{insert-github-credentials-on-your-local-git}}
 
 \hypertarget{creating-a-repository}{%
 \subsection{Creating a repository}\label{creating-a-repository}}

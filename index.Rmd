@@ -5,6 +5,7 @@ date: "Last revision: `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
+csl: ieee.csl
 url: https://ricardobarroslourenco.github.io/CCprimer/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
@@ -32,47 +33,52 @@ Please use this BibTeX fragment:
 }
 ```
 
+Obs.: Note that the DOI is of a previous version (10.5281/zenodo.5937906) when 
+comapred to the badge displayed on this website, because it relates to all versions
+of this document, rather than a especific one.
+
 <!-- ## Dedication -->
 
-## Epigraph
-> "Here's to the crazy ones.
-> The misfits.
-> The rebels.
-> The troublemakers.
-> The round pegs in the square holes.
->
-> The ones who see things differently.
->
-> They're not fond of rules.
-> And they have no respect for the status quo.
->
-> You can quote them, disagree with them, glorify or vilify them.
-> About the only thing you can't do is ignore them.
->
-> Because they change things.
->
-> They push the human race forward.
->
-> While some may see them as the crazy ones,
-we see genius.
->
-> Because the people who are crazy enough to think
-they can change the world, are the ones who do."
->
-> --- Apple Computer, _"Think different"_ campaign. TBWA-Chiat-Day.
+<!-- ## Epigraph -->
+<!-- > "Here's to the crazy ones. -->
+<!-- > The misfits. -->
+<!-- > The rebels. -->
+<!-- > The troublemakers. -->
+<!-- > The round pegs in the square holes. -->
+<!-- > -->
+<!-- > The ones who see things differently. -->
+<!-- > -->
+<!-- > They're not fond of rules. -->
+<!-- > And they have no respect for the status quo. -->
+<!-- > -->
+<!-- > You can quote them, disagree with them, glorify or vilify them. -->
+<!-- > About the only thing you can't do is ignore them. -->
+<!-- > -->
+<!-- > Because they change things. -->
+<!-- > -->
+<!-- > They push the human race forward. -->
+<!-- > -->
+<!-- > While some may see them as the crazy ones, -->
+<!-- we see genius. -->
+<!-- > -->
+<!-- > Because the people who are crazy enough to think -->
+<!-- they can change the world, are the ones who do." -->
+<!-- > -->
+<!-- > --- Apple Computer, _"Think different"_ campaign. TBWA-Chiat-Day. -->
 
 
-## Foreword
+<!-- ## Foreword -->
 
 <!-- ## Preface -->
 
 <!-- ## Acknowledgements -->
 
-## List of abbreviations and acronyms
+<!-- ## List of abbreviations and acronyms -->
 
 ## Cronology
 
-2022-01-31 - Beginning of v0.1.
+2022-01-31 - Beginning of v0.1. (This version is quite unstable, and versioning 
+during this stage will be limited).
 
 <!-- --- Supressed from the template --- -->
 <!-- ## Usage  -->
@@ -107,10 +113,3 @@ they can change the world, are the ones who do."
 <!-- # bookdown::serve_book() -->
 <!-- # ``` -->
 
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```

@@ -8,43 +8,127 @@ Such systems help to organize such development, especially when collaboration of
 multiple developers is done, and several times people are doing code changes in a same, or close, 
 part of the code, which may break it, or even generate unexpected results that would not be traceable.
 
-## Why using it (out of CS)?
-Science is becoming more collaborative everyday, with groups of people contributing within a 
-same research group, across groups and across institutions. At the same time, efforts on Open Science, and Reproducible Science are demanded by the scientific community as a way to measure progress in transparent and objective criteria, as well as providing accountability on such developments. Since 
-the interactions between academics and industries are becoming more frequent, scientists are also called
-to bring a same accountability level as if they were stakeholders of such companies.
+<!-- ## Why using it (out of CS)? -->
+<!-- Science is becoming more collaborative everyday, with groups of people contributing within a  -->
+<!-- same research group, across groups and across institutions. At the same time, efforts on Open Science, and Reproducible Science are demanded by the scientific community as a way to measure progress in transparent and objective criteria, as well as providing accountability on such developments. Since  -->
+<!-- the interactions between academics and industries are becoming more frequent, scientists are also called -->
+<!-- to bring a same accountability level as if they were stakeholders of such companies. -->
 
-Given this scenario, CVS systems are often used in a way to provide towards the scientific method (when using computational resources):
+<!-- Given this scenario, CVS systems are often used in a way to provide towards the scientific method (when using computational resources): -->
 
-- Open Science
--- Open data: 
--- Open source-code:
--- Open access:
--- Open peer-review:
--- Open educational resources:
-- FAIR data
--- Data is Findable:
--- Data is accessible:
--- Data (and code) are interoperable:
--- Data (and experiments) are reusable:
-- Reproducible experiments: 
+<!-- - Open Science -->
+<!-- -- Open data:  -->
+<!-- -- Open source-code: -->
+<!-- -- Open access: -->
+<!-- -- Open peer-review: -->
+<!-- -- Open educational resources: -->
+<!-- - FAIR data -->
+<!-- -- Data is Findable: -->
+<!-- -- Data is accessible: -->
+<!-- -- Data (and code) are interoperable: -->
+<!-- -- Data (and experiments) are reusable: -->
+<!-- - Reproducible experiments:  -->
 
 ## VCS: Local repository vs. Remote repository
+Common VCS's (ex.: [CVS](https://en.wikipedia.org/wiki/Concurrent_Versions_System), 
+[SVN](https://en.wikipedia.org/wiki/Concurrent_Versions_System) and
+[Git](https://en.wikipedia.org/wiki/Git)) always are client-server systems.
+
+The VCS client is not merely a means to access a central repository hosted 
+at the VCS server, but actually is part of running checks and balances that are 
+necessary when adding code to the central repository. A situation that demands that
+is when multiple users are doing a change in a same piece of code, and checking 
+it only at the central repository may complicate more a situation already 
+complicated (simultaneous contribution). Therefore, it hosts, locally 
+a local copy of the codebase, which reflects a view of that codebase in time 
+(more preciselly when that local user retrieved a copy from the central repository 
+for editing).
+
+Once the changes are done, the user saves a local copy of these at the local repository, 
+and if these meet the criteria for changes (and this may vary a lot among systems), 
+the user is able to persist this change at the local repository, as a new version of 
+the codebase. This process is known as _commit_ (in this case, a local one).
 
 
 ## Git
+[Git](https://git-scm.com/) is a contemporary VCS that is used as the backbone 
+of operations run on GitHub. So, when planning to operate with GitHub, it is 
+almost certain that you will need to install a Git client on your machine. 
+
+We can say _almost_ because GitHub provides an own client, 
+[GitHub Desktop](https://desktop.github.com/) which provides a Graphical User 
+Interface(GUI) to a git client. 
+
+We will not cover such GUI usage since on Compute Canada you will not have access 
+to GitHub Desktop on their machines, but only to 
+a regular Git client (that you can use to access either GitHub, or another Git 
+compliant server such as a private repository built with 
+[GitLab](https://about.gitlab.com/)).
 
 ### Installing a git client on your machine
 
-#### Ubuntu (or any other *.nix environment)
+#### Ubuntu (or any other Debian-based environment)
+First update your Operating System (OS) repository indexes:
+```{bash, eval=FALSE}
+$ sudo apt-get update
+```
+
+Then proceed to install:
+```{bash, eval=FALSE}
+$ sudo apt-get install git
+```
+
+Note: If you use Ubuntu, git is already provided as a base repository on this 
+distribution. If you use another linux, and this does not work for you, please 
+[open an issue](https://github.com/ricardobarroslourenco/CCprimer/issues) on 
+this project and use the label _requests_, and I will try to solve and include 
+here for future reference.
+
 #### Apple
+Apple is an OS that not use repositories by default, and git is not provided in 
+the main set of software. So you would have three main options to install git:
+
+- Install Xcode (*Preferred*): Apple has a software development kit (SDK) named 
+[XCode](https://developer.apple.com/xcode/) which provides git among several other
+software for MacOS and iOS software development. The advantage of using XCode´s 
+git distribution is that it comes adjusted for your OS and is supported by Apple,
+whcih avoids conflicts and security issues.
+  - To install XCode (and git by consequence), open the App Store, and search 
+  XCode as a software developed by Apple, and install it. To test, open the 
+  Terminal App, and run _git_. You should receive an output of basic 
+description of commands available on git.
+- Install Homebrew, and then install Git (if you are a Homebrew user, or uses a 
+lot of *.nix software not supported by Apple it is useful): 
+  - [Download and install homebrew](https://brew.sh/) from their website;
+  - Install git as:
+  ```{bash, eval=FALSE}
+  $ brew install git
+  ```
+  - In the terminal, run _git_ and you should receive an output of basic 
+description of commands available on git.
+- Install a standalone version of git (*not recommended*): You can download and 
+install from git´s website a standalone client (I will not be covering this 
+approach, because git will not be updated via this kind a install, posing a 
+security risk and install this at your own risk - and effort!)
+
 #### Windows
+Since Windows works with standalone installations, the install follows as this:
+
+- Go to the Git website and [download](https://git-scm.com/download/win) the 
+latest client (download the standalone version, unless you have severe storage 
+limitations on your machine);
+- Once downloaded, run the installer with admin permissions and follow the 
+default installation;
+- When installed, open PowerShell (PS) (or the command prompt, if you do not 
+have PS installed), and run _git_ and hit enter. You should receive an output of basic 
+description of commands available on git.
 
 ### Setting up your local git client
 <!-- https://docs.github.com/pt/get-started/getting-started-with-git/setting-your-username-in-git -->
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 
 ## GitHub
+<!-- GitHub is a web.... --- Describe -->
 
 ### Creating an account
 <!-- https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address -->

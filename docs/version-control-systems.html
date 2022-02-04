@@ -329,6 +329,19 @@ description of commands available on git.</li>
 </div>
 <div id="setting-up-your-local-git-client" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Setting up your local git client</h3>
+<p>Once you have your git client up and running, you need to setup the access
+credentials to connect to a git repository, such as GitHub or GitLab for example.</p>
+<p>To do so, run on your bash terminal (or command-line if on windows):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="version-control-systems.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--</span> global user.name <span class="st">&quot;Your full name&quot;</span></span></code></pre></div>
+<p>Note: On quotes you need to specify a name (depending on the environment,
+it should be your full name, or an alias, such as employee number, for example). This
+command has a global scope, so all users on your machine would have the same setup.</p>
+<p>Then you need to specify an e-mail address (if on GitHub, it is preferred that
+is linked to your account):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="version-control-systems.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--</span> global user.email <span class="st">&quot;Your e-mail address&quot;</span></span></code></pre></div>
+<p>Then check, if all values were set:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="version-control-systems.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span></span></code></pre></div>
+<p>You should see an output that reflects those previously set name and e-mail values.</p>
 <!-- https://docs.github.com/pt/get-started/getting-started-with-git/setting-your-username-in-git -->
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 </div>

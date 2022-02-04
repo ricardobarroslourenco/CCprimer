@@ -124,6 +124,29 @@ have PS installed), and run _git_ and hit enter. You should receive an output of
 description of commands available on git.
 
 ### Setting up your local git client
+Once you have your git client up and running, you need to setup the access 
+credentials to connect to a git repository, such as GitHub or GitLab for example.
+
+To do so, run on your bash terminal (or command-line if on windows):
+```{bash, eval=FALSE}
+$ git config -- global user.name "Your full name"
+```
+Note: On quotes you need to specify a name (depending on the environment, 
+it should be your full name, or an alias, such as employee number, for example). This 
+command has a global scope, so all users on your machine would have the same setup.
+
+Then you need to specify an e-mail address (if on GitHub, it is preferred that 
+is linked to your account):
+```{bash, eval=FALSE}
+$ git config -- global user.email "Your e-mail address"
+```
+
+Then check, if all values were set:
+```{bash, eval=FALSE}
+$ git config --list
+```
+You should see an output that reflects those previously set name and e-mail values.
+
 <!-- https://docs.github.com/pt/get-started/getting-started-with-git/setting-your-username-in-git -->
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 

@@ -152,8 +152,24 @@ You should see an output that reflects those previously set name and e-mail valu
 
 ## GitHub
 <!-- GitHub is a web.... --- Describe -->
+GitHub is a Web collaborative Version Control service based on a Git platform. It was
+created in 2008, and as of today is the largest repository of source code in the World.
+Aside of VCS capabilities, it provides other computational services, such as 
+Continuous Integration (CI) and Continuous Deployment (CD), Web Page Hosting on GitHub 
+Pages, security solutions, a software marketplace, among many others. It was recently 
+acquired by Microsoft, as one of the largest transactions in the tech domain.
+
+GitHub has several different [tiers of access](https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products), from basic free accounts up to corporate ones.
+
+A main advantage for academic users would be using the [GitHub Education](https://education.github.com) which includes a free [GitHub PRO](https://docs.github.com/en/get-started/learning-about-github/githubs-products#github-pro) 
+account and several software for free (or services credit hours) while you are 
+enrolled in an academic institution. GitHub Education also have [different tiers of users](https://education.github.com/benefits) aiming students, teachers, and 
+the academic institutions itselves. Once you create a simple free GitHub account, 
+you can return back to GitHub Education, and request to be enrolled in the program.
 
 ### Creating an account
+
+ 
 <!-- https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address -->
 
 ### Insert GitHub credentials on your local Git

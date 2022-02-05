@@ -168,9 +168,14 @@ the academic institutions itselves. Once you create a simple free GitHub account
 you can return back to GitHub Education, and request to be enrolled in the program.
 
 ### Creating an account
-
+To create an account is simple:
+- Go to [GitHub pricing page](https://github.com/pricing), select the Free tier, 
+and click _Join for Free_;
+- Just follow the prompts to create your personal account.
+- You should receive an e-mail from them on the registered e-mail account, to verify your identity. If you fail to do so, your account would be basically [useless](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification). 
  
-<!-- https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address -->
+Note: Since I have created my account some years ago, I am just using GitHub's
+user documentation as reference. If things get complicated in this step, please let me know, and I will expand here.
 
 ### Insert GitHub credentials on your local Git
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->

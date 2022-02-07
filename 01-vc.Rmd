@@ -178,6 +178,31 @@ Note: Since I have created my account some years ago, I am just using GitHub's
 user documentation as reference. If things get complicated in this step, please let me know, and I will expand here.
 
 ### Insert GitHub credentials on your local Git
+Once you have your GitHub account created, and verified, it is time to setup these
+credentials on your local Git client. While logged on your GitHub account you should:
+* Click on your _name/avatar/photo at the upper right corner of the screen_, and then click on _Settings_; 
+* Then click on _Developer Settings_ (it is the last item on the bottom of items at the left panel);
+* Now click on the bottom item, _Personal access tokens_;
+* Then, click on _Generate new token_, you will be requested again for your password on this step;
+* Now you will be required to fill in some info:
+  + _Note_: This will be a name of this Token. I often create a Token per software+device I use, then someone can write "Rstudio on Laptop", to differentiate from "Rstudio on laboratory desktop". 
+    - Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
+  + _Expiration_: You should define a expiration date for your token. Choosing 
+  a date is an open ended question, but ideally systems exposed to the Web, or 
+  multiple users such an HPC cluster, should be changed frequently. 
+    - _Avoid at all means to use the No expiration_ mode, because you never 
+    want to forget unattended keys of your GitHub (ex. You graduate, and your 
+    key is left on a machine that another student will use in the lab).
+  + _Select scopes_: Perhaps this is the trickiest setup. The definition of a 
+  Token is actually a definition of a [OAuth](https://en.wikipedia.org/wiki/OAuth) 
+  Token. On GitHub, this implies on being able to select all options that a user 
+  has in terms of operations on the platform, and actually, narrowing down to 
+  what a user wants to grant permission for in such Token. It is tempting to 
+  grant _all permissions_ to a single Token, but the user should ask it that is 
+  really necessary. In one end, granting all permissions is too permissive, and 
+  being as problematic as having a token with no expiration data
+  
+
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 
 ### Creating a repository

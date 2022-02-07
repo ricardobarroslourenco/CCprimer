@@ -349,12 +349,53 @@ is linked to your account):</p>
 <div id="github" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> GitHub</h2>
 <!-- GitHub is a web.... --- Describe -->
+<p>GitHub is a Web collaborative Version Control service based on a Git platform. It was
+created in 2008, and as of today is the largest repository of source code in the World.
+Aside of VCS capabilities, it provides other computational services, such as
+Continuous Integration (CI) and Continuous Deployment (CD), Web Page Hosting on GitHub
+Pages, security solutions, a software marketplace, among many others. It was recently
+acquired by Microsoft, as one of the largest transactions in the tech domain.</p>
+<p>GitHub has several different <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products">tiers of access</a>, from basic free accounts up to corporate ones.</p>
+<p>A main advantage for academic users would be using the <a href="https://education.github.com">GitHub Education</a> which includes a free <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#github-pro">GitHub PRO</a>
+account and several software for free (or services credit hours) while you are
+enrolled in an academic institution. GitHub Education also have <a href="https://education.github.com/benefits">different tiers of users</a> aiming students, teachers, and
+the academic institutions itselves. Once you create a simple free GitHub account,
+you can return back to GitHub Education, and request to be enrolled in the program.</p>
 <div id="creating-an-account" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Creating an account</h3>
-<!-- https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address -->
+<p>To create an account is simple:
+- Go to <a href="https://github.com/pricing">GitHub pricing page</a>, select the Free tier,
+and click <em>Join for Free</em>;
+- Just follow the prompts to create your personal account.
+- You should receive an e-mail from them on the registered e-mail account, to verify your identity. If you fail to do so, your account would be basically <a href="https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification">useless</a>.</p>
+<p>Note: Since I have created my account some years ago, I am just using GitHub’s
+user documentation as reference. If things get complicated in this step, please let me know, and I will expand here.</p>
 </div>
 <div id="insert-github-credentials-on-your-local-git" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Insert GitHub credentials on your local Git</h3>
+<p>Once you have your GitHub account created, and verified, it is time to setup these
+credentials on your local Git client. While logged on your GitHub account you should:
+* Click on your <em>name/avatar/photo at the upper right corner of the screen</em>, and then click on <em>Settings</em>;
+* Then click on <em>Developer Settings</em> (it is the last item on the bottom of items at the left panel);
+* Now click on the bottom item, <em>Personal access tokens</em>;
+* Then, click on <em>Generate new token</em>, you will be requested again for your password on this step;
+* Now you will be required to fill in some info:
++ <em>Note</em>: This will be a name of this Token. I often create a Token per software+device I use, then someone can write “Rstudio on Laptop,” to differentiate from “Rstudio on laboratory desktop.”
+- Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
++ <em>Expiration</em>: You should define a expiration date for your token. Choosing
+a date is an open ended question, but ideally systems exposed to the Web, or
+multiple users such an HPC cluster, should be changed frequently.
+- <em>Avoid at all means to use the No expiration</em> mode, because you never
+want to forget unattended keys of your GitHub (ex. You graduate, and your
+key is left on a machine that another student will use in the lab).
++ <em>Select scopes</em>: Perhaps this is the trickiest setup. The definition of a
+Token is actually a definition of a <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>
+Token. On GitHub, this implies on being able to select all options that a user
+has in terms of operations on the platform, and actually, narrowing down to
+what a user wants to grant permission for in such Token. It is tempting to
+grant <em>all permissions</em> to a single Token, but the user should ask it that is
+really necessary. In one end, granting all permissions is too permissive, and
+being as problematic as having a token with no expiration data</p>
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 </div>
 <div id="creating-a-repository" class="section level3" number="2.3.3">

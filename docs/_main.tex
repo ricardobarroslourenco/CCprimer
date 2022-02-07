@@ -170,8 +170,9 @@ traditionally used to manage the complexities of software development, majorly
 Computer Systems involving multiple software modules, and large development teams.
 
 Such systems help to organize such development, especially when collaboration of
-multiple developers is done, and several times people are doing code changes in a same, or close,
-part of the code, which may break it, or even generate unexpected results that would not be traceable.
+multiple developers is done, and several times people are doing code changes in
+a same, or close, part of the code, which may break it, or even generate
+unexpected results that would not be traceable.
 
 \hypertarget{vcs-local-repository-vs.-remote-repository}{%
 \section{VCS: Local repository vs.~Remote repository}\label{vcs-local-repository-vs.-remote-repository}}
@@ -361,25 +362,36 @@ Continuous Integration (CI) and Continuous Deployment (CD), Web Page Hosting on 
 Pages, security solutions, a software marketplace, among many others. It was recently
 acquired by Microsoft, as one of the largest transactions in the tech domain.
 
-GitHub has several different \href{https://docs.github.com/en/get-started/learning-about-github/githubs-products\#about-githubs-products}{tiers of access}, from basic free accounts up to corporate ones.
+GitHub has several different \href{https://docs.github.com/en/get-started/learning-about-github/githubs-products\#about-githubs-products}{tiers of access},
+from basic free accounts up to corporate ones.
 
 A main advantage for academic users would be using the \href{https://education.github.com}{GitHub Education} which includes a free \href{https://docs.github.com/en/get-started/learning-about-github/githubs-products\#github-pro}{GitHub PRO}
 account and several software for free (or services credit hours) while you are
-enrolled in an academic institution. GitHub Education also have \href{https://education.github.com/benefits}{different tiers of users} aiming students, teachers, and
-the academic institutions itselves. Once you create a simple free GitHub account,
-you can return back to GitHub Education, and request to be enrolled in the program.
+enrolled in an academic institution. GitHub Education also have \href{https://education.github.com/benefits}{different tiers of users}
+aiming students, teachers, and the academic institutions itselves. Once you
+create a simple free GitHub account, you can return back to GitHub Education,
+and request to be enrolled in the program.
 
 \hypertarget{creating-an-account}{%
 \subsection{Creating an account}\label{creating-an-account}}
 
 To create an account is simple:
-- Go to \href{https://github.com/pricing}{GitHub pricing page}, select the Free tier,
-and click \emph{Join for Free};
-- Just follow the prompts to create your personal account.
-- You should receive an e-mail from them on the registered e-mail account, to verify your identity. If you fail to do so, your account would be basically \href{https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address\#about-email-verification}{useless}.
+
+\begin{itemize}
+\tightlist
+\item
+  Go to \href{https://github.com/pricing}{GitHub pricing page}, select the Free tier,
+  and click \emph{Join for Free};
+\item
+  Just follow the prompts to create your personal account.
+\item
+  You should receive an e-mail from them on the registered e-mail account, to
+  verify your identity. If you fail to do so, your account would be basically \href{https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address\#about-email-verification}{useless}.
+\end{itemize}
 
 Note: Since I have created my account some years ago, I am just using GitHub's
-user documentation as reference. If things get complicated in this step, please let me know, and I will expand here.
+user documentation as reference. If things get complicated in this step, please
+let me know, and I will expand here.
 
 \hypertarget{insert-github-credentials-on-your-local-git}{%
 \subsection{Insert GitHub credentials on your local Git}\label{insert-github-credentials-on-your-local-git}}
@@ -390,25 +402,33 @@ credentials on your local Git client. While logged on your GitHub account you sh
 \begin{itemize}
 \tightlist
 \item
-  Click on your \emph{name/avatar/photo at the upper right corner of the screen}, and then click on \emph{Settings};
+  Click on your \emph{name/avatar/photo at the upper right corner of the screen}, and
+  then click on \emph{Settings};
 \item
-  Then click on \emph{Developer Settings} (it is the last item on the bottom of items at the left panel);
+  Then click on \emph{Developer Settings} (it is the last item on the bottom of
+  items at the left panel);
 \item
   Now click on the bottom item, \emph{Personal access tokens};
 \item
-  Then, click on \emph{Generate new token}, you will be requested again for your password on this step;
+  Then, click on \emph{Generate new token}, you will be requested again for your
+  password on this step;
 \item
   Now you will be required to fill in some info:
 
   \begin{itemize}
   \tightlist
   \item
-    \emph{Note}: This will be a name of this Token. I often create a Token per software+device I use, then someone can write ``Rstudio on Laptop'', to differentiate from ``Rstudio on laboratory desktop''.
+    \emph{Note}: This will be a name of this Token. I often create a Token per
+    software+device I use, then someone can write ``Rstudio on Laptop'', to
+    differentiate from ``Rstudio on laboratory desktop''.
 
     \begin{itemize}
     \tightlist
     \item
-      Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
+      Isolating tokens on different (software,device) pairs helps isolating
+      accesses to your GitHub account, and is important to contain a security
+      breach. If someone is able to fetch one of your tokens, you will know from
+      which machine and which software on it came from.
     \end{itemize}
   \item
     \emph{Expiration}: You should define a expiration date for your token. Choosing
@@ -427,10 +447,69 @@ credentials on your local Git client. While logged on your GitHub account you sh
     Token is actually a definition of a \href{https://en.wikipedia.org/wiki/OAuth}{OAuth}
     Token. On GitHub, this implies on being able to select all options that a user
     has in terms of operations on the platform, and actually, narrowing down to
-    what a user wants to grant permission for in such Token. It is tempting to
-    grant \emph{all permissions} to a single Token, but the user should ask it that is
-    really necessary. In one end, granting all permissions is too permissive, and
-    being as problematic as having a token with no expiration data
+    what a user wants to grant permission for in such Token.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Note: It is tempting to grant \emph{all permissions} to a single Token, but the user
+      should ask it that is really necessary. In one end, granting all permissions
+      is too permissive, and being as problematic as having a token with no
+      expiration data.
+    \item
+      To look into what each scope covers, please look into this
+      \href{https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps\#available-scopes}{page}.
+    \end{itemize}
+  \end{itemize}
+\item
+  Once you have generated your token, treat is as a password (even in terms of
+  security/sharing/etc.). You should not persist a copy of it, but only use for your
+  local git setup. Even if you loose access to it, you can always revoke that
+  token, and create a new one.
+\item
+  To set your local git to access GitHub (remind that you need first to set \href{https://ricardobarroslourenco.github.io/CCprimer/version-control-systems.html\#setting-up-your-local-git-client}{global variables}),
+  you just need to access GitHub with it. A simple way, that will be further
+  explained in more detail would be making a local copy of a repository using \emph{git clone}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ git clone https://github.com/a\_very\_weird\_user\_name/a\_more\_weird\_user\_project\_name.git}
+\end{Highlighting}
+\end{Shaded}
+
+A concrete example would be the source-code of this document:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ git clone https://github.com/ricardobarroslourenco/CCprimer.git}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Once done, your local git should request:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    User-name: The one you have set for your GitHub account;
+  \item
+    Password: Your token.
+  \end{itemize}
+\item
+  After this, it should make a local copy of that cloned repository (more
+  especifically this copy will be stored at the directory path you have run the
+  clone command - in bash / terminal / command line).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Note: If you have not been requested a username/password, maybe you have already
+    a GitHub account already set on your machine (so please note if any errors occur
+    when trying to access GitHub with git, no username + password is required -
+    if these occur, they will be output on your bash / terminal / command line)
   \end{itemize}
 \end{itemize}
 

@@ -172,6 +172,7 @@ and request to be enrolled in the program.
 
 ### Creating an account
 To create an account is simple:
+
 - Go to [GitHub pricing page](https://github.com/pricing), select the Free tier, 
 and click _Join for Free_;
 - Just follow the prompts to create your personal account.
@@ -211,12 +212,38 @@ password on this step;
   Token is actually a definition of a [OAuth](https://en.wikipedia.org/wiki/OAuth) 
   Token. On GitHub, this implies on being able to select all options that a user 
   has in terms of operations on the platform, and actually, narrowing down to 
-  what a user wants to grant permission for in such Token. It is tempting to 
-  grant _all permissions_ to a single Token, but the user should ask it that is 
-  really necessary. In one end, granting all permissions is too permissive, and 
-  being as problematic as having a token with no expiration data
+  what a user wants to grant permission for in such Token. 
+    - Note: It is tempting to grant _all permissions_ to a single Token, but the user 
+    should ask it that is really necessary. In one end, granting all permissions 
+    is too permissive, and being as problematic as having a token with no 
+    expiration data. 
+    - To look into what each scope covers, please look into this 
+    [page](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
+* Once you have generated your token, treat is as a password (even in terms of 
+security/sharing/etc.). You should not persist a copy of it, but only use for your 
+local git setup. Even if you loose access to it, you can always revoke that 
+token, and create a new one.
+* To set your local git to access GitHub (remind that you need first to set [global variables](https://ricardobarroslourenco.github.io/CCprimer/version-control-systems.html#setting-up-your-local-git-client)),
+you just need to access GitHub with it. A simple way, that will be further 
+explained in more detail would be making a local copy of a repository using _git clone_:
+```{bash, eval=FALSE}
+$ git clone https://github.com/a_very_weird_user_name/a_more_weird_user_project_name.git
+```
+A concrete example would be the source-code of this document:
+```{bash, eval=FALSE}
+$ git clone https://github.com/ricardobarroslourenco/CCprimer.git
+```
+* Once done, your local git should request:
+  + User-name: The one you have set for your GitHub account;
+  + Password: Your token.
+* After this, it should make a local copy of that cloned repository (more 
+especifically this copy will be stored at the directory path you have run the 
+clone command - in bash / terminal / command line).
+  + Note: If you have not been requested a username/password, maybe you have already
+  a GitHub account already set on your machine (so please note if any errors occur 
+  when trying to access GitHub with git, no username + password is required - 
+  if these occur, they will be output on your bash / terminal / command line)
   
-
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 
 ### Creating a repository

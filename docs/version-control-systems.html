@@ -213,8 +213,9 @@ div.csl-indent {
 traditionally used to manage the complexities of software development, majorly
 Computer Systems involving multiple software modules, and large development teams.</p>
 <p>Such systems help to organize such development, especially when collaboration of
-multiple developers is done, and several times people are doing code changes in a same, or close,
-part of the code, which may break it, or even generate unexpected results that would not be traceable.</p>
+multiple developers is done, and several times people are doing code changes in
+a same, or close, part of the code, which may break it, or even generate
+unexpected results that would not be traceable.</p>
 <!-- ## Why using it (out of CS)? -->
 <!-- Science is becoming more collaborative everyday, with groups of people contributing within a  -->
 <!-- same research group, across groups and across institutions. At the same time, efforts on Open Science, and Reproducible Science are demanded by the scientific community as a way to measure progress in transparent and objective criteria, as well as providing accountability on such developments. Since  -->
@@ -355,36 +356,50 @@ Aside of VCS capabilities, it provides other computational services, such as
 Continuous Integration (CI) and Continuous Deployment (CD), Web Page Hosting on GitHub
 Pages, security solutions, a software marketplace, among many others. It was recently
 acquired by Microsoft, as one of the largest transactions in the tech domain.</p>
-<p>GitHub has several different <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products">tiers of access</a>, from basic free accounts up to corporate ones.</p>
+<p>GitHub has several different <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products">tiers of access</a>,
+from basic free accounts up to corporate ones.</p>
 <p>A main advantage for academic users would be using the <a href="https://education.github.com">GitHub Education</a> which includes a free <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#github-pro">GitHub PRO</a>
 account and several software for free (or services credit hours) while you are
-enrolled in an academic institution. GitHub Education also have <a href="https://education.github.com/benefits">different tiers of users</a> aiming students, teachers, and
-the academic institutions itselves. Once you create a simple free GitHub account,
-you can return back to GitHub Education, and request to be enrolled in the program.</p>
+enrolled in an academic institution. GitHub Education also have <a href="https://education.github.com/benefits">different tiers of users</a>
+aiming students, teachers, and the academic institutions itselves. Once you
+create a simple free GitHub account, you can return back to GitHub Education,
+and request to be enrolled in the program.</p>
 <div id="creating-an-account" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Creating an account</h3>
-<p>To create an account is simple:
-- Go to <a href="https://github.com/pricing">GitHub pricing page</a>, select the Free tier,
-and click <em>Join for Free</em>;
-- Just follow the prompts to create your personal account.
-- You should receive an e-mail from them on the registered e-mail account, to verify your identity. If you fail to do so, your account would be basically <a href="https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification">useless</a>.</p>
+<p>To create an account is simple:</p>
+<ul>
+<li>Go to <a href="https://github.com/pricing">GitHub pricing page</a>, select the Free tier,
+and click <em>Join for Free</em>;</li>
+<li>Just follow the prompts to create your personal account.</li>
+<li>You should receive an e-mail from them on the registered e-mail account, to
+verify your identity. If you fail to do so, your account would be basically <a href="https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification">useless</a>.</li>
+</ul>
 <p>Note: Since I have created my account some years ago, I am just using GitHub’s
-user documentation as reference. If things get complicated in this step, please let me know, and I will expand here.</p>
+user documentation as reference. If things get complicated in this step, please
+let me know, and I will expand here.</p>
 </div>
 <div id="insert-github-credentials-on-your-local-git" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Insert GitHub credentials on your local Git</h3>
 <p>Once you have your GitHub account created, and verified, it is time to setup these
 credentials on your local Git client. While logged on your GitHub account you should:</p>
 <ul>
-<li>Click on your <em>name/avatar/photo at the upper right corner of the screen</em>, and then click on <em>Settings</em>;</li>
-<li>Then click on <em>Developer Settings</em> (it is the last item on the bottom of items at the left panel);</li>
+<li>Click on your <em>name/avatar/photo at the upper right corner of the screen</em>, and
+then click on <em>Settings</em>;</li>
+<li>Then click on <em>Developer Settings</em> (it is the last item on the bottom of
+items at the left panel);</li>
 <li>Now click on the bottom item, <em>Personal access tokens</em>;</li>
-<li>Then, click on <em>Generate new token</em>, you will be requested again for your password on this step;</li>
+<li>Then, click on <em>Generate new token</em>, you will be requested again for your
+password on this step;</li>
 <li>Now you will be required to fill in some info:
 <ul>
-<li><em>Note</em>: This will be a name of this Token. I often create a Token per software+device I use, then someone can write “Rstudio on Laptop,” to differentiate from “Rstudio on laboratory desktop.”
+<li><em>Note</em>: This will be a name of this Token. I often create a Token per
+software+device I use, then someone can write “Rstudio on Laptop,” to
+differentiate from “Rstudio on laboratory desktop.”
 <ul>
-<li>Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.</li>
+<li>Isolating tokens on different (software,device) pairs helps isolating
+accesses to your GitHub account, and is important to contain a security
+breach. If someone is able to fetch one of your tokens, you will know from
+which machine and which software on it came from.</li>
 </ul></li>
 <li><em>Expiration</em>: You should define a expiration date for your token. Choosing
 a date is an open ended question, but ideally systems exposed to the Web, or
@@ -398,10 +413,41 @@ key is left on a machine that another student will use in the lab).</li>
 Token is actually a definition of a <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>
 Token. On GitHub, this implies on being able to select all options that a user
 has in terms of operations on the platform, and actually, narrowing down to
-what a user wants to grant permission for in such Token. It is tempting to
-grant <em>all permissions</em> to a single Token, but the user should ask it that is
-really necessary. In one end, granting all permissions is too permissive, and
-being as problematic as having a token with no expiration data</li>
+what a user wants to grant permission for in such Token.
+<ul>
+<li>Note: It is tempting to grant <em>all permissions</em> to a single Token, but the user
+should ask it that is really necessary. In one end, granting all permissions
+is too permissive, and being as problematic as having a token with no
+expiration data.</li>
+<li>To look into what each scope covers, please look into this
+<a href="https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes">page</a>.</li>
+</ul></li>
+</ul></li>
+<li>Once you have generated your token, treat is as a password (even in terms of
+security/sharing/etc.). You should not persist a copy of it, but only use for your
+local git setup. Even if you loose access to it, you can always revoke that
+token, and create a new one.</li>
+<li>To set your local git to access GitHub (remind that you need first to set <a href="https://ricardobarroslourenco.github.io/CCprimer/version-control-systems.html#setting-up-your-local-git-client">global variables</a>),
+you just need to access GitHub with it. A simple way, that will be further
+explained in more detail would be making a local copy of a repository using <em>git clone</em>:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="version-control-systems.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/a_very_weird_user_name/a_more_weird_user_project_name.git</span></code></pre></div>
+<p>A concrete example would be the source-code of this document:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="version-control-systems.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/ricardobarroslourenco/CCprimer.git</span></code></pre></div>
+<ul>
+<li>Once done, your local git should request:
+<ul>
+<li>User-name: The one you have set for your GitHub account;</li>
+<li>Password: Your token.</li>
+</ul></li>
+<li>After this, it should make a local copy of that cloned repository (more
+especifically this copy will be stored at the directory path you have run the
+clone command - in bash / terminal / command line).
+<ul>
+<li>Note: If you have not been requested a username/password, maybe you have already
+a GitHub account already set on your machine (so please note if any errors occur
+when trying to access GitHub with git, no username + password is required -
+if these occur, they will be output on your bash / terminal / command line)</li>
 </ul></li>
 </ul>
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->

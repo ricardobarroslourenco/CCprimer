@@ -180,6 +180,7 @@ user documentation as reference. If things get complicated in this step, please 
 ### Insert GitHub credentials on your local Git
 Once you have your GitHub account created, and verified, it is time to setup these
 credentials on your local Git client. While logged on your GitHub account you should:
+
 * Click on your _name/avatar/photo at the upper right corner of the screen_, and then click on _Settings_; 
 * Then click on _Developer Settings_ (it is the last item on the bottom of items at the left panel);
 * Now click on the bottom item, _Personal access tokens_;

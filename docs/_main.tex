@@ -4,10 +4,14 @@
 %
 \documentclass[
 ]{book}
+\title{CC Primer: Compute Canada for geoscientists in a rush}
+\author{Ricardo Barros Lourenco}
+\date{Last revision: 2022-02-07}
+
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -109,15 +113,11 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-
-\title{CC Primer: Compute Canada for geoscientists in a rush}
-\author{Ricardo Barros Lourenco}
-\date{Last revision: 2022-02-05}
 
 \begin{document}
 \maketitle
@@ -386,27 +386,53 @@ user documentation as reference. If things get complicated in this step, please 
 
 Once you have your GitHub account created, and verified, it is time to setup these
 credentials on your local Git client. While logged on your GitHub account you should:
-* Click on your \emph{name/avatar/photo at the upper right corner of the screen}, and then click on \emph{Settings};
-* Then click on \emph{Developer Settings} (it is the last item on the bottom of items at the left panel);
-* Now click on the bottom item, \emph{Personal access tokens};
-* Then, click on \emph{Generate new token}, you will be requested again for your password on this step;
-* Now you will be required to fill in some info:
-+ \emph{Note}: This will be a name of this Token. I often create a Token per software+device I use, then someone can write ``Rstudio on Laptop'', to differentiate from ``Rstudio on laboratory desktop''.
-- Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
-+ \emph{Expiration}: You should define a expiration date for your token. Choosing
-a date is an open ended question, but ideally systems exposed to the Web, or
-multiple users such an HPC cluster, should be changed frequently.
-- \emph{Avoid at all means to use the No expiration} mode, because you never
-want to forget unattended keys of your GitHub (ex. You graduate, and your
-key is left on a machine that another student will use in the lab).
-+ \emph{Select scopes}: Perhaps this is the trickiest setup. The definition of a
-Token is actually a definition of a \href{https://en.wikipedia.org/wiki/OAuth}{OAuth}
-Token. On GitHub, this implies on being able to select all options that a user
-has in terms of operations on the platform, and actually, narrowing down to
-what a user wants to grant permission for in such Token. It is tempting to
-grant \emph{all permissions} to a single Token, but the user should ask it that is
-really necessary. In one end, granting all permissions is too permissive, and
-being as problematic as having a token with no expiration data
+
+\begin{itemize}
+\tightlist
+\item
+  Click on your \emph{name/avatar/photo at the upper right corner of the screen}, and then click on \emph{Settings};
+\item
+  Then click on \emph{Developer Settings} (it is the last item on the bottom of items at the left panel);
+\item
+  Now click on the bottom item, \emph{Personal access tokens};
+\item
+  Then, click on \emph{Generate new token}, you will be requested again for your password on this step;
+\item
+  Now you will be required to fill in some info:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Note}: This will be a name of this Token. I often create a Token per software+device I use, then someone can write ``Rstudio on Laptop'', to differentiate from ``Rstudio on laboratory desktop''.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
+    \end{itemize}
+  \item
+    \emph{Expiration}: You should define a expiration date for your token. Choosing
+    a date is an open ended question, but ideally systems exposed to the Web, or
+    multiple users such an HPC cluster, should be changed frequently.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{Avoid at all means to use the No expiration} mode, because you never
+      want to forget unattended keys of your GitHub (ex. You graduate, and your
+      key is left on a machine that another student will use in the lab).
+    \end{itemize}
+  \item
+    \emph{Select scopes}: Perhaps this is the trickiest setup. The definition of a
+    Token is actually a definition of a \href{https://en.wikipedia.org/wiki/OAuth}{OAuth}
+    Token. On GitHub, this implies on being able to select all options that a user
+    has in terms of operations on the platform, and actually, narrowing down to
+    what a user wants to grant permission for in such Token. It is tempting to
+    grant \emph{all permissions} to a single Token, but the user should ask it that is
+    really necessary. In one end, granting all permissions is too permissive, and
+    being as problematic as having a token with no expiration data
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{creating-a-repository}{%
 \subsection{Creating a repository}\label{creating-a-repository}}

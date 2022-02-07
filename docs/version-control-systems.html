@@ -374,28 +374,36 @@ user documentation as reference. If things get complicated in this step, please 
 <div id="insert-github-credentials-on-your-local-git" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Insert GitHub credentials on your local Git</h3>
 <p>Once you have your GitHub account created, and verified, it is time to setup these
-credentials on your local Git client. While logged on your GitHub account you should:
-* Click on your <em>name/avatar/photo at the upper right corner of the screen</em>, and then click on <em>Settings</em>;
-* Then click on <em>Developer Settings</em> (it is the last item on the bottom of items at the left panel);
-* Now click on the bottom item, <em>Personal access tokens</em>;
-* Then, click on <em>Generate new token</em>, you will be requested again for your password on this step;
-* Now you will be required to fill in some info:
-+ <em>Note</em>: This will be a name of this Token. I often create a Token per software+device I use, then someone can write “Rstudio on Laptop,” to differentiate from “Rstudio on laboratory desktop.”
-- Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
-+ <em>Expiration</em>: You should define a expiration date for your token. Choosing
+credentials on your local Git client. While logged on your GitHub account you should:</p>
+<ul>
+<li>Click on your <em>name/avatar/photo at the upper right corner of the screen</em>, and then click on <em>Settings</em>;</li>
+<li>Then click on <em>Developer Settings</em> (it is the last item on the bottom of items at the left panel);</li>
+<li>Now click on the bottom item, <em>Personal access tokens</em>;</li>
+<li>Then, click on <em>Generate new token</em>, you will be requested again for your password on this step;</li>
+<li>Now you will be required to fill in some info:
+<ul>
+<li><em>Note</em>: This will be a name of this Token. I often create a Token per software+device I use, then someone can write “Rstudio on Laptop,” to differentiate from “Rstudio on laboratory desktop.”
+<ul>
+<li>Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.</li>
+</ul></li>
+<li><em>Expiration</em>: You should define a expiration date for your token. Choosing
 a date is an open ended question, but ideally systems exposed to the Web, or
 multiple users such an HPC cluster, should be changed frequently.
-- <em>Avoid at all means to use the No expiration</em> mode, because you never
+<ul>
+<li><em>Avoid at all means to use the No expiration</em> mode, because you never
 want to forget unattended keys of your GitHub (ex. You graduate, and your
-key is left on a machine that another student will use in the lab).
-+ <em>Select scopes</em>: Perhaps this is the trickiest setup. The definition of a
+key is left on a machine that another student will use in the lab).</li>
+</ul></li>
+<li><em>Select scopes</em>: Perhaps this is the trickiest setup. The definition of a
 Token is actually a definition of a <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>
 Token. On GitHub, this implies on being able to select all options that a user
 has in terms of operations on the platform, and actually, narrowing down to
 what a user wants to grant permission for in such Token. It is tempting to
 grant <em>all permissions</em> to a single Token, but the user should ask it that is
 really necessary. In one end, granting all permissions is too permissive, and
-being as problematic as having a token with no expiration data</p>
+being as problematic as having a token with no expiration data</li>
+</ul></li>
+</ul>
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 </div>
 <div id="creating-a-repository" class="section level3" number="2.3.3">

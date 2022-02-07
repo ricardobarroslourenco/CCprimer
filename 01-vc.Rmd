@@ -5,8 +5,9 @@ traditionally used to manage the complexities of software development, majorly
 Computer Systems involving multiple software modules, and large development teams.
 
 Such systems help to organize such development, especially when collaboration of
-multiple developers is done, and several times people are doing code changes in a same, or close, 
-part of the code, which may break it, or even generate unexpected results that would not be traceable.
+multiple developers is done, and several times people are doing code changes in 
+a same, or close, part of the code, which may break it, or even generate 
+unexpected results that would not be traceable.
 
 <!-- ## Why using it (out of CS)? -->
 <!-- Science is becoming more collaborative everyday, with groups of people contributing within a  -->
@@ -159,35 +160,47 @@ Continuous Integration (CI) and Continuous Deployment (CD), Web Page Hosting on 
 Pages, security solutions, a software marketplace, among many others. It was recently 
 acquired by Microsoft, as one of the largest transactions in the tech domain.
 
-GitHub has several different [tiers of access](https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products), from basic free accounts up to corporate ones.
+GitHub has several different [tiers of access](https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products), 
+from basic free accounts up to corporate ones.
 
 A main advantage for academic users would be using the [GitHub Education](https://education.github.com) which includes a free [GitHub PRO](https://docs.github.com/en/get-started/learning-about-github/githubs-products#github-pro) 
 account and several software for free (or services credit hours) while you are 
-enrolled in an academic institution. GitHub Education also have [different tiers of users](https://education.github.com/benefits) aiming students, teachers, and 
-the academic institutions itselves. Once you create a simple free GitHub account, 
-you can return back to GitHub Education, and request to be enrolled in the program.
+enrolled in an academic institution. GitHub Education also have [different tiers of users](https://education.github.com/benefits) 
+aiming students, teachers, and the academic institutions itselves. Once you 
+create a simple free GitHub account, you can return back to GitHub Education, 
+and request to be enrolled in the program.
 
 ### Creating an account
 To create an account is simple:
 - Go to [GitHub pricing page](https://github.com/pricing), select the Free tier, 
 and click _Join for Free_;
 - Just follow the prompts to create your personal account.
-- You should receive an e-mail from them on the registered e-mail account, to verify your identity. If you fail to do so, your account would be basically [useless](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification). 
+- You should receive an e-mail from them on the registered e-mail account, to 
+verify your identity. If you fail to do so, your account would be basically [useless](https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification). 
  
 Note: Since I have created my account some years ago, I am just using GitHub's
-user documentation as reference. If things get complicated in this step, please let me know, and I will expand here.
+user documentation as reference. If things get complicated in this step, please 
+let me know, and I will expand here.
 
 ### Insert GitHub credentials on your local Git
 Once you have your GitHub account created, and verified, it is time to setup these
 credentials on your local Git client. While logged on your GitHub account you should:
 
-* Click on your _name/avatar/photo at the upper right corner of the screen_, and then click on _Settings_; 
-* Then click on _Developer Settings_ (it is the last item on the bottom of items at the left panel);
+* Click on your _name/avatar/photo at the upper right corner of the screen_, and 
+then click on _Settings_; 
+* Then click on _Developer Settings_ (it is the last item on the bottom of 
+items at the left panel);
 * Now click on the bottom item, _Personal access tokens_;
-* Then, click on _Generate new token_, you will be requested again for your password on this step;
+* Then, click on _Generate new token_, you will be requested again for your 
+password on this step;
 * Now you will be required to fill in some info:
-  + _Note_: This will be a name of this Token. I often create a Token per software+device I use, then someone can write "Rstudio on Laptop", to differentiate from "Rstudio on laboratory desktop". 
-    - Isolating tokens on different (software,device) pairs helps isolating accesses to your GitHub account, and is important to contain a security breach. If someone is able to fetch one of your tokens, you will know from which machine and which software on it came from.
+  + _Note_: This will be a name of this Token. I often create a Token per 
+  software+device I use, then someone can write "Rstudio on Laptop", to 
+  differentiate from "Rstudio on laboratory desktop". 
+    - Isolating tokens on different (software,device) pairs helps isolating 
+    accesses to your GitHub account, and is important to contain a security 
+    breach. If someone is able to fetch one of your tokens, you will know from 
+    which machine and which software on it came from.
   + _Expiration_: You should define a expiration date for your token. Choosing 
   a date is an open ended question, but ideally systems exposed to the Web, or 
   multiple users such an HPC cluster, should be changed frequently. 

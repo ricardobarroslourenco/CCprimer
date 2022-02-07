@@ -511,7 +511,27 @@ A concrete example would be the source-code of this document:
     when trying to access GitHub with git, no username + password is required -
     if these occur, they will be output on your bash / terminal / command line)
   \end{itemize}
+\item
+  Finally, to persist the token on your local install, run:
 \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ git config }\AttributeTok{{-}{-}global}\NormalTok{ credential.helper cache}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  If you need to clean-up the token(s) installed:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ git config }\AttributeTok{{-}{-}global} \AttributeTok{{-}{-}unset}\NormalTok{ credential.helper}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{creating-a-repository}{%
 \subsection{Creating a repository}\label{creating-a-repository}}

@@ -243,7 +243,14 @@ clone command - in bash / terminal / command line).
   a GitHub account already set on your machine (so please note if any errors occur 
   when trying to access GitHub with git, no username + password is required - 
   if these occur, they will be output on your bash / terminal / command line)
-  
+* Finally, to persist the token on your local install, run:
+```{bash, eval=FALSE}
+$ git config --global credential.helper cache
+```
+  + If you need to clean-up the token(s) installed:
+  ```{bash, eval=FALSE}
+  $ git config --global --unset credential.helper
+  ```
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 
 ### Creating a repository

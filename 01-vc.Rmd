@@ -253,6 +253,12 @@ $ git config --global credential.helper cache
   ```
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 
+## A combined usage of Git-GitHub
+This section describes a usage of Git-GitHub intended for scientific usage. Therefore, 
+is important to remark that there is still no consolidated practice on such application, 
+considering that these tools were not meant for academic usage, but rather for a software
+ engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.
+
 ### Creating a repository
 <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
 

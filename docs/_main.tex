@@ -4,14 +4,10 @@
 %
 \documentclass[
 ]{book}
-\title{CC Primer: Compute Canada for geoscientists in a rush}
-\author{Ricardo Barros Lourenco}
-\date{Last revision: 2022-02-09}
-
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -113,11 +109,15 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifLuaTeX
+\ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+
+\title{CC Primer: Compute Canada for geoscientists in a rush}
+\author{Ricardo Barros Lourenco}
+\date{Last revision: 2022-02-17}
 
 \begin{document}
 \maketitle
@@ -532,6 +532,14 @@ A concrete example would be the source-code of this document:
 \ExtensionTok{$}\NormalTok{ git config }\AttributeTok{{-}{-}global} \AttributeTok{{-}{-}unset}\NormalTok{ credential.helper}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{a-combined-usage-of-git-github}{%
+\section{A combined usage of Git-GitHub}\label{a-combined-usage-of-git-github}}
+
+This section describes a usage of Git-GitHub intended for scientific usage. Therefore,
+is important to remark that there is still no consolidated practice on such application,
+considering that these tools were not meant for academic usage, but rather for a software
+engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.
 
 \hypertarget{creating-a-repository}{%
 \subsection{Creating a repository}\label{creating-a-repository}}

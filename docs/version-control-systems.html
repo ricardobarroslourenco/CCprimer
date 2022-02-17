@@ -187,11 +187,14 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="version-control-systems.html"><a href="version-control-systems.html#creating-an-account"><i class="fa fa-check"></i><b>2.3.1</b> Creating an account</a></li>
 <li class="chapter" data-level="2.3.2" data-path="version-control-systems.html"><a href="version-control-systems.html#insert-github-credentials-on-your-local-git"><i class="fa fa-check"></i><b>2.3.2</b> Insert GitHub credentials on your local Git</a></li>
-<li class="chapter" data-level="2.3.3" data-path="version-control-systems.html"><a href="version-control-systems.html#creating-a-repository"><i class="fa fa-check"></i><b>2.3.3</b> Creating a repository</a></li>
-<li class="chapter" data-level="2.3.4" data-path="version-control-systems.html"><a href="version-control-systems.html#retrieving-code-from-a-repository"><i class="fa fa-check"></i><b>2.3.4</b> Retrieving code from a repository</a></li>
-<li class="chapter" data-level="2.3.5" data-path="version-control-systems.html"><a href="version-control-systems.html#submitting-code-to-a-repository"><i class="fa fa-check"></i><b>2.3.5</b> Submitting code to a repository</a></li>
-<li class="chapter" data-level="2.3.6" data-path="version-control-systems.html"><a href="version-control-systems.html#conciliating-conflicts"><i class="fa fa-check"></i><b>2.3.6</b> Conciliating <em>“conflicts”</em></a></li>
-<li class="chapter" data-level="2.3.7" data-path="version-control-systems.html"><a href="version-control-systems.html#contributing-to-open-source-projects"><i class="fa fa-check"></i><b>2.3.7</b> Contributing to open-source projects</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="version-control-systems.html"><a href="version-control-systems.html#a-combined-usage-of-git-github"><i class="fa fa-check"></i><b>2.4</b> A combined usage of Git-GitHub</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="version-control-systems.html"><a href="version-control-systems.html#creating-a-repository"><i class="fa fa-check"></i><b>2.4.1</b> Creating a repository</a></li>
+<li class="chapter" data-level="2.4.2" data-path="version-control-systems.html"><a href="version-control-systems.html#retrieving-code-from-a-repository"><i class="fa fa-check"></i><b>2.4.2</b> Retrieving code from a repository</a></li>
+<li class="chapter" data-level="2.4.3" data-path="version-control-systems.html"><a href="version-control-systems.html#submitting-code-to-a-repository"><i class="fa fa-check"></i><b>2.4.3</b> Submitting code to a repository</a></li>
+<li class="chapter" data-level="2.4.4" data-path="version-control-systems.html"><a href="version-control-systems.html#conciliating-conflicts"><i class="fa fa-check"></i><b>2.4.4</b> Conciliating <em>“conflicts”</em></a></li>
+<li class="chapter" data-level="2.4.5" data-path="version-control-systems.html"><a href="version-control-systems.html#contributing-to-open-source-projects"><i class="fa fa-check"></i><b>2.4.5</b> Contributing to open-source projects</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -467,35 +470,42 @@ if these occur, they will be output on your bash / terminal / command line)</li>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="version-control-systems.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> <span class="at">--unset</span> credential.helper</span></code></pre></div>
 <!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
 </div>
-<div id="creating-a-repository" class="section level3" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Creating a repository</h3>
+</div>
+<div id="a-combined-usage-of-git-github" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> A combined usage of Git-GitHub</h2>
+<p>This section describes a usage of Git-GitHub intended for scientific usage. Therefore,
+is important to remark that there is still no consolidated practice on such application,
+considering that these tools were not meant for academic usage, but rather for a software
+engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.</p>
+<div id="creating-a-repository" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Creating a repository</h3>
 <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
 </div>
-<div id="retrieving-code-from-a-repository" class="section level3" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Retrieving code from a repository</h3>
+<div id="retrieving-code-from-a-repository" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Retrieving code from a repository</h3>
 <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone -->
 <!-- https://www.atlassian.com/git/tutorials/syncing/git-pull -->
 </div>
-<div id="submitting-code-to-a-repository" class="section level3" number="2.3.5">
-<h3><span class="header-section-number">2.3.5</span> Submitting code to a repository</h3>
+<div id="submitting-code-to-a-repository" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Submitting code to a repository</h3>
 <!-- https://www.atlassian.com/git/tutorials/saving-changes/git-commit -->
 <!-- https://www.atlassian.com/git/tutorials/syncing/git-push -->
 </div>
-<div id="conciliating-conflicts" class="section level3" number="2.3.6">
-<h3><span class="header-section-number">2.3.6</span> Conciliating <em>“conflicts”</em></h3>
-<div id="git-merge" class="section level4" number="2.3.6.1">
-<h4><span class="header-section-number">2.3.6.1</span> Git Merge</h4>
+<div id="conciliating-conflicts" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Conciliating <em>“conflicts”</em></h3>
+<div id="git-merge" class="section level4" number="2.4.4.1">
+<h4><span class="header-section-number">2.4.4.1</span> Git Merge</h4>
 <!-- https://www.atlassian.com/git/tutorials/using-branches/git-merge -->
 </div>
-<div id="git-rebase" class="section level4" number="2.3.6.2">
-<h4><span class="header-section-number">2.3.6.2</span> Git Rebase</h4>
+<div id="git-rebase" class="section level4" number="2.4.4.2">
+<h4><span class="header-section-number">2.4.4.2</span> Git Rebase</h4>
 <!-- https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase -->
 </div>
 </div>
-<div id="contributing-to-open-source-projects" class="section level3" number="2.3.7">
-<h3><span class="header-section-number">2.3.7</span> Contributing to open-source projects</h3>
-<div id="creating-a-pull-request" class="section level4" number="2.3.7.1">
-<h4><span class="header-section-number">2.3.7.1</span> Creating a pull request</h4>
+<div id="contributing-to-open-source-projects" class="section level3" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Contributing to open-source projects</h3>
+<div id="creating-a-pull-request" class="section level4" number="2.4.5.1">
+<h4><span class="header-section-number">2.4.5.1</span> Creating a pull request</h4>
 <!-- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests -->
 
 <!-- # End matter -->

@@ -260,6 +260,18 @@ considering that these tools were not meant for academic usage, but rather for a
  engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.
 
 ### Creating a repository
+A _repository_ is a collection of code, stored on a git server (in this case, 
+a GitHub Repository). As any intellectual task, you may split your information/code
+ as desired. 
+ 
+In CS, people often keep a same service (a part of a system) at a 
+same repository. 
+
+In academia, is a consensus that researchers tend to keep all the codebase used 
+in a publication at a same repository. Then some variation occurs across communities.
+The GIScience community, more especifically the R GIScience community, developed a 
+
+Depending on how you set your environment, there are some options to crea
 <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
 
 ### Retrieving code from a repository

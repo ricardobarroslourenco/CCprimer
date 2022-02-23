@@ -259,35 +259,35 @@ is important to remark that there is still no consolidated practice on such appl
 considering that these tools were not meant for academic usage, but rather for a software
  engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.
 
-### Creating a repository
-A _repository_ is a collection of code, stored on a git server (in this case, 
-a GitHub Repository). As any intellectual task, you may split your information/code
- as desired. 
- 
-In CS, people often keep a same service (a part of a system) at a 
-same repository. 
+<!-- ### Creating a repository -->
+<!-- A _repository_ is a collection of code, stored on a git server (in this case,  -->
+<!-- a GitHub Repository). As any intellectual task, you may split your information/code -->
+<!--  as desired.  -->
 
-In academia, is a consensus that researchers tend to keep all the codebase used 
-in a publication at a same repository. Then some variation occurs across communities.
-The GIScience community, more especifically the R GIScience community, developed a 
+<!-- In CS, people often keep a same service (a part of a system) at a  -->
+<!-- same repository.  -->
 
-Depending on how you set your environment, there are some options to crea
-<!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
+<!-- In academia, is a consensus that researchers tend to keep all the codebase used  -->
+<!-- in a publication at a same repository. Then some variation occurs across communities. -->
+<!-- The GIScience community, more especifically the R GIScience community, developed a  -->
 
-### Retrieving code from a repository
-<!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone -->
-<!-- https://www.atlassian.com/git/tutorials/syncing/git-pull -->
+<!-- Depending on how you set your environment, there are some options to crea -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init --> 
 
-### Submitting code to a repository
-<!-- https://www.atlassian.com/git/tutorials/saving-changes/git-commit --> 
-<!-- https://www.atlassian.com/git/tutorials/syncing/git-push -->
+<!-- ### Retrieving code from a repository -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone --> 
+<!-- <!-- https://www.atlassian.com/git/tutorials/syncing/git-pull --> 
 
-### Conciliating _"conflicts"_
-#### Git Merge
-<!-- https://www.atlassian.com/git/tutorials/using-branches/git-merge -->
-#### Git Rebase
-<!-- https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase -->
+<!-- ### Submitting code to a repository -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/saving-changes/git-commit -->  
+<!-- <!-- https://www.atlassian.com/git/tutorials/syncing/git-push --> 
 
-### Contributing to open-source projects
-#### Creating a pull request
-<!-- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests -->
+<!-- ### Conciliating _"conflicts"_ -->
+<!-- #### Git Merge -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/using-branches/git-merge --> 
+<!-- #### Git Rebase -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase --> 
+
+<!-- ### Contributing to open-source projects -->
+<!-- #### Creating a pull request -->
+<!-- <!-- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests --> 

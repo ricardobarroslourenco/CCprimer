@@ -14,11 +14,3 @@ github
 creating-an-account
 insert-github-credentials-on-your-local-git
 a-combined-usage-of-git-github
-creating-a-repository
-retrieving-code-from-a-repository
-submitting-code-to-a-repository
-conciliating-conflicts
-git-merge
-git-rebase
-contributing-to-open-source-projects
-creating-a-pull-request

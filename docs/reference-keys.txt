@@ -14,3 +14,5 @@ github
 creating-an-account
 insert-github-credentials-on-your-local-git
 a-combined-usage-of-git-github
+compute-canada
+running-batch-jobs

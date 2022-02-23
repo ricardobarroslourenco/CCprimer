@@ -1,0 +1,70 @@
+# Compute Canada
+*Note*: This section is under heavy work. For now, please refer to Compute 
+Canada's [Wiki](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation).
+
+<!-- # Job Scheduling -->
+
+<!-- ## Slurm  -->
+
+<!-- ### Basic Commands -->
+
+### Running batch jobs
+If you want to run a R-language batch job, please take a look on the 
+[CCrecipes repository](https://github.com/ricardobarroslourenco/CCrecipes). 
+
+More specifically at the `slurm/R/r_batch_standalone.sh` file, we have:
+
+```{bash, eval=FALSE}
+#!/bin/bash
+
+### Sets shell for parallel program (no distribution - no MPI)
+### Inspired by the current documentation available on CC Wiki.
+
+#SBATCH --account=def-someacct             # replace this with your PI account
+#SBATCH --nodes=1                          # number of node MUST be 1
+#SBATCH --cpus-per-task=4                  # number of processes
+#SBATCH --mem-per-cpu=2048M                # memory; default unit is megabytes
+#SBATCH --time=0-00:15                     # time (DD-HH:MM)
+#SBATCH --mail-user=yourname@someplace.com # Send email updates to you or someone else
+#SBATCH --mail-type=ALL                    # send an email in all cases (job started, job ended, job aborted)
+
+### Load library modules
+module load gcc/9.3.0 r/4.0.2
+
+### Load r-packages (builds locally) - comment, if unecessary to install new libraries
+#R install_script.R
+
+### Export locally installed packages
+# TODO: check if this path holds
+export R_LIBS=~/local/R_libs/
+
+### Run main_job.R - or any batch script necessary
+R CMD BATCH --no-save --no-restore ~/main_job.R
+```
+
+Some requirements:
+
+- The R file `main_job.R` needs to be at the root of your user folder. 
+- Also the script needs to be executable (command runned at the same folder 
+as `r_batch_standalone.sh`:
+
+```{bash, eval=FALSE}
+$ chmod +x r_batch_standalone.sh
+```
+
+- Finally, you can submit this batch job as:
+```{bash, eval=FALSE}
+$ sbatch r_batch_standalone.sh
+```
+
+Once submitted, you should receive a job number at the console. Once its status
+change at the scheduler (job started, job ended, job aborted), you should receive
+an e-mail. 
+
+If getting into running issues, take a look on the errors by inspecting the 
+output files which will be saved at the same folder you submitted the job and 
+have the name `slurm-xxxxxx.out` in which `xxxxxx` is the job number.
+
+
+
+<!-- ### Running interactive jobs -->

@@ -541,6 +541,87 @@ is important to remark that there is still no consolidated practice on such appl
 considering that these tools were not meant for academic usage, but rather for a software
 engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.
 
+\hypertarget{compute-canada}{%
+\chapter{Compute Canada}\label{compute-canada}}
+
+\emph{Note}: This section is under heavy work. For now, please refer to Compute
+Canada's \href{https://docs.computecanada.ca/wiki/Compute_Canada_Documentation}{Wiki}.
+
+\hypertarget{running-batch-jobs}{%
+\subsection{Running batch jobs}\label{running-batch-jobs}}
+
+If you want to run a R-language batch job, please take a look on the
+\href{https://github.com/ricardobarroslourenco/CCrecipes}{CCrecipes repository}.
+
+More specifically at the \texttt{slurm/R/r\_batch\_standalone.sh} file, we have:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+
+\CommentTok{\#\#\# Sets shell for parallel program (no distribution {-} no MPI)}
+\CommentTok{\#\#\# Inspired by the current documentation available on CC Wiki.}
+
+\CommentTok{\#SBATCH {-}{-}account=def{-}someacct             \# replace this with your PI account}
+\CommentTok{\#SBATCH {-}{-}nodes=1                          \# number of node MUST be 1}
+\CommentTok{\#SBATCH {-}{-}cpus{-}per{-}task=4                  \# number of processes}
+\CommentTok{\#SBATCH {-}{-}mem{-}per{-}cpu=2048M                \# memory; default unit is megabytes}
+\CommentTok{\#SBATCH {-}{-}time=0{-}00:15                     \# time (DD{-}HH:MM)}
+\CommentTok{\#SBATCH {-}{-}mail{-}user=yourname@someplace.com \# Send email updates to you or someone else}
+\CommentTok{\#SBATCH {-}{-}mail{-}type=ALL                    \# send an email in all cases (job started, job ended, job aborted)}
+
+\CommentTok{\#\#\# Load library modules}
+\ExtensionTok{module}\NormalTok{ load gcc/9.3.0 r/4.0.2}
+
+\CommentTok{\#\#\# Load r{-}packages (builds locally) {-} comment, if unecessary to install new libraries}
+\CommentTok{\#R install\_script.R}
+
+\CommentTok{\#\#\# Export locally installed packages}
+\CommentTok{\# }\AlertTok{TODO}\CommentTok{: check if this path holds}
+\BuiltInTok{export} \VariableTok{R\_LIBS=}\NormalTok{\textasciitilde{}/local/R\_libs/}
+
+\CommentTok{\#\#\# Run main\_job.R {-} or any batch script necessary}
+\ExtensionTok{R}\NormalTok{ CMD BATCH }\AttributeTok{{-}{-}no{-}save} \AttributeTok{{-}{-}no{-}restore}\NormalTok{ \textasciitilde{}/main\_job.R}
+\end{Highlighting}
+\end{Shaded}
+
+Some requirements:
+
+\begin{itemize}
+\tightlist
+\item
+  The R file \texttt{main\_job.R} needs to be at the root of your user folder.
+\item
+  Also the script needs to be executable (command runned at the same folder
+  as \texttt{r\_batch\_standalone.sh}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ chmod +x r\_batch\_standalone.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Finally, you can submit this batch job as:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ sbatch r\_batch\_standalone.sh}
+\end{Highlighting}
+\end{Shaded}
+
+Once submitted, you should receive a job number at the console. Once its status
+change at the scheduler (job started, job ended, job aborted), you should receive
+an e-mail.
+
+If getting into running issues, take a look on the errors by inspecting the
+output files which will be saved at the same folder you submitted the job and
+have the name \texttt{slurm-xxxxxx.out} in which \texttt{xxxxxx} is the job number.
+
   \bibliography{book.bib,packages.bib}
 
 \end{document}

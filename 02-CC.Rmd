@@ -2,6 +2,42 @@
 *Note*: This section is under heavy work. For now, please refer to Compute 
 Canada's [Wiki](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation).
 
+### Setting up SSH on Compute Canada portal
+From January 2022 forward, Compute Canada is enforcing that is mandatory to use 
+a key to use SSH with their premises (ex.: accessing login nodes). For this, you 
+need to create a public-private SSH key, and _drop_ the public key at the 
+Compute Canada user portal, under your account settings.
+
+#### Creating a SSH key
+Some description of this is found at the Compute Canada documentation @CC_ssh_key . 
+Is good practice to read it, since it covers some specifics.
+
+To create a SSH key you need to use _ssh-keygen_. On windows, you can access it 
+through [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#user-key-generation), on MacOS using Terminal, and on any Linux 
+distribution via a shell terminal (such as Bash, for example).
+
+In a general way, you can create a new key pair with this command:
+
+```{bash, eval=FALSE}
+$ ssh-keygen -C 'compute canada systems' -f computecanada-key -t rsa -b 4096
+```
+
+The parameters refer to:
+
+- _-C_: A label for the key being generated, useful when you have multiple SSH 
+keys in a machine;
+- _-f_: The name of the key file. Once run, ssh-keygen will output a file with 
+such name without extension which is the _private-key_, and another file, with a 
+same name, but with extension _*.pub_, corresponding to the _public-key_.
+- _-t_: Represents the choice of encrypting scheme, which on this case is a RSA 
+one, with _4096_ as the key size.
+
+<!-- Todo: Write about best practices on safety of key usage/security; include information on how to include a password in the key -->
+
+### Depositing the public key on Compute Canada
+
+<!-- Todo: Write section, and include screenshots -->
+
 <!-- # Job Scheduling -->
 
 <!-- ## Slurm  -->

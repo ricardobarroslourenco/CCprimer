@@ -1,3 +1,6 @@
+fig:figure1
+fig:figure2
+fig:figure3
 front-matter
 copyright
 how-to-cite-this-work
@@ -15,4 +18,8 @@ creating-an-account
 insert-github-credentials-on-your-local-git
 a-combined-usage-of-git-github
 compute-canada
+setting-up-ssh-on-compute-canada-portal
+creating-a-ssh-key
+depositing-the-public-key-on-compute-canada
+accessing-a-compute-canada-login-node
 running-batch-jobs

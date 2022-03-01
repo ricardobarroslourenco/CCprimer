@@ -30,13 +30,57 @@ keys in a machine;
 such name without extension which is the _private-key_, and another file, with a 
 same name, but with extension _*.pub_, corresponding to the _public-key_.
 - _-t_: Represents the choice of encrypting scheme, which on this case is a RSA 
-one, with _4096_ as the key size.
+one, with _4096_ bits as the key size.
 
-<!-- Todo: Write about best practices on safety of key usage/security; include information on how to include a password in the key -->
+Once you hit the command, you should have on the folder you are running these two files:
+- _computecanada-key_ (without file extension): corresponds to the private key;
+- _computecanada-key.pub_: corresponds to the public key.
+
+*WARNING*: The private key is equal to a regular password to the system you are using it to access. Therefore, it is recommended that you assign a key password 
+(it will be requested when you are generating the key), to assure that if such key is lost/copied/etc, nobody would be able to access this system impersonating you. A series of good practices for ssh keys may be found at this [post](https://security.stackexchange.com/a/144044/275095).
 
 ### Depositing the public key on Compute Canada
+Once created the key pair, you need to deposit the *public key* on your Compute 
+Canada account. A main tutorial is provided [here](https://docs.computecanada.ca/wiki/SSH_Keys) 
+but you can proceed as follows:
 
-<!-- Todo: Write section, and include screenshots -->
+- [Login](https://ccdb.computecanada.ca/) at your Compute Canada account, you should see a screen as such:
+```{r figure1, echo=FALSE, fig.cap="Landing page of your Compute Canada account", out.width = '100%'}
+knitr::include_graphics("images/cc_accnt_01.png")
+```
+
+- Enter in the _My Account_ tab, then click _Manage SSH Keys_:
+```{r figure2, echo=FALSE, fig.cap="Manage SSH Keys menu", out.width = '100%'}
+knitr::include_graphics("images/cc_accnt_02.png")
+```
+
+- Then you should have the SSH Key management options:
+```{r figure3, echo=FALSE, fig.cap="SSH Key Management options", out.width = '100%'}
+knitr::include_graphics("images/cc_accnt_03.png")
+```
+
+- Now insert the content of your SSH *public key* in the first field. 
+To do so, you need to open your _*.pub_ file with a simple text editor (ex.: Notepad on Windows, TextEdit on MacOS, Gedit/Vi/Emacs on Linux - Do not open with text processing software, as MS Word!) select all content and copy-paste into the first text box.
+
+- Then you should assign a _Description_ to such key. I recommend that you use different keys for every system you use to connect to Compute Canada Systems, and this field should reflect each of these systems. For example, a description as such _Desktop Machine at the Laboratory", or "Personal Notebook" would be enough to identify where these keys lie (especially important if you get hacked and someone steals your key).
+
+- Then hit _Add Key_. This operation will put your public key on every machine of Compute Canada, and may take up to 30 minutes to be online.
+
+### Accessing a Compute Canada _login node_
+Once your public key is loaded and synchronized in all machines, you may login a compute node using a terminal (On Windows, you need to use PowerShell; on MacOS, Terminal; and on Linux, your preferred Shell, such as Bash):
+
+```{bash, eval=FALSE}
+$ ssh -i ./computecanada-key your-compute-canada-username@MMMMMM.computecanada.ca
+```
+
+The command opens a SSH terminal session with the following parameters:
+
+- _-i_ : The path and the name of your *Private Key*;
+- _your-compute-canada-username_ : The username you have set for your Compute Canada account, when registering with them for an account;
+- _MMMMMM_ : One of the Compute Canada clusters (for example, Cedar, Graham, or Beluga)
+
+*Note*: We will provide a more extensive list of computing environments later, but for now you may want to refer to [this presentation](http://bit.ly/introhpc).
+
 
 <!-- # Job Scheduling -->
 

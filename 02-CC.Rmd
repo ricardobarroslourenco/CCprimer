@@ -60,9 +60,9 @@ knitr::include_graphics("images/cc_accnt_03.png")
 ```
 
 - Now insert the content of your SSH *public key* in the first field. 
-To do so, you need to open your _*.pub_ file with a simple text editor (ex.: Notepad on Windows, TextEdit on MacOS, Gedit/Vi/Emacs on Linux - Do not open with text processing software, as MS Word!) select all content and copy-paste into the first text box.
+To do so, you need to open your _.pub_ file with a simple text editor (ex.: Notepad on Windows, TextEdit on MacOS, Gedit/Vi/Emacs on Linux - Do not open with text processing software, as MS Word!) select all content and copy-paste into the first text box.
 
-- Then you should assign a _Description_ to such key. I recommend that you use different keys for every system you use to connect to Compute Canada Systems, and this field should reflect each of these systems. For example, a description as such _Desktop Machine at the Laboratory", or "Personal Notebook" would be enough to identify where these keys lie (especially important if you get hacked and someone steals your key).
+- Then you should assign a _Description_ to such key. I recommend that you use different keys for every system you use to connect to Compute Canada Systems, and this field should reflect each of these systems. For example, a description as such "_Desktop Machine at the Laboratory_", or "_Personal Laptop_" would be enough to identify where these keys lie (especially important if you get hacked and someone steals your key).
 
 - Then hit _Add Key_. This operation will put your public key on every machine of Compute Canada, and may take up to 30 minutes to be online.
 

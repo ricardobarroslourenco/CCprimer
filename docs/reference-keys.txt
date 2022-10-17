@@ -17,6 +17,10 @@ github
 creating-an-account
 insert-github-credentials-on-your-local-git
 a-combined-usage-of-git-github
+basic-commands-to-update-a-repository
+git-add
+git-commit
+git-push
 compute-canada
 setting-up-ssh-on-compute-canada-portal
 creating-a-ssh-key

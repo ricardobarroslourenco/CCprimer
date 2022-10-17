@@ -258,7 +258,59 @@ This section describes a usage of Git-GitHub intended for scientific usage. Ther
 is important to remark that there is still no consolidated practice on such application, 
 considering that these tools were not meant for academic usage, but rather for a software
  engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.
+ 
+### Basic commands to update a repository
+After cloning a public repository, a user may want to update it in several ways. 
+A very common HPC scenario is when the user is testing code in production, 
+in a cluster environment, while debugging. Other scenarios are related to persist 
+small data outputs - considering the repository storage limitations.
 
+Given that, users should do, once saved their changes to the local git is to 
+_add_, _commit_ and then _push_ changes.
+
+#### Git Add
+When the user create or delete file(s) it is necessary to inform `git` that such 
+addition/deletion happened via:
+
+```{bash, eval=FALSE}
+$ git add folder_url
+```
+
+If you want to update the entire project, you need to go via bash to the root of
+the git project, and then:
+
+```{bash, eval=FALSE}
+$ git add .
+```
+
+#### Git commit
+After eventual addition/deletion(s) are informed to git, then, it is necessary 
+to inform updates and the nature of these. This can be done via:
+
+```{bash, eval=FALSE}
+$ git commit -m "message describing the commit"
+```
+
+Ideally the message would describe what was done. Important to note that this 
+could be done multiple times, because this is only persisting local changes (on 
+the machine which the client is installed), not global changes. It is good practice 
+to group "same topic" commits, as it is easier to do a rollback of such changes, 
+avoiding to impact changes not related to a found issue.
+
+#### Git push
+Once the local repository changes are finalized, the user needs to synchronize 
+these local changes with the main git(like)/GitHub repository. Only after this, 
+these changes would become available to all users.
+
+Often the repository on github has a `main` branch, therefore, the command is:
+
+```{bash, eval=FALSE}
+$ git commit origin main
+```
+
+In which `origin` is the local repository, and `main` is the branch you want to 
+update in the git server. These may be different, depending on your project 
+characteristics.
 <!-- ### Creating a repository -->
 <!-- A _repository_ is a collection of code, stored on a git server (in this case,  -->
 <!-- a GitHub Repository). As any intellectual task, you may split your information/code -->

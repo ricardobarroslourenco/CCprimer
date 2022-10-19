@@ -305,7 +305,7 @@ these changes would become available to all users.
 Often the repository on github has a `main` branch, therefore, the command is:
 
 ```{bash, eval=FALSE}
-$ git commit origin main
+$ git push -u origin main
 ```
 
 In which `origin` is the local repository, and `main` is the branch you want to 

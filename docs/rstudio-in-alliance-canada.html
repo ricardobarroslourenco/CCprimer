@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | CC Primer: Compute Canada for geoscientists in a rush</title>
+  <title>Chapter 4 RStudio in Alliance Canada | CC Primer: Compute Canada for geoscientists in a rush</title>
   <meta name="description" content="Descricao (campo)" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | CC Primer: Compute Canada for geoscientists in a rush" />
+  <meta property="og:title" content="Chapter 4 RStudio in Alliance Canada | CC Primer: Compute Canada for geoscientists in a rush" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Descricao (campo)" />
   <meta name="github-repo" content="ricardobarroslourenco/CCprimer" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | CC Primer: Compute Canada for geoscientists in a rush" />
+  <meta name="twitter:title" content="Chapter 4 RStudio in Alliance Canada | CC Primer: Compute Canada for geoscientists in a rush" />
   
   <meta name="twitter:description" content="Descricao (campo)" />
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="compute-canada.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -207,18 +207,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="rstudio-in-alliance-canada" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> RStudio in Alliance Canada<a href="rstudio-in-alliance-canada.html#rstudio-in-alliance-canada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Note 1</em>: This refers to an experimental usage of RStudio for HPC. This approach
+has no official support from the Alliance, and the responsability is solely to
+the user. An official R environment is provided, with support, by the Alliance at
+<a href="https://docs.alliancecan.ca/wiki/Technical_documentation">this website</a>.</p>
+<p><em>Note 2</em>: This approach is aimed to single node processes. If you want to
+explore (or need) distributed processing, we recommend to use the supported
+version, and speak with user groups and the Alliance support to help designing routines.</p>
+<div id="introduction" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction<a href="rstudio-in-alliance-canada.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this approach, we use a prestablished <a href="https://rocker-project.org/">RockeR</a>,
+docker container from which we expand to our user needs. Binary versions of the
+container are available at <a href="https://hub.docker.com/repository/docker/ricardobarroslourenco/rstudio_container/general">Docker Hub</a>, with the releases and their code available on <a href="https://github.com/MacRemoteSensing/rstudio_container/releases">GitHub</a>.</p>
+</div>
+<div id="running-an-apptainer-hpc-container-as-an-interactive-session" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Running an Apptainer HPC Container as an interactive session<a href="rstudio-in-alliance-canada.html#running-an-apptainer-hpc-container-as-an-interactive-session" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Prior to be able to run RStudio, you need to have a suitable container already built
+as a Singularity container, or build by yourself.</p>
+<p><em>From the cluster login node</em> you can build it with the following steps:</p>
+<p><strong>1. Load Apptainer</strong>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="rstudio-in-alliance-canada.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> module load apptainer</span></code></pre></div>
+<p>Pick up the most recent version of it, and accept.</p>
+<p><strong>2. Then run the build</strong> (run this command at your <em>home</em>, <em>project</em> or <em>scratch</em> folder):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="rstudio-in-alliance-canada.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0</span></code></pre></div>
+<p>You should have, at the end, a file named <em>rstudio_container_v1_0.sif</em> in the
+directory you ran the command. This is your Apptainer container.</p>
+<p><strong>3. Create transient folders and files to be able to run your container</strong> (these should be hosted at the same location as your container). Creating directories:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="rstudio-in-alliance-canada.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> run var-lib-rstudio-server .rstudio</span></code></pre></div>
+<p>Then the sqlite configuration file:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="rstudio-in-alliance-canada.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> printf <span class="st">&#39;provider=sqlite\ndirectory=/var/lib/rstudio-server\n&#39;</span> <span class="op">&gt;</span> database.conf</span></code></pre></div>
+<p><strong>4. Starting an Interactive Job on the Supercomputer</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="rstudio-in-alliance-canada.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> salloc <span class="at">--time</span><span class="op">=</span>0:30:0 <span class="at">--account</span><span class="op">=</span>rrg-ggalex <span class="at">--cpus-per-task</span><span class="op">=</span>8 <span class="at">--mem</span><span class="op">=</span>0 <span class="at">--mail-user</span><span class="op">=</span>macid@mcmaster.ca <span class="at">--mail-type</span><span class="op">=</span>ALL</span></code></pre></div>
+<p>The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):</p>
+<ul>
+<li><em>time</em>: time of the interactive session in HH:MM:SS;</li>
+<li><em>account</em>: PI account at the Alliance Can project;</li>
+<li><em>cpus-per-task</em>: Amount of cpus in this interactive session. Capped to the limit of the node;</li>
+<li><em>mem</em>: amount of RAM you want to allocate (zero means all memory of the node);</li>
+<li><em>mail-user</em>: e-mail address to send updates on the job allocation;</li>
+<li><em>mail-type</em>: verbosity of the e-mail.</li>
+</ul>
+<p><strong>5. Start the container in the newly allocated working node</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="rstudio-in-alliance-canada.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer exec <span class="at">--env</span> <span class="at">--bind</span> run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver <span class="at">--auth-none</span><span class="op">=</span>1 <span class="at">--auth-pam-helper-path</span><span class="op">=</span>pam-helper <span class="at">--server-user</span><span class="op">=</span><span class="va">$(</span><span class="fu">whoami</span><span class="va">)</span> <span class="at">--www-port</span><span class="op">=</span>8787</span></code></pre></div>
+<p>This will launch an rstudio server as a singularity service. If you need, bash is
+available as a terminal tab in that RStudio. To access the instance, you need
+to do a ssh tunnel, to forward the cluster port in the working node, to your machine. For that, <strong>you must to create a new, separate, ssh connection, and keep it open</strong> (without
+running any job on it). You can do as this (similar to what we described in the ssh section of CCPrimer, with a twist):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="rstudio-in-alliance-canada.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-i</span> ~/computecanada/computecanada-key <span class="at">-L</span> 9102:graXXX:8787 username@graham.computecanada.ca</span></code></pre></div>
+<p>Some details:</p>
+<ul>
+<li><em>-i ~/computecanada/computecanada-key</em>: the <em>-i</em> flag calls your ssh key file;</li>
+<li><em>-L 9102:graXXX:8787</em>: the <em>ssh tunnel</em> in fact. It forwards node port 8787 to your localhost at port 9102;</li>
+<li><em><a href="mailto:username@graham.computecanada.ca" class="email">username@graham.computecanada.ca</a></em>: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.</li>
+</ul>
+<p>After this, you should be able to access the rstudio server by using this url
+in your browser:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="rstudio-in-alliance-canada.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">localhost:9102</span></span></code></pre></div>
+
+<!-- # End matter -->
+<!-- ## Appendix A - Useful References -->
+<!-- List references such as websites, and other written material supporting geocomputation efforts -->
+<!-- ```{r include=FALSE} -->
+<!-- # automatically create a bib database for R packages -->
+<!-- knitr::write_bib(c( -->
+<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
+<!-- ), 'packages.bib') -->
+<!-- ``` -->
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="compute-canada.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -250,7 +315,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ricardobarroslourenco/CCprimer/edit/master/%s",
+"link": "https://github.com/ricardobarroslourenco/CCprimer/edit/master/03-RStudio.Rmd",
 "text": "Edit"
 },
 "history": {

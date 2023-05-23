@@ -1,0 +1,87 @@
+# RStudio in Alliance Canada
+*Note 1*: This refers to an experimental usage of RStudio for HPC. This approach 
+has no official support from the Alliance, and the responsability is solely to 
+the user. An official R environment is provided, with support, by the Alliance at
+[this website](https://docs.alliancecan.ca/wiki/Technical_documentation).
+
+*Note 2*: This approach is aimed to single node processes. If you want to 
+explore (or need) distributed processing, we recommend to use the supported 
+version, and speak with user groups and the Alliance support to help designing routines.
+
+## Introduction
+In this approach, we use a prestablished [RockeR](https://rocker-project.org/), 
+docker container from which we expand to our user needs. Binary versions of the 
+container are available at [Docker Hub](https://hub.docker.com/repository/docker/ricardobarroslourenco/rstudio_container/general), with the releases and their code available on [GitHub](https://github.com/MacRemoteSensing/rstudio_container/releases).
+
+## Running an Apptainer HPC Container as an interactive session
+Prior to be able to run RStudio, you need to have a suitable container already built
+as a Singularity container, or build by yourself. 
+
+_From the cluster login node_ you can build it with the following steps:
+
+**1. Load Apptainer**:
+```{bash, eval=FALSE}
+$ module load apptainer
+```
+
+Pick up the most recent version of it, and accept.
+
+**2. Then run the build** (run this command at your _home_, _project_ or _scratch_ folder):
+```{bash, eval=FALSE}
+$ apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0
+```
+
+You should have, at the end, a file named _rstudio_container_v1_0.sif_ in the 
+directory you ran the command. This is your Apptainer container.
+
+**3. Create transient folders and files to be able to run your container** (these should be hosted at the same location as your container). Creating directories:
+```{bash, eval=FALSE}
+$ mkdir -p run var-lib-rstudio-server .rstudio
+```
+
+Then the sqlite configuration file:
+
+```{bash, eval=FALSE}
+$ printf 'provider=sqlite\ndirectory=/var/lib/rstudio-server\n' > database.conf
+```
+
+**4. Starting an Interactive Job on the Supercomputer**
+```{bash, eval=FALSE}
+$ salloc --time=0:30:0 --account=rrg-ggalex --cpus-per-task=8 --mem=0 --mail-user=macid@mcmaster.ca --mail-type=ALL
+```
+
+The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):
+
+ - *time*: time of the interactive session in HH:MM:SS;
+ - *account*: PI account at the Alliance Can project;
+ - *cpus-per-task*: Amount of cpus in this interactive session. Capped to the limit of the node;
+ - *mem*: amount of RAM you want to allocate (zero means all memory of the node);
+ - *mail-user*: e-mail address to send updates on the job allocation;
+  - *mail-type*: verbosity of the e-mail.
+
+**5. Start the container in the newly allocated working node**
+```{bash, eval=FALSE}
+$ apptainer exec --env --bind run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver --auth-none=1 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-port=8787
+```
+
+This will launch an rstudio server as a singularity service. If you need, bash is 
+available as a terminal tab in that RStudio. To access the instance, you need 
+to do a ssh tunnel, to forward the cluster port in the working node, to your machine. For that, **you must to create a new, separate, ssh connection, and keep it open** (without 
+running any job on it). You can do as this (similar to what we described in the ssh section of CCPrimer, with a twist):
+
+```{bash, eval=FALSE}
+$ ssh -i ~/computecanada/computecanada-key -L 9102:graXXX:8787 username@graham.computecanada.ca
+```
+
+Some details:
+
+  - *-i ~/computecanada/computecanada-key*: the *-i* flag calls your ssh key file;
+  - *-L 9102:graXXX:8787*: the *ssh tunnel* in fact. It forwards node port 8787 to your localhost at port 9102;
+  - *username@graham.computecanada.ca*: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.
+  
+After this, you should be able to access the rstudio server by using this url 
+in your browser:
+
+```{bash, eval=FALSE}
+localhost:9102
+```

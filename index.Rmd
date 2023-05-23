@@ -76,6 +76,8 @@ of this document, rather than a especific one.
 <!-- ## List of abbreviations and acronyms -->
 
 ## Cronology
+2023-05-23 - v0.2 - Adds description on how to run Rstudio Server on Alliance 
+Canada Premises.
 
 2022-01-31 - Beginning of v0.1. (This version is quite unstable, and versioning 
 during this stage will be limited).

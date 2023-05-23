@@ -131,6 +131,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -148,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">CC Primer</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> cover-image: path to the social sharing image like images/cover.jpg</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Front Matter</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i><b>1.1</b> Copyright</a>
 <ul>
@@ -228,18 +250,18 @@ container are available at <a href="https://hub.docker.com/repository/docker/ric
 as a Singularity container, or build by yourself.</p>
 <p><em>From the cluster login node</em> you can build it with the following steps:</p>
 <p><strong>1. Load Apptainer</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="rstudio-in-alliance-canada.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> module load apptainer</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="rstudio-in-alliance-canada.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> module load apptainer</span></code></pre></div>
 <p>Pick up the most recent version of it, and accept.</p>
 <p><strong>2. Then run the build</strong> (run this command at your <em>home</em>, <em>project</em> or <em>scratch</em> folder):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="rstudio-in-alliance-canada.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="rstudio-in-alliance-canada.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0</span></code></pre></div>
 <p>You should have, at the end, a file named <em>rstudio_container_v1_0.sif</em> in the
 directory you ran the command. This is your Apptainer container.</p>
 <p><strong>3. Create transient folders and files to be able to run your container</strong> (these should be hosted at the same location as your container). Creating directories:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="rstudio-in-alliance-canada.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> run var-lib-rstudio-server .rstudio</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="rstudio-in-alliance-canada.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> run var-lib-rstudio-server .rstudio</span></code></pre></div>
 <p>Then the sqlite configuration file:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="rstudio-in-alliance-canada.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> printf <span class="st">&#39;provider=sqlite\ndirectory=/var/lib/rstudio-server\n&#39;</span> <span class="op">&gt;</span> database.conf</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="rstudio-in-alliance-canada.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> printf <span class="st">&#39;provider=sqlite\ndirectory=/var/lib/rstudio-server\n&#39;</span> <span class="op">&gt;</span> database.conf</span></code></pre></div>
 <p><strong>4. Starting an Interactive Job on the Supercomputer</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="rstudio-in-alliance-canada.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> salloc <span class="at">--time</span><span class="op">=</span>0:30:0 <span class="at">--account</span><span class="op">=</span>rrg-ggalex <span class="at">--cpus-per-task</span><span class="op">=</span>8 <span class="at">--mem</span><span class="op">=</span>0 <span class="at">--mail-user</span><span class="op">=</span>macid@mcmaster.ca <span class="at">--mail-type</span><span class="op">=</span>ALL</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="rstudio-in-alliance-canada.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> salloc <span class="at">--time</span><span class="op">=</span>0:30:0 <span class="at">--account</span><span class="op">=</span>rrg-ggalex <span class="at">--cpus-per-task</span><span class="op">=</span>8 <span class="at">--mem</span><span class="op">=</span>0 <span class="at">--mail-user</span><span class="op">=</span>macid@mcmaster.ca <span class="at">--mail-type</span><span class="op">=</span>ALL</span></code></pre></div>
 <p>The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):</p>
 <ul>
 <li><em>time</em>: time of the interactive session in HH:MM:SS;</li>
@@ -250,12 +272,12 @@ directory you ran the command. This is your Apptainer container.</p>
 <li><em>mail-type</em>: verbosity of the e-mail.</li>
 </ul>
 <p><strong>5. Start the container in the newly allocated working node</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="rstudio-in-alliance-canada.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer exec <span class="at">--env</span> <span class="at">--bind</span> run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver <span class="at">--auth-none</span><span class="op">=</span>1 <span class="at">--auth-pam-helper-path</span><span class="op">=</span>pam-helper <span class="at">--server-user</span><span class="op">=</span><span class="va">$(</span><span class="fu">whoami</span><span class="va">)</span> <span class="at">--www-port</span><span class="op">=</span>8787</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="rstudio-in-alliance-canada.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer exec <span class="at">--env</span> <span class="at">--bind</span> run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver <span class="at">--auth-none</span><span class="op">=</span>1 <span class="at">--auth-pam-helper-path</span><span class="op">=</span>pam-helper <span class="at">--server-user</span><span class="op">=</span><span class="va">$(</span><span class="fu">whoami</span><span class="va">)</span> <span class="at">--www-port</span><span class="op">=</span>8787</span></code></pre></div>
 <p>This will launch an rstudio server as a singularity service. If you need, bash is
 available as a terminal tab in that RStudio. To access the instance, you need
 to do a ssh tunnel, to forward the cluster port in the working node, to your machine. For that, <strong>you must to create a new, separate, ssh connection, and keep it open</strong> (without
 running any job on it). You can do as this (similar to what we described in the ssh section of CCPrimer, with a twist):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="rstudio-in-alliance-canada.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-i</span> ~/computecanada/computecanada-key <span class="at">-L</span> 9102:graXXX:8787 username@graham.computecanada.ca</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="rstudio-in-alliance-canada.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-i</span> ~/computecanada/computecanada-key <span class="at">-L</span> 9102:graXXX:8787 username@graham.computecanada.ca</span></code></pre></div>
 <p>Some details:</p>
 <ul>
 <li><em>-i ~/computecanada/computecanada-key</em>: the <em>-i</em> flag calls your ssh key file;</li>
@@ -264,7 +286,7 @@ running any job on it). You can do as this (similar to what we described in the 
 </ul>
 <p>After this, you should be able to access the rstudio server by using this url
 in your browser:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="rstudio-in-alliance-canada.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">localhost:9102</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="rstudio-in-alliance-canada.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">localhost:9102</span></span></code></pre></div>
 
 <!-- # End matter -->
 <!-- ## Appendix A - Useful References -->
@@ -276,6 +298,14 @@ in your browser:</p>
 <!-- ), 'packages.bib') -->
 <!-- ``` -->
 
+<div id="refs" class="references csl-bib-body">
+<div class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Wikipedia contributors, <span>“Version control — <span>W</span>ikipedia<span>,</span> the free encyclopedia.”</span> 2002.Available: <a href="https://en.wikipedia.org/wiki/Version_control">https://en.wikipedia.org/wiki/Version_control</a></div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">Compute Canada, <span>“<span>SSH Key</span> — <span>CC Doc</span>.”</span> 2002.Available: <a href="https://docs.computecanada.ca/wiki/SSH_Keys">https://docs.computecanada.ca/wiki/SSH_Keys</a></div>
+</div>
+</div>
 </div>
 </div>
             </section>

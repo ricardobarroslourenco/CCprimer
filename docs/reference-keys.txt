@@ -27,11 +27,6 @@ creating-a-ssh-key
 depositing-the-public-key-on-compute-canada
 accessing-a-compute-canada-login-node
 running-batch-jobs
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
 rstudio-in-alliance-canada
-running-an-apptainer-hpc-container-as-an-interactive-session
-creating-a-ssh-key-1
-depositing-the-public-key-on-compute-canada-1
-accessing-a-compute-canada-login-node-1
-running-batch-jobs-1
 introduction
+running-an-apptainer-hpc-container-as-an-interactive-session

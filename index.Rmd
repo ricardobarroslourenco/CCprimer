@@ -1,13 +1,14 @@
 --- 
-title: "CC Primer: Compute Canada for geoscientists in a rush"
+title: 'CC Primer: Compute Canada for geoscientists in a rush'
 author: "Ricardo Barros Lourenco"
-date: "Last revision: `r Sys.Date()`"
+date: 'Last revision: `r Sys.Date()`'
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography:
+- book.bib
+- packages.bib
 csl: ieee.csl
 url: https://ricardobarroslourenco.github.io/CCprimer/
-# cover-image: path to the social sharing image like images/cover.jpg
 description: |
   Descricao (campo)
 link-citations: yes

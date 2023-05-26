@@ -17,18 +17,18 @@ container are available at [Docker Hub](https://hub.docker.com/repository/docker
 Prior to be able to run RStudio, you need to have a suitable container already built
 as a Singularity container, or build by yourself. 
 
-_From the cluster login node_ you can build it with the following steps:
+_From the cluster login node_ you can build it with the following steps (it is assumed that you are using [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) as a regular user - no sudo needed):
 
 **1. Load Apptainer**:
 ```{bash, eval=FALSE}
-$ module load apptainer
+module load apptainer
 ```
 
 Pick up the most recent version of it, and accept.
 
 **2. Then run the build** (run this command at your _home_, _project_ or _scratch_ folder):
 ```{bash, eval=FALSE}
-$ apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0
+apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0
 ```
 
 You should have, at the end, a file named _rstudio_container_v1_0.sif_ in the 
@@ -42,7 +42,7 @@ $ mkdir -p run var-lib-rstudio-server .rstudio
 Then the sqlite configuration file:
 
 ```{bash, eval=FALSE}
-$ printf 'provider=sqlite\ndirectory=/var/lib/rstudio-server\n' > database.conf
+printf 'provider=sqlite\ndirectory=/var/lib/rstudio-server\n' > database.conf
 ```
 
 **4. Starting an Interactive Job on the Supercomputer**
@@ -58,10 +58,25 @@ The setup of the flags is defined as this (more details available at the Allianc
  - *mem*: amount of RAM you want to allocate (zero means all memory of the node);
  - *mail-user*: e-mail address to send updates on the job allocation;
   - *mail-type*: verbosity of the e-mail.
+  
+After running this, you probably will see your bash change to something like (in the Graham cluster):
+
+```{bash, eval=FALSE}
+(base) [lourenco@gra-login1 scratch]$ salloc --time=0:30:0 --account=rrg-ggalex --cpus-per-task=8 --mem=0 --mail-user=barroslr@mcmaster.ca --mail-type=ALL
+salloc: Pending job allocation 6806097
+salloc: job 6806097 queued and waiting for resources
+salloc: job 6806097 has been allocated resources
+salloc: Granted job allocation 6806097
+salloc: Waiting for resource configuration
+salloc: Nodes gra189 are ready for job
+(base) [lourenco@gra189 scratch]$
+```
+
+Please note that **gra189** in this case is your machine name. You need to remember it later to use it in your ssh tunnel.
 
 **5. Start the container in the newly allocated working node**
 ```{bash, eval=FALSE}
-$ apptainer exec --env --bind run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver --auth-none=1 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-port=8787
+apptainer exec --bind run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver --auth-none=1 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-port=8787
 ```
 
 This will launch an rstudio server as a singularity service. If you need, bash is 
@@ -70,13 +85,13 @@ to do a ssh tunnel, to forward the cluster port in the working node, to your mac
 running any job on it). You can do as this (similar to what we described in the ssh section of CCPrimer, with a twist):
 
 ```{bash, eval=FALSE}
-$ ssh -i ~/computecanada/computecanada-key -L 9102:graXXX:8787 username@graham.computecanada.ca
+ssh -i ~/computecanada/computecanada-key -L 9102:graXXX:8787 username@graham.computecanada.ca
 ```
 
 Some details:
 
   - *-i ~/computecanada/computecanada-key*: the *-i* flag calls your ssh key file;
-  - *-L 9102:graXXX:8787*: the *ssh tunnel* in fact. It forwards node port 8787 to your localhost at port 9102;
+  - *-L 9102:graXXX:8787*: the *ssh tunnel* in fact. It forwards node port 8787 to your localhost at port 9102. Note that **you must replace graXXX with the node name of the machine assigned to you** after running *salloc*;
   - *username@graham.computecanada.ca*: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.
   
 After this, you should be able to access the rstudio server by using this url 
@@ -85,3 +100,9 @@ in your browser:
 ```{bash, eval=FALSE}
 localhost:9102
 ```
+
+## Finishing your Running session.
+
+Do not forget saving your work in partitions that enable saving (ex.: `/home`, `/project`, `/scratch`), because **if you save in a folder within the container, it will not be saved**, after your session ends. Remember that `/scratch` is meant for temporary save, being automatically wiped by the cluster systems after 30 days.
+
+Once saved, you can simply end your running sessions by either using `Ctrl + C` in the apptainer run session, and then calling `exit` on bash up to ending the `salloc` session, and another time, to relinquish the ssh session (remember to do this both in the bash session that runs the jobs, as well in the ssh tunnel). At the end you will only see the bash of your local machine. It is important to do this procedure, because otherwise it may be possible that the machine is still running, and consument the group Alliance Canada credits. Once you finish the slurm `salloc` session you will receive an e-mail (as you got one when the session started), telling that the session has finished (or relinquished, if your runnign time expired).

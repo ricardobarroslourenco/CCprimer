@@ -207,6 +207,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="4.1" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html#running-an-apptainer-hpc-container-as-an-interactive-session"><i class="fa fa-check"></i><b>4.2</b> Running an Apptainer HPC Container as an interactive session</a></li>
+<li class="chapter" data-level="4.3" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html#finishing-your-running-session."><i class="fa fa-check"></i><b>4.3</b> Finishing your Running session.</a></li>
 </ul></li>
 <li class="divider"></li>
 <li>   <a href="//creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" alt="" width="88" height="31"></a></li>
@@ -248,18 +249,18 @@ container are available at <a href="https://hub.docker.com/repository/docker/ric
 <h2><span class="header-section-number">4.2</span> Running an Apptainer HPC Container as an interactive session<a href="rstudio-in-alliance-canada.html#running-an-apptainer-hpc-container-as-an-interactive-session" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Prior to be able to run RStudio, you need to have a suitable container already built
 as a Singularity container, or build by yourself.</p>
-<p><em>From the cluster login node</em> you can build it with the following steps:</p>
+<p><em>From the cluster login node</em> you can build it with the following steps (it is assumed that you are using <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">bash</a> as a regular user - no sudo needed):</p>
 <p><strong>1. Load Apptainer</strong>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="rstudio-in-alliance-canada.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> module load apptainer</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="rstudio-in-alliance-canada.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load apptainer</span></code></pre></div>
 <p>Pick up the most recent version of it, and accept.</p>
 <p><strong>2. Then run the build</strong> (run this command at your <em>home</em>, <em>project</em> or <em>scratch</em> folder):</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="rstudio-in-alliance-canada.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="rstudio-in-alliance-canada.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> build rstudio_container_v1_0.sif docker://ricardobarroslourenco/rstudio_container:v1_0</span></code></pre></div>
 <p>You should have, at the end, a file named <em>rstudio_container_v1_0.sif</em> in the
 directory you ran the command. This is your Apptainer container.</p>
 <p><strong>3. Create transient folders and files to be able to run your container</strong> (these should be hosted at the same location as your container). Creating directories:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="rstudio-in-alliance-canada.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> run var-lib-rstudio-server .rstudio</span></code></pre></div>
 <p>Then the sqlite configuration file:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="rstudio-in-alliance-canada.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> printf <span class="st">&#39;provider=sqlite\ndirectory=/var/lib/rstudio-server\n&#39;</span> <span class="op">&gt;</span> database.conf</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="rstudio-in-alliance-canada.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">printf</span> <span class="st">&#39;provider=sqlite\ndirectory=/var/lib/rstudio-server\n&#39;</span> <span class="op">&gt;</span> database.conf</span></code></pre></div>
 <p><strong>4. Starting an Interactive Job on the Supercomputer</strong></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="rstudio-in-alliance-canada.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> salloc <span class="at">--time</span><span class="op">=</span>0:30:0 <span class="at">--account</span><span class="op">=</span>rrg-ggalex <span class="at">--cpus-per-task</span><span class="op">=</span>8 <span class="at">--mem</span><span class="op">=</span>0 <span class="at">--mail-user</span><span class="op">=</span>macid@mcmaster.ca <span class="at">--mail-type</span><span class="op">=</span>ALL</span></code></pre></div>
 <p>The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):</p>
@@ -271,22 +272,37 @@ directory you ran the command. This is your Apptainer container.</p>
 <li><em>mail-user</em>: e-mail address to send updates on the job allocation;</li>
 <li><em>mail-type</em>: verbosity of the e-mail.</li>
 </ul>
+<p>After running this, you probably will see your bash change to something like (in the Graham cluster):</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="rstudio-in-alliance-canada.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">[lourenco@gra-login1</span> scratch]$ salloc <span class="at">--time</span><span class="op">=</span>0:30:0 <span class="at">--account</span><span class="op">=</span>rrg-ggalex <span class="at">--cpus-per-task</span><span class="op">=</span>8 <span class="at">--mem</span><span class="op">=</span>0 <span class="at">--mail-user</span><span class="op">=</span>barroslr@mcmaster.ca <span class="at">--mail-type</span><span class="op">=</span>ALL</span>
+<span id="cb26-2"><a href="rstudio-in-alliance-canada.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc:</span> Pending job allocation 6806097</span>
+<span id="cb26-3"><a href="rstudio-in-alliance-canada.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc:</span> job 6806097 queued and waiting for resources</span>
+<span id="cb26-4"><a href="rstudio-in-alliance-canada.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc:</span> job 6806097 has been allocated resources</span>
+<span id="cb26-5"><a href="rstudio-in-alliance-canada.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc:</span> Granted job allocation 6806097</span>
+<span id="cb26-6"><a href="rstudio-in-alliance-canada.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc:</span> Waiting for resource configuration</span>
+<span id="cb26-7"><a href="rstudio-in-alliance-canada.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="ex">salloc:</span> Nodes gra189 are ready for job</span>
+<span id="cb26-8"><a href="rstudio-in-alliance-canada.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">[lourenco@gra189</span> scratch]$</span></code></pre></div>
+<p>Please note that <strong>gra189</strong> in this case is your machine name. You need to remember it later to use it in your ssh tunnel.</p>
 <p><strong>5. Start the container in the newly allocated working node</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="rstudio-in-alliance-canada.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> apptainer exec <span class="at">--env</span> <span class="at">--bind</span> run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver <span class="at">--auth-none</span><span class="op">=</span>1 <span class="at">--auth-pam-helper-path</span><span class="op">=</span>pam-helper <span class="at">--server-user</span><span class="op">=</span><span class="va">$(</span><span class="fu">whoami</span><span class="va">)</span> <span class="at">--www-port</span><span class="op">=</span>8787</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="rstudio-in-alliance-canada.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="at">--bind</span> run:/run,var-lib-rstudio-server:/var/lib/rstudio-server,database.conf:/etc/rstudio/database.conf,.rstudio:/home/rstudio/.rstudio/ rstudio_container_v1_0.sif /usr/lib/rstudio-server/bin/rserver <span class="at">--auth-none</span><span class="op">=</span>1 <span class="at">--auth-pam-helper-path</span><span class="op">=</span>pam-helper <span class="at">--server-user</span><span class="op">=</span><span class="va">$(</span><span class="fu">whoami</span><span class="va">)</span> <span class="at">--www-port</span><span class="op">=</span>8787</span></code></pre></div>
 <p>This will launch an rstudio server as a singularity service. If you need, bash is
 available as a terminal tab in that RStudio. To access the instance, you need
 to do a ssh tunnel, to forward the cluster port in the working node, to your machine. For that, <strong>you must to create a new, separate, ssh connection, and keep it open</strong> (without
 running any job on it). You can do as this (similar to what we described in the ssh section of CCPrimer, with a twist):</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="rstudio-in-alliance-canada.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ssh <span class="at">-i</span> ~/computecanada/computecanada-key <span class="at">-L</span> 9102:graXXX:8787 username@graham.computecanada.ca</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="rstudio-in-alliance-canada.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-i</span> ~/computecanada/computecanada-key <span class="at">-L</span> 9102:graXXX:8787 username@graham.computecanada.ca</span></code></pre></div>
 <p>Some details:</p>
 <ul>
 <li><em>-i ~/computecanada/computecanada-key</em>: the <em>-i</em> flag calls your ssh key file;</li>
-<li><em>-L 9102:graXXX:8787</em>: the <em>ssh tunnel</em> in fact. It forwards node port 8787 to your localhost at port 9102;</li>
+<li><em>-L 9102:graXXX:8787</em>: the <em>ssh tunnel</em> in fact. It forwards node port 8787 to your localhost at port 9102. Note that <strong>you must replace graXXX with the node name of the machine assigned to you</strong> after running <em>salloc</em>;</li>
 <li><em><a href="mailto:username@graham.computecanada.ca" class="email">username@graham.computecanada.ca</a></em>: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.</li>
 </ul>
 <p>After this, you should be able to access the rstudio server by using this url
 in your browser:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="rstudio-in-alliance-canada.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">localhost:9102</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="rstudio-in-alliance-canada.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">localhost:9102</span></span></code></pre></div>
+</div>
+<div id="finishing-your-running-session." class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Finishing your Running session.<a href="rstudio-in-alliance-canada.html#finishing-your-running-session." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Do not forget saving your work in partitions that enable saving (ex.: <code>/home</code>, <code>/project</code>, <code>/scratch</code>), because <strong>if you save in a folder within the container, it will not be saved</strong>, after your session ends. Remember that <code>/scratch</code> is meant for temporary save, being automatically wiped by the cluster systems after 30 days.</p>
+<p>Once saved, you can simply end your running sessions by either using <code>Ctrl + C</code> in the apptainer run session, and then calling <code>exit</code> on bash up to ending the <code>salloc</code> session, and another time, to relinquish the ssh session (remember to do this both in the bash session that runs the jobs, as well in the ssh tunnel). At the end you will only see the bash of your local machine. It is important to do this procedure, because otherwise it may be possible that the machine is still running, and consument the group Alliance Canada credits. Once you finish the slurm <code>salloc</code> session you will receive an e-mail (as you got one when the session started), telling that the session has finished (or relinquished, if your runnign time expired).</p>
 
 <!-- # End matter -->
 <!-- ## Appendix A - Useful References -->

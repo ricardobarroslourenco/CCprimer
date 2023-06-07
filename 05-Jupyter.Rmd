@@ -1,0 +1,156 @@
+# JupyterHub in Alliance Canada
+*Note 1*: This refers to an experimental usage of Python for HPC. This approach 
+has no official support from the Alliance, and the responsability is solely to 
+the user. An official Python environment is provided, with support, by the Alliance at
+[this website](https://docs.alliancecan.ca/wiki/Python).
+
+*Note 2*: This approach is aimed to single node processes. We will address over time cases with multi-node trainings, but this is still under development (usage of the SOSA Stack - [video](https://youtu.be/2SbpEiOM5JE), [slides](https://zenodo.org/record/7857369)). However, multi-node multi-gpu Deep Learning models can be already be trained with Horovod in Alliance machines ([link](https://docs.alliancecan.ca/wiki/TensorFlow/en#Horovod)).
+
+## Introduction
+In this approach, we use an adaptation of a Docker container maintained by the [Pangeo Community](https://pangeo.io) to install a custom setup of packages from the [Conda-Forge](https://conda-forge.org) project. Containers are available at [Docker Hub](https://hub.docker.com/repository/docker/ricardobarroslourenco/ts_rs/general), with the releases and their code available on [GitHub](https://github.com/ricardobarroslourenco/rs_images).
+
+## Running an Apptainer HPC Container as an interactive session
+Prior to be able to run JupyterLab, you need to have a suitable container already built
+as a Singularity container, or build by yourself. 
+
+_From the cluster login node_ you can build it with the following steps (it is assumed that you are using [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) as a regular user - no sudo needed):
+
+**1. Load Apptainer**:
+```{bash, eval=FALSE}
+module load apptainer
+```
+
+Pick up the most recent version of it, and accept.
+
+**2. Then run the build** (run this command at your _home_, _project_ or _scratch_ folder):
+```{bash, eval=FALSE}
+apptainer build ts_rs_v0_5.sif docker://ricardobarroslourenco/ts_rs:v0.5
+```
+
+You should have, at the end, a file named _ts_rs_v0_5.sif_ in the 
+directory you ran the command. This is your Apptainer container.
+
+**3. Starting an Interactive Job on the Supercomputer**
+```{bash, eval=FALSE}
+$ salloc --time=0:30:0 --account=rrg-ggalex --cpus-per-task=8 --mem=0 --mail-user=macid@mcmaster.ca --mail-type=ALL
+```
+
+The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):
+
+ - *time*: time of the interactive session in HH:MM:SS;
+ - *account*: PI account at the Alliance Can project;
+ - *cpus-per-task*: Amount of cpus in this interactive session. Capped to the limit of the node;
+ - *mem*: amount of RAM you want to allocate (zero means all memory of the node);
+ - *mail-user*: e-mail address to send updates on the job allocation;
+  - *mail-type*: verbosity of the e-mail.
+  
+After running this, you probably will see your bash change to something like (in the Graham cluster):
+
+```{bash, eval=FALSE}
+(base) [lourenco@gra-login1 scratch]$ salloc --time=0:30:0 --account=rrg-ggalex --cpus-per-task=8 --mem=0 --mail-user=barroslr@mcmaster.ca --mail-type=ALL
+salloc: Pending job allocation 6806097
+salloc: job 6806097 queued and waiting for resources
+salloc: job 6806097 has been allocated resources
+salloc: Granted job allocation 6806097
+salloc: Waiting for resource configuration
+salloc: Nodes gra189 are ready for job
+(base) [lourenco@gra189 scratch]$
+```
+
+Please note that **gra189** in this case is your machine name. You need to remember it later to use it in your ssh tunnel.
+
+**4. Start the container in the newly allocated working node**
+```{bash, eval=FALSE}
+apptainer shell --nv -B /home -B /project -B /scratch ts_rs_v0_5.sif
+```
+
+**5. Launching JupyterLab**
+
+The container is now started, and you need now to start JupyterLab. First, load the conda environment on the container:
+
+```{bash, eval=FALSE}
+source activate base
+```
+
+Then start a JupyterLab session (this is a session that is headless):
+
+```{bash, eval=FALSE}
+jupyter-lab --no-browser --ip $(hostname -f)
+```
+
+This will launch a JupyterLab server as a singularity service. If you need, bash is 
+available as a terminal tab in that JupyterLab. You should see something like this:
+
+```{bash, eval=FALSE}
+Apptainer> jupyter-lab --no-browser --ip $(hostname -f)
+[I 2023-06-07 11:36:57.713 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2023-06-07 11:36:59.595 ServerApp] Package dask_labextension took 1.8814s to import
+[W 2023-06-07 11:36:59.595 ServerApp] A `_jupyter_server_extension_points` function was not found in dask_labextension. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-06-07 11:36:59.624 ServerApp] Package jupyter_lsp took 0.0291s to import
+[W 2023-06-07 11:36:59.624 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-06-07 11:36:59.625 ServerApp] Package jupyter_server_proxy took 0.0000s to import
+[I 2023-06-07 11:36:59.644 ServerApp] Package jupyter_server_terminals took 0.0188s to import
+[I 2023-06-07 11:36:59.644 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2023-06-07 11:36:59.644 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-06-07 11:37:01.808 ServerApp] Package panel.io.jupyter_server_extension took 2.1617s to import
+[I 2023-06-07 11:37:01.808 ServerApp] dask_labextension | extension was successfully linked.
+[I 2023-06-07 11:37:01.808 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2023-06-07 11:37:01.808 ServerApp] jupyter_server_proxy | extension was successfully linked.
+[I 2023-06-07 11:37:01.813 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2023-06-07 11:37:01.818 ServerApp] jupyterlab | extension was successfully linked.
+[I 2023-06-07 11:37:02.927 ServerApp] notebook_shim | extension was successfully linked.
+[I 2023-06-07 11:37:02.927 ServerApp] panel.io.jupyter_server_extension | extension was successfully linked.
+[I 2023-06-07 11:37:02.972 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2023-06-07 11:37:02.973 ServerApp] dask_labextension | extension was successfully loaded.
+[I 2023-06-07 11:37:02.975 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2023-06-07 11:37:02.996 ServerApp] jupyter_server_proxy | extension was successfully loaded.
+[I 2023-06-07 11:37:02.997 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2023-06-07 11:37:02.998 LabApp] JupyterLab extension loaded from /opt/conda/lib/python3.11/site-packages/jupyterlab
+[I 2023-06-07 11:37:02.998 LabApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 2023-06-07 11:37:02.999 LabApp] Extension Manager is 'pypi'.
+[I 2023-06-07 11:37:03.001 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2023-06-07 11:37:03.001 ServerApp] panel.io.jupyter_server_extension | extension was successfully loaded.
+[I 2023-06-07 11:37:03.002 ServerApp] Serving notebooks from local directory: /scratch/lourenco
+[I 2023-06-07 11:37:03.002 ServerApp] Jupyter Server 2.6.0 is running at:
+[I 2023-06-07 11:37:03.002 ServerApp] http://gra-login2.graham.sharcnet:8888/lab?token=4ccce5d0045ff5768194c8c7f37a7dc80220caaf68324b8b
+[I 2023-06-07 11:37:03.002 ServerApp]     http://127.0.0.1:8888/lab?token=4ccce5d0045ff5768194c8c7f37a7dc80220caaf68324b8b
+[I 2023-06-07 11:37:03.002 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2023-06-07 11:37:03.028 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/lourenco/.local/share/jupyter/runtime/jpserver-11176-open.html
+    Or copy and paste one of these URLs:
+        http://gra-login2.graham.sharcnet:8888/lab?token=4ccce5d0045ff5768194c8c7f37a7dc80220caaf68324b8b
+        http://127.0.0.1:8888/lab?token=4ccce5d0045ff5768194c8c7f37a7dc80220caaf68324b8b
+```
+
+Note that despite several url's are provided to access the JupyterLab server, the server does not know that is running withing a container, in a cluster, therefore such URLs do not immediately work, as you are accessing it through a tunnel. The only one able to access, **after creating the ssh tunnel on port 8888**, is `http://127.0.0.1:8888/lab?token=4ccce5d0045ff5768194c8c7f37a7dc80220caaf68324b8b`.
+
+Reinforcing, to access the instance, you need 
+to do a ssh tunnel, to forward the cluster port in the working node, to your machine. For that, **you must to create a new, separate, ssh connection, and keep it open** (without 
+running any job on it). You can do as this (similar to what we described in the ssh section of CCPrimer, with a twist):
+
+```{bash, eval=FALSE}
+ssh -i ~/computecanada/computecanada-key -L 8888:graXXX:8888 username@graham.computecanada.ca
+```
+
+Some details:
+
+  - *-i ~/computecanada/computecanada-key*: the *-i* flag calls your ssh key file;
+  - *-L 8888:graXXX:8888*: the *ssh tunnel* in fact. It forwards node port 8888 to your localhost at port 8888. Note that **you must replace graXXX with the node name of the machine assigned to you** after running *salloc*. If you use Dask in your jobs, it is available within the 8888, not needing to open aditional ports for the dashboards;
+  - *username@graham.computecanada.ca*: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.
+  
+After this, you should be able to access the rstudio server by using this url 
+in your browser:
+
+```{bash, eval=FALSE}
+http://127.0.0.1:8888/lab?token=XXXXXXXXXXXXXXXXXXXXXXX
+```
+
+Remember that this is an example, so you need to get the token URL provided by JupyterLab once launching the session.
+
+## Finishing your Running session.
+
+Do not forget saving your work in partitions that enable saving (ex.: `/home`, `/project`, `/scratch`), because **if you save in a folder within the container, it will not be saved**, after your session ends. Remember that `/scratch` is meant for temporary save, being automatically wiped by the cluster systems after 30 days.
+
+Once saved, you can simply end your running sessions by either using `Ctrl + C` in the apptainer run session, and then calling `exit` on bash up to ending the `salloc` session, and another time, to relinquish the ssh session (remember to do this both in the bash session that runs the jobs, as well in the ssh tunnel). At the end you will only see the bash of your local machine. It is important to do this procedure, because otherwise it may be possible that the machine is still running, and consument the group Alliance Canada credits. Once you finish the slurm `salloc` session you will receive an e-mail (as you got one when the session started), telling that the session has finished (or relinquished, if your runnign time expired).

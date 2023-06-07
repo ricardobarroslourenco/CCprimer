@@ -77,6 +77,8 @@ of this document, rather than a especific one.
 <!-- ## List of abbreviations and acronyms -->
 
 ## Cronology
+2023-06-07 - v0.3 - Adds Jupyter description, and BASH screen tool usage
+
 2023-05-23 - v0.2 - Adds description on how to run Rstudio Server on Alliance 
 Canada Premises.
 

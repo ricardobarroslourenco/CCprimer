@@ -21,7 +21,7 @@ screen -S session_01
 
 ### See all available sessions
 ```{bash, eval=FALSE}
-screen ls
+screen -ls
 ```
 
 You probably will see something like this:

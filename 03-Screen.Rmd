@@ -4,10 +4,10 @@ On this section we will write some hints on the Bourne Again Shell (BASH), a com
 ## Screen
 Screen is a tool you can use to keep a ssh session run through BASH alive. Why it is useful(?):
 
-1- When you have unreliable internet connections connections (ex.: Wifi, cellphone);
-2- Power outages;
-3- Your local machine freezes, or have any other issue, and your connection is killed;
-4- Any random reason that blocks your local terminal to access the remote ssh session.
+1. When you have unreliable internet connections connections (ex.: Wifi, cellphone);
+2. Power outages;
+3. Your local machine freezes, or have any other issue, and your connection is killed;
+4. Any random reason that blocks your local terminal to access the remote ssh session.
 
 ## How to use it
 Some useful description is available in [this website](https://web.archive.org/web/20230606181644/https://www.networkworld.com/article/3441777/how-the-linux-screen-tool-can-save-your-tasks-and-your-sanity-if-ssh-is-interrupted.html), and on the app documentation. But you can proceed as follows:

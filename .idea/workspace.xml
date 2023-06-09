@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3 - Adds Jupyter and BASH chapters">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.1 - Fix typo on screen session list">
+      <change beforePath="$PROJECT_DIR$/05-Jupyter.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/05-Jupyter.Rmd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,19 +23,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
       <deployment type="docker-image">
@@ -88,6 +89,7 @@
       <workItem from="1684877974817" duration="696000" />
       <workItem from="1685116766058" duration="82000" />
       <workItem from="1686149086782" duration="2376000" />
+      <workItem from="1686319633840" duration="580000" />
     </task>
     <task id="LOCAL-00001" summary="v0.2.1 - Fix broken links through rebuilding">
       <created>1684878056015</created>
@@ -103,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686163182976</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v0.3.1 - Fix typo on screen session list">
+      <created>1686319812198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686319812198</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.2.1 - Fix broken links through rebuilding" />
     <MESSAGE value="v0.3 - Adds Jupyter and BASH chapters" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3 - Adds Jupyter and BASH chapters" />
+    <MESSAGE value="v0.3.1 - Fix typo on screen session list" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3.1 - Fix typo on screen session list" />
   </component>
 </project>

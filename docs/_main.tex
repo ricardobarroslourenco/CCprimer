@@ -815,10 +815,18 @@ On this section we will write some hints on the Bourne Again Shell (BASH), a com
 
 Screen is a tool you can use to keep a ssh session run through BASH alive. Why it is useful(?):
 
-1- When you have unreliable internet connections connections (ex.: Wifi, cellphone);
-2- Power outages;
-3- Your local machine freezes, or have any other issue, and your connection is killed;
-4- Any random reason that blocks your local terminal to access the remote ssh session.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  When you have unreliable internet connections connections (ex.: Wifi, cellphone);
+\item
+  Power outages;
+\item
+  Your local machine freezes, or have any other issue, and your connection is killed;
+\item
+  Any random reason that blocks your local terminal to access the remote ssh session.
+\end{enumerate}
 
 \hypertarget{how-to-use-it}{%
 \section{How to use it}\label{how-to-use-it}}
@@ -1083,7 +1091,7 @@ directory you ran the command. This is your Apptainer container.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{$}\NormalTok{ salloc }\AttributeTok{{-}{-}time}\OperatorTok{=}\NormalTok{0:30:0 }\AttributeTok{{-}{-}account}\OperatorTok{=}\NormalTok{rrg{-}ggalex }\AttributeTok{{-}{-}cpus{-}per{-}task}\OperatorTok{=}\NormalTok{8 }\AttributeTok{{-}{-}mem}\OperatorTok{=}\NormalTok{0 }\AttributeTok{{-}{-}mail{-}user}\OperatorTok{=}\NormalTok{macid@mcmaster.ca }\AttributeTok{{-}{-}mail{-}type}\OperatorTok{=}\NormalTok{ALL}
+\ExtensionTok{salloc} \AttributeTok{{-}{-}time}\OperatorTok{=}\NormalTok{0:30:0 }\AttributeTok{{-}{-}account}\OperatorTok{=}\NormalTok{rrg{-}ggalex }\AttributeTok{{-}{-}cpus{-}per{-}task}\OperatorTok{=}\NormalTok{8 }\AttributeTok{{-}{-}mem}\OperatorTok{=}\NormalTok{0 }\AttributeTok{{-}{-}mail{-}user}\OperatorTok{=}\NormalTok{macid@mcmaster.ca }\AttributeTok{{-}{-}mail{-}type}\OperatorTok{=}\NormalTok{ALL}
 \end{Highlighting}
 \end{Shaded}
 

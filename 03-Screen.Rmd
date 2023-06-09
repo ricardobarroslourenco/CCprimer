@@ -44,7 +44,8 @@ Let's say you want to finish _session_01_. You first enter in another session, a
 screen -XS 1946 quit
 ```
 
-If the session you are aiming to finish is the last one, then
-- **ctrl + A**
-- **k**
-- and **y**.
+If the session you are aiming to finish is the last one, then:
+
+* **ctrl + A**;
+* **k**;
+* and **y**.

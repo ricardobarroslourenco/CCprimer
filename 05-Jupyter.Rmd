@@ -32,7 +32,7 @@ directory you ran the command. This is your Apptainer container.
 
 **3. Starting an Interactive Job on the Supercomputer**
 ```{bash, eval=FALSE}
-salloc --time=0:30:0 --account=rrg-ggalex --cpus-per-task=8 --mem=0 --mail-user=macid@mcmaster.ca --mail-type=ALL
+salloc --time=24:00:0 --account=rrg-ggalex --cpus-per-task=44 --mem=0 --mail-user=macid@mcmaster.ca --mail-type=ALL
 ```
 
 The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):
@@ -64,6 +64,11 @@ Please note that **gra189** in this case is your machine name. You need to remem
 apptainer shell --nv -B /home -B /project -B /scratch ts_rs_v0_5.sif
 ```
 
+Another option, which mounts all system folders in a single _host_folders_ folder can be assigned as this:
+```{bash, eval=FALSE}
+apptainer shell --nv -B ~/.:/host_folders/home,/home/lourenco/projects/rrg-ggalex/lourenco:/host_folders/projects_ricardo,/home/lourenco/scratch:/host_folders/scratch ts_rs_v0_5.sif
+```
+
 **5. Launching JupyterLab**
 
 The container is now started, and you need now to start JupyterLab. First, load the conda environment on the container:
@@ -72,7 +77,12 @@ The container is now started, and you need now to start JupyterLab. First, load 
 source activate base
 ```
 
-Then start a JupyterLab session (this is a session that is headless):
+Note that startting Jupyter on the console will limit the scope of folders that Jupyter can see. I recommend to mount that on the root of the container filesystem. To guarantee that, let's got to the base:
+```{bash, eval=FALSE}
+cd /
+```
+
+Then now start a JupyterLab session (this is a session that is headless):
 
 ```{bash, eval=FALSE}
 jupyter-lab --no-browser --ip $(hostname -f)

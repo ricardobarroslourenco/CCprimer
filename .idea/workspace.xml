@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.2 - Fix typos">
+    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.3 - Rebuild site (fix formatting)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/05-Jupyter.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/05-Jupyter.Rmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_main.epub" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.epub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/jupyterhub-in-alliance-canada.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/jupyterhub-in-alliance-canada.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/search_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/search_index.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,20 +30,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
       <deployment type="docker-image">
@@ -89,7 +96,9 @@
       <workItem from="1684877974817" duration="696000" />
       <workItem from="1685116766058" duration="82000" />
       <workItem from="1686149086782" duration="2376000" />
-      <workItem from="1686319633840" duration="1415000" />
+      <workItem from="1686319633840" duration="1720000" />
+      <workItem from="1686343955174" duration="15000" />
+      <workItem from="1686671859982" duration="1164000" />
     </task>
     <task id="LOCAL-00001" summary="v0.2.1 - Fix broken links through rebuilding">
       <created>1684878056015</created>
@@ -119,17 +128,36 @@
       <option name="project" value="LOCAL" />
       <updated>1686320403081</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="v0.3.3 - Rebuild site (fix formatting)">
+      <created>1686330528014</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686330528014</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v0.2.1 - Fix broken links through rebuilding" />
     <MESSAGE value="v0.3 - Adds Jupyter and BASH chapters" />
     <MESSAGE value="v0.3.1 - Fix typo on screen session list" />
     <MESSAGE value="v0.3.2 - Fix typos" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3.2 - Fix typos" />
+    <MESSAGE value="v0.3.3 - Rebuild site (fix formatting)" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3.3 - Rebuild site (fix formatting)" />
   </component>
 </project>

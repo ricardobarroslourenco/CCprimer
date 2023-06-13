@@ -117,7 +117,7 @@
 
 \title{CC Primer: Compute Canada for geoscientists in a rush}
 \author{Ricardo Barros Lourenco}
-\date{Last revision: 2023-06-09}
+\date{Last revision: 2023-06-13}
 
 \begin{document}
 \maketitle
@@ -1098,7 +1098,7 @@ directory you ran the command. This is your Apptainer container.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{salloc} \AttributeTok{{-}{-}time}\OperatorTok{=}\NormalTok{0:30:0 }\AttributeTok{{-}{-}account}\OperatorTok{=}\NormalTok{rrg{-}ggalex }\AttributeTok{{-}{-}cpus{-}per{-}task}\OperatorTok{=}\NormalTok{8 }\AttributeTok{{-}{-}mem}\OperatorTok{=}\NormalTok{0 }\AttributeTok{{-}{-}mail{-}user}\OperatorTok{=}\NormalTok{macid@mcmaster.ca }\AttributeTok{{-}{-}mail{-}type}\OperatorTok{=}\NormalTok{ALL}
+\ExtensionTok{salloc} \AttributeTok{{-}{-}time}\OperatorTok{=}\NormalTok{24:00:0 }\AttributeTok{{-}{-}account}\OperatorTok{=}\NormalTok{rrg{-}ggalex }\AttributeTok{{-}{-}cpus{-}per{-}task}\OperatorTok{=}\NormalTok{44 }\AttributeTok{{-}{-}mem}\OperatorTok{=}\NormalTok{0 }\AttributeTok{{-}{-}mail{-}user}\OperatorTok{=}\NormalTok{macid@mcmaster.ca }\AttributeTok{{-}{-}mail{-}type}\OperatorTok{=}\NormalTok{ALL}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1145,6 +1145,14 @@ Please note that \textbf{gra189} in this case is your machine name. You need to 
 \end{Highlighting}
 \end{Shaded}
 
+Another option, which mounts all system folders in a single \emph{host\_folders} folder can be assigned as this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{apptainer}\NormalTok{ shell }\AttributeTok{{-}{-}nv} \AttributeTok{{-}B}\NormalTok{ \textasciitilde{}/.:/host\_folders/home,/home/lourenco/projects/rrg{-}ggalex/lourenco:/host\_folders/projects\_ricardo,/home/lourenco/scratch:/host\_folders/scratch ts\_rs\_v0\_5.sif}
+\end{Highlighting}
+\end{Shaded}
+
 \textbf{5. Launching JupyterLab}
 
 The container is now started, and you need now to start JupyterLab. First, load the conda environment on the container:
@@ -1155,7 +1163,15 @@ The container is now started, and you need now to start JupyterLab. First, load 
 \end{Highlighting}
 \end{Shaded}
 
-Then start a JupyterLab session (this is a session that is headless):
+Note that startting Jupyter on the console will limit the scope of folders that Jupyter can see. I recommend to mount that on the root of the container filesystem. To guarantee that, let's got to the base:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ /}
+\end{Highlighting}
+\end{Shaded}
+
+Then now start a JupyterLab session (this is a session that is headless):
 
 \begin{Shaded}
 \begin{Highlighting}[]

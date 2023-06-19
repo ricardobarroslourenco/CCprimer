@@ -117,7 +117,7 @@
 
 \title{CC Primer: Compute Canada for geoscientists in a rush}
 \author{Ricardo Barros Lourenco}
-\date{Last revision: 2023-06-13}
+\date{Last revision: 2023-06-19}
 
 \begin{document}
 \maketitle
@@ -829,7 +829,7 @@ Screen is a tool you can use to keep a ssh session run through BASH alive. Why i
 \end{enumerate}
 
 \hypertarget{how-to-use-it}{%
-\section{How to use it}\label{how-to-use-it}}
+\subsection{How to use it}\label{how-to-use-it}}
 
 Some useful description is available in \href{https://web.archive.org/web/20230606181644/https://www.networkworld.com/article/3441777/how-the-linux-screen-tool-can-save-your-tasks-and-your-sanity-if-ssh-is-interrupted.html}{this website}, and on the app documentation. But you can proceed as follows:
 
@@ -895,6 +895,52 @@ If the session you are aiming to finish is the last one, then:
 \item
   and \textbf{y}.
 \end{itemize}
+
+\hypertarget{watch}{%
+\section{Watch}\label{watch}}
+
+Watch is a program that runs commands using a clock. In our case, watch is kind
+of useful when needing to monitor an application shell output. Common cases in HPC
+are when you need to see updates in \texttt{nvidia-smi} or slurm \texttt{squeue} command.
+
+The base syntax is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{watch} \AttributeTok{{-}n}\NormalTok{ XX command}
+\end{Highlighting}
+\end{Shaded}
+
+In which:
+* \textbf{XX} is the refresh rate in seconds;
+* \textbf{command} is the bash command you want to refresh the output
+
+\hypertarget{slurm-queue-example}{%
+\subsection{Slurm queue example}\label{slurm-queue-example}}
+
+The base syntax is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{watch} \AttributeTok{{-}n}\NormalTok{ 5 squeue }\AttributeTok{{-}u}\NormalTok{ username}
+\end{Highlighting}
+\end{Shaded}
+
+In which:
+* \textbf{username} is the username in the slurm cluster;
+
+\hypertarget{nvidia-card-output}{%
+\subsection{NVIDIA card output}\label{nvidia-card-output}}
+
+The base syntax is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{watch} \AttributeTok{{-}n}\NormalTok{ 5 nvidia{-}smi}
+\end{Highlighting}
+\end{Shaded}
+
+It refreshes every 5 seconds the running info from the NVIDIA card in the node (this will fail on CPU-only nodes)
 
 \hypertarget{rstudio-in-alliance-canada}{%
 \chapter{RStudio in Alliance Canada}\label{rstudio-in-alliance-canada}}

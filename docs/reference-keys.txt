@@ -34,6 +34,9 @@ creating-a-session
 see-all-available-sessions
 reattach-to-a-previously-established-session
 finishing-a-session
+watch
+slurm-queue-example
+nvidia-card-output
 rstudio-in-alliance-canada
 introduction
 running-an-apptainer-hpc-container-as-an-interactive-session

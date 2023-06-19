@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.3 - Rebuild site (fix formatting)">
+    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.4 - Include alternate folder mapping for Jupyter on apptainer call. Fix slurm cpu call that may lead to subutilization by default.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05-Jupyter.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/05-Jupyter.Rmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_main.epub" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.epub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jupyterhub-in-alliance-canada.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/jupyterhub-in-alliance-canada.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/search_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/search_index.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +47,8 @@
     <configuration name="rstudio" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
       <deployment type="docker-image">
         <settings>
-          <option name="imageTag" value="registry.hub.docker.com/ricardobarroslourenco/rstudio_container:v1_0" />
-          <option name="attachToContainerNeeded" value="true" />
-          <option name="containerName" value="rstudio" />
+          <option name="imageTag" value="sha256:da5e45967b4e1de6c07f54a59f0492152c5db9feee8a3df2d375380a3e83b78d" />
+          <option name="containerName" value="" />
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
@@ -68,8 +60,8 @@
           <option name="volumeBindings">
             <list>
               <DockerVolumeBindingImpl>
-                <option name="containerPath" value="/host_home" />
-                <option name="hostPath" value="$PROJECT_DIR$/../../.." />
+                <option name="containerPath" value="$PROJECT_DIR$/../../../rstudio/ricardo" />
+                <option name="hostPath" value="$USER_HOME$/" />
               </DockerVolumeBindingImpl>
             </list>
           </option>
@@ -79,6 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.rstudio" />
+        <item itemvalue="Docker.rstudio" />
         <item itemvalue="Docker.rstudio" />
       </list>
     </recent_temporary>
@@ -98,7 +92,8 @@
       <workItem from="1686149086782" duration="2376000" />
       <workItem from="1686319633840" duration="1720000" />
       <workItem from="1686343955174" duration="15000" />
-      <workItem from="1686671859982" duration="1164000" />
+      <workItem from="1686671859982" duration="1840000" />
+      <workItem from="1687207121765" duration="625000" />
     </task>
     <task id="LOCAL-00001" summary="v0.2.1 - Fix broken links through rebuilding">
       <created>1684878056015</created>
@@ -135,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686330528014</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="v0.3.4 - Include alternate folder mapping for Jupyter on apptainer call. Fix slurm cpu call that may lead to subutilization by default.">
+      <created>1686673153007</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686673153007</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +160,7 @@
     <MESSAGE value="v0.3.1 - Fix typo on screen session list" />
     <MESSAGE value="v0.3.2 - Fix typos" />
     <MESSAGE value="v0.3.3 - Rebuild site (fix formatting)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3.3 - Rebuild site (fix formatting)" />
+    <MESSAGE value="v0.3.4 - Include alternate folder mapping for Jupyter on apptainer call. Fix slurm cpu call that may lead to subutilization by default." />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.3.4 - Include alternate folder mapping for Jupyter on apptainer call. Fix slurm cpu call that may lead to subutilization by default." />
   </component>
 </project>

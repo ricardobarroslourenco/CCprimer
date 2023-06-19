@@ -306,15 +306,19 @@ of useful when needing to monitor an application shell output. Common cases in H
 are when you need to see updates in <code>nvidia-smi</code> or slurm <code>squeue</code> command.</p>
 <p>The base syntax is:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="bash.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">watch</span> <span class="at">-n</span> XX command</span></code></pre></div>
-<p>In which:
-* <strong>XX</strong> is the refresh rate in seconds;
-* <strong>command</strong> is the bash command you want to refresh the output</p>
+<p>In which:</p>
+<ul>
+<li><strong>XX</strong> is the refresh rate in seconds;</li>
+<li><strong>command</strong> is the bash command you want to refresh the output</li>
+</ul>
 <div id="slurm-queue-example" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Slurm queue example<a href="bash.html#slurm-queue-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The base syntax is:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="bash.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">watch</span> <span class="at">-n</span> 5 squeue <span class="at">-u</span> username</span></code></pre></div>
-<p>In which:
-* <strong>username</strong> is the username in the slurm cluster;</p>
+<p>In which:</p>
+<ul>
+<li><strong>username</strong> is the username in the slurm cluster;</li>
+</ul>
 </div>
 <div id="nvidia-card-output" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> NVIDIA card output<a href="bash.html#nvidia-card-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>

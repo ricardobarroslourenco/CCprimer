@@ -71,12 +71,12 @@ compliant server such as a private repository built with
 #### Ubuntu (or any other Debian-based environment)
 First update your Operating System (OS) repository indexes:
 ```{bash, eval=FALSE}
-$ sudo apt-get update
+sudo apt-get update
 ```
 
 Then proceed to install:
 ```{bash, eval=FALSE}
-$ sudo apt-get install git
+sudo apt-get install git
 ```
 
 Note: If you use Ubuntu, git is already provided as a base repository on this 
@@ -103,7 +103,7 @@ lot of *.nix software not supported by Apple it is useful):
   - [Download and install homebrew](https://brew.sh/) from their website;
   - Install git as:
   ```{bash, eval=FALSE}
-  $ brew install git
+  brew install git
   ```
   - In the terminal, run _git_ and you should receive an output of basic 
 description of commands available on git.
@@ -130,7 +130,7 @@ credentials to connect to a git repository, such as GitHub or GitLab for example
 
 To do so, run on your bash terminal (or command-line if on windows):
 ```{bash, eval=FALSE}
-$ git config -- global user.name "Your full name"
+git config -- global user.name "Your full name"
 ```
 Note: On quotes you need to specify a name (depending on the environment, 
 it should be your full name, or an alias, such as employee number, for example). This 
@@ -139,12 +139,12 @@ command has a global scope, so all users on your machine would have the same set
 Then you need to specify an e-mail address (if on GitHub, it is preferred that 
 is linked to your account):
 ```{bash, eval=FALSE}
-$ git config -- global user.email "Your e-mail address"
+git config -- global user.email "Your e-mail address"
 ```
 
 Then check, if all values were set:
 ```{bash, eval=FALSE}
-$ git config --list
+git config --list
 ```
 You should see an output that reflects those previously set name and e-mail values.
 
@@ -227,11 +227,11 @@ token, and create a new one.
 you just need to access GitHub with it. A simple way, that will be further 
 explained in more detail would be making a local copy of a repository using _git clone_:
 ```{bash, eval=FALSE}
-$ git clone https://github.com/a_very_weird_user_name/a_more_weird_user_project_name.git
+git clone https://github.com/a_very_weird_user_name/a_more_weird_user_project_name.git
 ```
 A concrete example would be the source-code of this document:
 ```{bash, eval=FALSE}
-$ git clone https://github.com/ricardobarroslourenco/CCprimer.git
+git clone https://github.com/ricardobarroslourenco/CCprimer.git
 ```
 * Once done, your local git should request:
   + User-name: The one you have set for your GitHub account;
@@ -245,7 +245,7 @@ clone command - in bash / terminal / command line).
   if these occur, they will be output on your bash / terminal / command line)
 * Finally, to persist the token on your local install, run:
 ```{bash, eval=FALSE}
-$ git config --global credential.helper cache
+git config --global credential.helper cache
 ```
   + If you need to clean-up the token(s) installed:
   ```{bash, eval=FALSE}
@@ -273,14 +273,14 @@ When the user create or delete file(s) it is necessary to inform `git` that such
 addition/deletion happened via:
 
 ```{bash, eval=FALSE}
-$ git add folder_url
+git add folder_url
 ```
 
 If you want to update the entire project, you need to go via bash to the root of
 the git project, and then:
 
 ```{bash, eval=FALSE}
-$ git add .
+git add .
 ```
 
 #### Git commit
@@ -288,7 +288,7 @@ After eventual addition/deletion(s) are informed to git, then, it is necessary
 to inform updates and the nature of these. This can be done via:
 
 ```{bash, eval=FALSE}
-$ git commit -m "message describing the commit"
+git commit -m "message describing the commit"
 ```
 
 Ideally the message would describe what was done. Important to note that this 
@@ -305,7 +305,7 @@ these changes would become available to all users.
 Often the repository on github has a `main` branch, therefore, the command is:
 
 ```{bash, eval=FALSE}
-$ git push -u origin main
+git push -u origin main
 ```
 
 In which `origin` is the local repository, and `main` is the branch you want to 

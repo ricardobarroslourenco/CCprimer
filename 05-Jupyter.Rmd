@@ -31,8 +31,14 @@ You should have, at the end, a file named _ts_rs_v0_5.sif_ in the
 directory you ran the command. This is your Apptainer container.
 
 **3. Starting an Interactive Job on the Supercomputer**
+With CPU support in Graham
 ```{bash, eval=FALSE}
 salloc --time=24:00:0 --account=rrg-ggalex --cpus-per-task=44 --mem=0 --mail-user=macid@mcmaster.ca --mail-type=ALL
+```
+
+With GPU (P100) support in Graham
+```{bash, eval=FALSE}
+salloc --time=24:00:0 --nodes=1 --gpus-per-node=p100:2 --ntasks-per-node=32 --mem=0 --account=rrg-ggalex --mail-user=macid@mcmaster.ca --mail-type=ALL
 ```
 
 The setup of the flags is defined as this (more details available at the Alliance Documentation, as well as on the Slurm manual):

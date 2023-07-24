@@ -19,7 +19,7 @@ distribution via a shell terminal (such as Bash, for example).
 In a general way, you can create a new key pair with this command:
 
 ```{bash, eval=FALSE}
-$ ssh-keygen -C 'compute canada systems' -f computecanada-key -t rsa -b 4096
+ssh-keygen -C 'compute canada systems' -f computecanada-key -t rsa -b 4096
 ```
 
 The parameters refer to:
@@ -70,7 +70,7 @@ To do so, you need to open your _.pub_ file with a simple text editor (ex.: Note
 Once your public key is loaded and synchronized in all machines, you may login a compute node using a terminal (On Windows, you need to use PowerShell; on MacOS, Terminal; and on Linux, your preferred Shell, such as Bash):
 
 ```{bash, eval=FALSE}
-$ ssh -i ./computecanada-key your-compute-canada-username@MMMMMM.computecanada.ca
+ssh -i ./computecanada-key your-compute-canada-username@MMMMMM.computecanada.ca
 ```
 
 The command opens a SSH terminal session with the following parameters:
@@ -129,12 +129,12 @@ Some requirements:
 as `r_batch_standalone.sh`:
 
 ```{bash, eval=FALSE}
-$ chmod +x r_batch_standalone.sh
+chmod +x r_batch_standalone.sh
 ```
 
 - Finally, you can submit this batch job as:
 ```{bash, eval=FALSE}
-$ sbatch r_batch_standalone.sh
+sbatch r_batch_standalone.sh
 ```
 
 Once submitted, you should receive a job number at the console. Once its status

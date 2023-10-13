@@ -5,16 +5,19 @@
 \documentclass[
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -44,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -58,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -67,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -108,7 +111,7 @@
 \bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={CC Primer: Compute Canada for geoscientists in a rush},
   pdfauthor={Ricardo Barros Lourenco},
@@ -151,20 +154,123 @@ Please use this BibTeX fragment:
 \end{Highlighting}
 \end{Shaded}
 
-Obs.: Note that the DOI is of a previous version (10.5281/zenodo.5937906) when
-comapred to the badge displayed on this website, because it relates to all versions
+Obs.: Note that the DOI is of the base version (10.5281/zenodo.5937906) when
+compared to each revision releases, because it relates to all versions
 of this document, rather than a especific one.
+
+\hypertarget{dedication}{%
+\section{Dedication}\label{dedication}}
+
+The author dedicates this work to all geoscientists that are trying to cross the
+border into Computational Sciences, and to all computer scientists, mathematicians,
+physicists, and other professionals who daily contribute in this community,
+by writing code, documenting, answering questions, maintaining infrastructure,
+among many other essential tasks. Thank you for your service!
+
+\hypertarget{epigraph}{%
+\section{Epigraph}\label{epigraph}}
+
+\begin{quote}
+``Here's to the crazy ones.
+The misfits.
+The rebels.
+The troublemakers.
+The round pegs in the square holes.
+
+The ones who see things differently.
+
+They're not fond of rules.
+And they have no respect for the status quo.
+
+You can quote them, disagree with them, glorify or vilify them.
+About the only thing you can't do is ignore them.
+
+Because they change things.
+
+They push the human race forward.
+
+While some may see them as the crazy ones,
+we see genius.
+
+Because the people who are crazy enough to think
+they can change the world, are the ones who do.''
+
+--- Apple Computer, \emph{``Think different''} campaign. TBWA-Chiat-Day.
+\end{quote}
+
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+The author would like to acknowledge the contibution of the general Open Source Science
+community, in especially the following entities:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.anaconda.com/}{Anaconda}
+\item
+  \href{https://alliancecan.ca/}{Digital Research Alliance of Canada} (formerly Compute Canada)
+\item
+  \href{https://www.globus.org}{Globus}
+\item
+  \href{https://pangeo.io}{Pangeo Community}
+\item
+  \href{https://rocker-project.org}{RockeR Project}
+\item
+  \href{https://scholar.google.com/citations?user=RTF50S4AAAAJ}{Vanessa Sochat}
+\end{itemize}
+
+The author would like to acknowledge support, in part, of the following on this
+work:
+
+\begin{itemize}
+\tightlist
+\item
+  Through my advisor, Prof.~\href{https://scholar.google.ca/citations?user=snRPOMkAAAAJ}{Alemu Gonsamo}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Natural Sciences and Engineering Research Council of Canada (NSERC), through its NSERC
+    Alliance program (Application: ALLRP 566310-21)
+  \item
+    Canada Research Chair program (CRC-2019-00139)
+  \end{itemize}
+\item
+  \href{https://climate.mcmaster.ca}{McMaster University Centre for Climate Change} Research Seed Fund
+\item
+  The Shared Hierarchical Academic Research Computing Network (\href{https://www.sharcnet.ca/}{SHARCNET}), and
+  the Digital Research Alliance of Canada through its Research Allocation Competition, under the
+  2023 Resources for Research Groups process ``National carbon flux estimation system for forest
+  ecosystems of Canada'' (ID 4715)
+\end{itemize}
 
 \hypertarget{cronology}{%
 \section{Cronology}\label{cronology}}
 
-2023-06-07 - v0.3 - Adds Jupyter description, and BASH screen tool usage
+2023-10-13 - v1.0 - First release, after several reviews.
 
-2023-05-23 - v0.2 - Adds description on how to run Rstudio Server on Alliance
-Canada Premises.
+2022-01-31 - v0.1 - Beginning.
 
-2022-01-31 - Beginning of v0.1. (This version is quite unstable, and versioning
-during this stage will be limited).
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+The difficulty on finding instructional material that covers the complexities of
+writing scientific code, and deploying it in High-Performance Computing (HPC)
+environments led to the writing of this guide.
+
+This is a non-exhaustive work, but rather a reference one, in which the author
+wishes to reduce the barriers of routine HPC workflows for Remote Sensing run at
+the \href{https://remotesensing-mcmaster.org}{McMaster University Remote Sensing Laboratory}.
+
+These guidelines are provided without any guarantee, including of support, but
+in a best effort to overcome the aforementioned barriers.
+
+I encourage users to suggest corrections, by clicking in the edit button
+(available on the online version of this guide), and submitting a pull request.
+
+Other comments can be done though my \href{http://about.me/ricardobarroslourenco/}{social media channels}, or via
+e-mail: barroslr mcmaster.ca
 
 \hypertarget{version-control-systems}{%
 \chapter{Version Control Systems}\label{version-control-systems}}
@@ -622,7 +728,7 @@ characteristics.
 Canada's \href{https://docs.computecanada.ca/wiki/Compute_Canada_Documentation}{Wiki}.
 
 \hypertarget{setting-up-ssh-on-compute-canada-portal}{%
-\subsection{Setting up SSH on Compute Canada portal}\label{setting-up-ssh-on-compute-canada-portal}}
+\section{Setting up SSH on Compute Canada portal}\label{setting-up-ssh-on-compute-canada-portal}}
 
 From January 2022 forward, Compute Canada is enforcing that is mandatory to use
 a key to use SSH with their premises (ex.: accessing login nodes). For this, you
@@ -630,7 +736,7 @@ need to create a public-private SSH key, and \emph{drop} the public key at the
 Compute Canada user portal, under your account settings.
 
 \hypertarget{creating-a-ssh-key}{%
-\subsubsection{Creating a SSH key}\label{creating-a-ssh-key}}
+\subsection{Creating a SSH key}\label{creating-a-ssh-key}}
 
 Some description of this is found at the Compute Canada documentation \citet{CC_ssh_key} .
 Is good practice to read it, since it covers some specifics.
@@ -671,7 +777,7 @@ Once you hit the command, you should have on the folder you are running these tw
 (it will be requested when you are generating the key), to assure that if such key is lost/copied/etc, nobody would be able to access this system impersonating you. A series of good practices for ssh keys may be found at this \href{https://security.stackexchange.com/a/144044/275095}{post}.
 
 \hypertarget{depositing-the-public-key-on-compute-canada}{%
-\subsection{Depositing the public key on Compute Canada}\label{depositing-the-public-key-on-compute-canada}}
+\section{Depositing the public key on Compute Canada}\label{depositing-the-public-key-on-compute-canada}}
 
 Once created the key pair, you need to deposit the \emph{public key} on your Compute
 Canada account. A main tutorial is provided \href{https://docs.computecanada.ca/wiki/SSH_Keys}{here}
@@ -706,7 +812,7 @@ but you can proceed as follows:
 \end{itemize}
 
 \hypertarget{accessing-a-compute-canada-login-node}{%
-\subsection{\texorpdfstring{Accessing a Compute Canada \emph{login node}}{Accessing a Compute Canada login node}}\label{accessing-a-compute-canada-login-node}}
+\section{\texorpdfstring{Accessing a Compute Canada \emph{login node}}{Accessing a Compute Canada login node}}\label{accessing-a-compute-canada-login-node}}
 
 Once your public key is loaded and synchronized in all machines, you may login a compute node using a terminal (On Windows, you need to use PowerShell; on MacOS, Terminal; and on Linux, your preferred Shell, such as Bash):
 
@@ -731,7 +837,7 @@ The command opens a SSH terminal session with the following parameters:
 \emph{Note}: We will provide a more extensive list of computing environments later, but for now you may want to refer to \href{http://bit.ly/introhpc}{this presentation}.
 
 \hypertarget{running-batch-jobs}{%
-\subsection{Running batch jobs}\label{running-batch-jobs}}
+\section{Running batch jobs}\label{running-batch-jobs}}
 
 If you want to run a R-language batch job, please take a look on the
 \href{https://github.com/ricardobarroslourenco/CCrecipes}{CCrecipes repository}.
@@ -965,8 +1071,8 @@ the user. An official R environment is provided, with support, by the Alliance a
 explore (or need) distributed processing, we recommend to use the supported
 version, and speak with user groups and the Alliance support to help designing routines.
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
 
 In this approach, we use a prestablished \href{https://rocker-project.org/}{RockeR},
 docker container from which we expand to our user needs. Binary versions of the
@@ -988,7 +1094,8 @@ as a Singularity container, or build by yourself.
 \end{Highlighting}
 \end{Shaded}
 
-Pick up the most recent version of it, and accept.
+Pick up the most recent version of it (please note that Docker Hub may have
+different tags, with versioning for each), and accept.
 
 \textbf{2. Then run the build} (run this command at your \emph{home}, \emph{project} or \emph{scratch} folder):
 
@@ -1100,8 +1207,8 @@ in your browser:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{finishing-your-running-session.}{%
-\section{Finishing your Running session.}\label{finishing-your-running-session.}}
+\hypertarget{finishing-your-running-session}{%
+\section{Finishing your Running session}\label{finishing-your-running-session}}
 
 Do not forget saving your work in partitions that enable saving (ex.: \texttt{/home}, \texttt{/project}, \texttt{/scratch}), because \textbf{if you save in a folder within the container, it will not be saved}, after your session ends. Remember that \texttt{/scratch} is meant for temporary save, being automatically wiped by the cluster systems after 30 days.
 
@@ -1117,8 +1224,8 @@ the user. An official Python environment is provided, with support, by the Allia
 
 \emph{Note 2}: This approach is aimed to single node processes. We will address over time cases with multi-node trainings, but this is still under development (usage of the SOSA Stack - \href{https://youtu.be/2SbpEiOM5JE}{video}, \href{https://zenodo.org/record/7857369}{slides}). However, multi-node multi-gpu Deep Learning models can be already be trained with Horovod in Alliance machines (\href{https://docs.alliancecan.ca/wiki/TensorFlow/en\#Horovod}{link}).
 
-\hypertarget{introduction-1}{%
-\section{Introduction}\label{introduction-1}}
+\hypertarget{introduction-2}{%
+\section{Introduction}\label{introduction-2}}
 
 In this approach, we use an adaptation of a Docker container maintained by the \href{https://pangeo.io}{Pangeo Community} to install a custom setup of packages from the \href{https://conda-forge.org}{Conda-Forge} project. Containers are available at \href{https://hub.docker.com/repository/docker/ricardobarroslourenco/ts_rs/general}{Docker Hub}, with the releases and their code available on \href{https://github.com/ricardobarroslourenco/rs_images}{GitHub}.
 
@@ -1138,7 +1245,7 @@ as a Singularity container, or build by yourself.
 \end{Highlighting}
 \end{Shaded}
 
-Pick up the most recent version of it, and accept.
+Pick up the most recent version of it (note that there may be different tags, each one with its own versioning), and accept.
 
 \textbf{2. Then run the build} (run this command at your \emph{home}, \emph{project} or \emph{scratch} folder):
 
@@ -1328,12 +1435,28 @@ in your browser:
 
 Remember that this is an example, so you need to get the token URL provided by JupyterLab once launching the session.
 
-\hypertarget{finishing-your-running-session.-1}{%
-\section{Finishing your Running session.}\label{finishing-your-running-session.-1}}
+\hypertarget{finishing-your-running-session-1}{%
+\section{Finishing your Running session}\label{finishing-your-running-session-1}}
 
 Do not forget saving your work in partitions that enable saving (ex.: \texttt{/home}, \texttt{/project}, \texttt{/scratch}), because \textbf{if you save in a folder within the container, it will not be saved}, after your session ends. Remember that \texttt{/scratch} is meant for temporary save, being automatically wiped by the cluster systems after 30 days.
 
 Once saved, you can simply end your running sessions by either using \texttt{Ctrl\ +\ C} in the apptainer run session, and then calling \texttt{exit} on bash up to ending the \texttt{salloc} session, and another time, to relinquish the ssh session (remember to do this both in the bash session that runs the jobs, as well in the ssh tunnel). At the end you will only see the bash of your local machine. It is important to do this procedure, because otherwise it may be possible that the machine is still running, and consument the group Alliance Canada credits. Once you finish the slurm \texttt{salloc} session you will receive an e-mail (as you got one when the session started), telling that the session has finished (or relinquished, if your runnign time expired).
+
+\hypertarget{globus}{%
+\chapter{Globus}\label{globus}}
+
+Globus is currently a suite of products for Computational Science.
+Initially defined as a tool that allowed the establishment of federations,
+now it offers a platform that can do, among many features, distributed data
+transfers. When referring in this guide to Globus, the author majorly means
+Globus Transfer capabilities.
+
+\hypertarget{documentation}{%
+\section{Documentation}\label{documentation}}
+
+A full documentation of Globus is provided aat their website: \url{https://docs.globus.org}
+
+Additional information on how to create an account using the Compute Canada credentials can be found here: \url{https://docs.alliancecan.ca/wiki/Globus}
 
   \bibliography{book.bib,packages.bib}
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 BASH | CC Primer: Compute Canada for geoscientists in a rush</title>
+  <title>Chapter 8 Globus | CC Primer: Compute Canada for geoscientists in a rush</title>
   <meta name="description" content="Descricao (campo)" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 BASH | CC Primer: Compute Canada for geoscientists in a rush" />
+  <meta property="og:title" content="Chapter 8 Globus | CC Primer: Compute Canada for geoscientists in a rush" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Descricao (campo)" />
   <meta name="github-repo" content="ricardobarroslourenco/CCprimer" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 BASH | CC Primer: Compute Canada for geoscientists in a rush" />
+  <meta name="twitter:title" content="Chapter 8 Globus | CC Primer: Compute Canada for geoscientists in a rush" />
   
   <meta name="twitter:description" content="Descricao (campo)" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="compute-canada.html"/>
-<link rel="next" href="rstudio-in-alliance-canada.html"/>
+<link rel="prev" href="jupyterhub-in-alliance-canada.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -263,80 +263,35 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bash" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> BASH<a href="bash.html#bash" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>On this section we will write some hints on the Bourne Again Shell (BASH), a command interpreter used in several *nix systems, such as Linux, Unix, MacOS and recently incorporated into Windows through PowerShell. This will be more of a collection of hints, and not substituting a full knowledge of BASH and the Operating System in which is running.</p>
-<div id="screen" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Screen<a href="bash.html#screen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Screen is a tool you can use to keep a ssh session run through BASH alive. Why it is useful(?):</p>
-<ol style="list-style-type: decimal">
-<li>When you have unreliable internet connections connections (ex.: Wifi, cellphone);</li>
-<li>Power outages;</li>
-<li>Your local machine freezes, or have any other issue, and your connection is killed;</li>
-<li>Any random reason that blocks your local terminal to access the remote ssh session.</li>
-</ol>
-<div id="how-to-use-it" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> How to use it<a href="bash.html#how-to-use-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Some useful description is available in <a href="https://web.archive.org/web/20230606181644/https://www.networkworld.com/article/3441777/how-the-linux-screen-tool-can-save-your-tasks-and-your-sanity-if-ssh-is-interrupted.html">this website</a>, and on the app documentation. But you can proceed as follows:</p>
-</div>
-<div id="creating-a-session" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Creating a session<a href="bash.html#creating-a-session" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You create a new session, named <em>session_01</em> as:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="bash.html#cb21-1" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-S</span> session_01</span></code></pre></div>
-</div>
-<div id="see-all-available-sessions" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> See all available sessions<a href="bash.html#see-all-available-sessions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="bash.html#cb22-1" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-ls</span></span></code></pre></div>
-<p>You probably will see something like this:</p>
-<pre><code>There are screens on:
-        6617.session_00      (09/26/2019 04:35:30 PM)    (Detached)
-        1946.session_01         (09/26/2019 02:51:50 PM)    (Detached)
-2 Sockets in /run/screen/S-shs</code></pre>
-</div>
-<div id="reattach-to-a-previously-established-session" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Reattach to a previously established session<a href="bash.html#reattach-to-a-previously-established-session" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s say you want to attach to <em>session_00</em>:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="bash.html#cb24-1" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-r</span> session_00</span></code></pre></div>
-</div>
-<div id="finishing-a-session" class="section level3 hasAnchor" number="5.1.5">
-<h3><span class="header-section-number">5.1.5</span> Finishing a session<a href="bash.html#finishing-a-session" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s say you want to finish <em>session_01</em>. You first enter in another session, and:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="bash.html#cb25-1" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-XS</span> 1946 quit</span></code></pre></div>
-<p>If the session you are aiming to finish is the last one, then:</p>
-<ul>
-<li><strong>ctrl + A</strong>;</li>
-<li><strong>k</strong>;</li>
-<li>and <strong>y</strong>.</li>
-</ul>
-</div>
-</div>
-<div id="watch" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Watch<a href="bash.html#watch" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Watch is a program that runs commands using a clock. In our case, watch is kind
-of useful when needing to monitor an application shell output. Common cases in HPC
-are when you need to see updates in <code>nvidia-smi</code> or slurm <code>squeue</code> command.</p>
-<p>The base syntax is:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="bash.html#cb26-1" tabindex="-1"></a><span class="ex">watch</span> <span class="at">-n</span> XX command</span></code></pre></div>
-<p>In which:</p>
-<ul>
-<li><strong>XX</strong> is the refresh rate in seconds;</li>
-<li><strong>command</strong> is the bash command you want to refresh the output</li>
-</ul>
-<div id="slurm-queue-example" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Slurm queue example<a href="bash.html#slurm-queue-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The base syntax is:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="bash.html#cb27-1" tabindex="-1"></a><span class="ex">watch</span> <span class="at">-n</span> 5 squeue <span class="at">-u</span> username</span></code></pre></div>
-<p>In which:</p>
-<ul>
-<li><strong>username</strong> is the username in the slurm cluster;</li>
-</ul>
-</div>
-<div id="nvidia-card-output" class="section level3 hasAnchor" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> NVIDIA card output<a href="bash.html#nvidia-card-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The base syntax is:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="bash.html#cb28-1" tabindex="-1"></a><span class="ex">watch</span> <span class="at">-n</span> 5 nvidia-smi</span></code></pre></div>
-<p>It refreshes every 5 seconds the running info from the NVIDIA card in the node (this will fail on CPU-only nodes)</p>
+<div id="globus" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Globus<a href="globus.html#globus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Globus is currently a suite of products for Computational Science.
+Initially defined as a tool that allowed the establishment of federations,
+now it offers a platform that can do, among many features, distributed data
+transfers. When referring in this guide to Globus, the author majorly means
+Globus Transfer capabilities.</p>
+<div id="documentation" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Documentation<a href="globus.html#documentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A full documentation of Globus is provided aat their website: <a href="https://docs.globus.org" class="uri">https://docs.globus.org</a></p>
+<p>Additional information on how to create an account using the Compute Canada credentials can be found here: <a href="https://docs.alliancecan.ca/wiki/Globus" class="uri">https://docs.alliancecan.ca/wiki/Globus</a></p>
 
+<!-- # End matter -->
+<!-- ## Appendix A - Useful References -->
+<!-- List references such as websites, and other written material supporting geocomputation efforts -->
+<!-- ```{r include=FALSE} -->
+<!-- # automatically create a bib database for R packages -->
+<!-- knitr::write_bib(c( -->
+<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
+<!-- ), 'packages.bib') -->
+<!-- ``` -->
+
+<div id="refs" class="references csl-bib-body">
+<div class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Wikipedia contributors, <span>“Version control — <span>W</span>ikipedia<span>,</span> the free encyclopedia.”</span> 2002.Available: <a href="https://en.wikipedia.org/wiki/Version_control">https://en.wikipedia.org/wiki/Version_control</a></div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">Compute Canada, <span>“<span>SSH Key</span> — <span>CC Doc</span>.”</span> 2002.Available: <a href="https://docs.computecanada.ca/wiki/SSH_Keys">https://docs.computecanada.ca/wiki/SSH_Keys</a></div>
+</div>
 </div>
 </div>
 </div>
@@ -345,8 +300,8 @@ are when you need to see updates in <code>nvidia-smi</code> or slurm <code>squeu
           </div>
         </div>
       </div>
-<a href="compute-canada.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rstudio-in-alliance-canada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="jupyterhub-in-alliance-canada.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -377,7 +332,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ricardobarroslourenco/CCprimer/edit/master/04-Bash.Rmd",
+"link": "https://github.com/ricardobarroslourenco/CCprimer/edit/master/07-Globus.Rmd",
 "text": "Edit"
 },
 "history": {

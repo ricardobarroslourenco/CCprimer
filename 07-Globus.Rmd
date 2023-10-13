@@ -1,0 +1,11 @@
+# Globus
+Globus is currently a suite of products for Computational Science. 
+Initially defined as a tool that allowed the establishment of federations, 
+now it offers a platform that can do, among many features, distributed data 
+transfers. When referring in this guide to Globus, the author majorly means 
+Globus Transfer capabilities.
+
+## Documentation
+A full documentation of Globus is provided aat their website: https://docs.globus.org
+
+Additional information on how to create an account using the Compute Canada credentials can be found here: https://docs.alliancecan.ca/wiki/Globus

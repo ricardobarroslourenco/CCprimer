@@ -14,7 +14,6 @@ description: |
 link-citations: yes
 github-repo: ricardobarroslourenco/CCprimer
 ---
-
 # Front Matter
 
 ## Copyright
@@ -34,56 +33,79 @@ Please use this BibTeX fragment:
 }
 ```
 
-Obs.: Note that the DOI is of a previous version (10.5281/zenodo.5937906) when 
-comapred to the badge displayed on this website, because it relates to all versions
+Obs.: Note that the DOI is of the base version (10.5281/zenodo.5937906) when 
+compared to each revision releases, because it relates to all versions
 of this document, rather than a especific one.
 
-<!-- ## Dedication -->
+## Dedication
+The author dedicates this work to all geoscientists that are trying to cross the
+border into Computational Sciences, and to all computer scientists, mathematicians,
+physicists, and other professionals who daily contribute in this community, 
+by writing code, documenting, answering questions, maintaining infrastructure, 
+among many other essential tasks. Thank you for your service!
 
-<!-- ## Epigraph -->
-<!-- > "Here's to the crazy ones. -->
-<!-- > The misfits. -->
-<!-- > The rebels. -->
-<!-- > The troublemakers. -->
-<!-- > The round pegs in the square holes. -->
-<!-- > -->
-<!-- > The ones who see things differently. -->
-<!-- > -->
-<!-- > They're not fond of rules. -->
-<!-- > And they have no respect for the status quo. -->
-<!-- > -->
-<!-- > You can quote them, disagree with them, glorify or vilify them. -->
-<!-- > About the only thing you can't do is ignore them. -->
-<!-- > -->
-<!-- > Because they change things. -->
-<!-- > -->
-<!-- > They push the human race forward. -->
-<!-- > -->
-<!-- > While some may see them as the crazy ones, -->
-<!-- we see genius. -->
-<!-- > -->
-<!-- > Because the people who are crazy enough to think -->
-<!-- they can change the world, are the ones who do." -->
-<!-- > -->
-<!-- > --- Apple Computer, _"Think different"_ campaign. TBWA-Chiat-Day. -->
+## Epigraph
+> "Here's to the crazy ones.
+> The misfits.
+> The rebels.
+> The troublemakers.
+> The round pegs in the square holes.
+>
+> The ones who see things differently.
+>
+> They're not fond of rules.
+> And they have no respect for the status quo.
+>
+> You can quote them, disagree with them, glorify or vilify them.
+> About the only thing you can't do is ignore them.
+>
+> Because they change things.
+>
+> They push the human race forward.
+>
+> While some may see them as the crazy ones,
+we see genius.
+>
+> Because the people who are crazy enough to think
+they can change the world, are the ones who do."
+>
+> --- Apple Computer, _"Think different"_ campaign. TBWA-Chiat-Day.
 
 
 <!-- ## Foreword -->
 
 <!-- ## Preface -->
 
-<!-- ## Acknowledgements -->
+## Acknowledgements
+The author would like to acknowledge the contibution of the general Open Source Science
+ community, in especially the following entities:
+
+- [Anaconda](https://www.anaconda.com/)
+- [Digital Research Alliance of Canada](https://alliancecan.ca/) (formerly Compute Canada)
+- [Globus](https://www.globus.org)
+- [Pangeo Community](https://pangeo.io)
+- [RockeR Project](https://rocker-project.org)
+- [Vanessa Sochat](https://scholar.google.com/citations?user=RTF50S4AAAAJ)
+
+The author would like to acknowledge support, in part, of the following on this 
+work:
+
+- Through my advisor, Prof. [Alemu Gonsamo](https://scholar.google.ca/citations?user=snRPOMkAAAAJ):
+  - Natural Sciences and Engineering Research Council of Canada (NSERC), through its NSERC
+Alliance program (Application: ALLRP 566310-21)
+  - Canada Research Chair program (CRC-2019-00139)
+- [McMaster University Centre for Climate Change](https://climate.mcmaster.ca) Research Seed Fund
+- The Shared Hierarchical Academic Research Computing Network ([SHARCNET](https://www.sharcnet.ca/)), and
+the Digital Research Alliance of Canada through its Research Allocation Competition, under the
+2023 Resources for Research Groups process “National carbon flux estimation system for forest
+ecosystems of Canada” (ID 4715)
 
 <!-- ## List of abbreviations and acronyms -->
 
 ## Cronology
-2023-06-07 - v0.3 - Adds Jupyter description, and BASH screen tool usage
+2023-10-13 - v1.0 - First release, after several reviews.
 
-2023-05-23 - v0.2 - Adds description on how to run Rstudio Server on Alliance 
-Canada Premises.
-
-2022-01-31 - Beginning of v0.1. (This version is quite unstable, and versioning 
-during this stage will be limited).
+2022-01-31 - v0.1 - Beginning.
 
 <!-- --- Supressed from the template --- -->
 <!-- ## Usage  -->

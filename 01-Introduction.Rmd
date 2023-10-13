@@ -1,0 +1,17 @@
+# Introduction
+The difficulty on finding instructional material that covers the complexities of 
+writing scientific code, and deploying it in High-Performance Computing (HPC) 
+environments led to the writing of this guide.
+
+This is a non-exhaustive work, but rather a reference one, in which the author 
+wishes to reduce the barriers of routine HPC workflows for Remote Sensing run at 
+the [McMaster University Remote Sensing Laboratory](https://remotesensing-mcmaster.org).
+
+These guidelines are provided without any guarantee, including of support, but 
+in a best effort to overcome the aforementioned barriers.
+
+I encourage users to suggest corrections, by clicking in the edit button 
+(available on the online version of this guide), and submitting a pull request.
+
+Other comments can be done though my [social media channels](http://about.me/ricardobarroslourenco/), or via 
+e-mail: barroslr mcmaster.ca

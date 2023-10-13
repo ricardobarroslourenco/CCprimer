@@ -24,7 +24,8 @@ _From the cluster login node_ you can build it with the following steps (it is a
 module load apptainer
 ```
 
-Pick up the most recent version of it, and accept.
+Pick up the most recent version of it (please note that Docker Hub may have 
+different tags, with versioning for each), and accept.
 
 **2. Then run the build** (run this command at your _home_, _project_ or _scratch_ folder):
 ```{bash, eval=FALSE}
@@ -101,7 +102,7 @@ in your browser:
 localhost:9102
 ```
 
-## Finishing your Running session.
+## Finishing your Running session
 
 Do not forget saving your work in partitions that enable saving (ex.: `/home`, `/project`, `/scratch`), because **if you save in a folder within the container, it will not be saved**, after your session ends. Remember that `/scratch` is meant for temporary save, being automatically wiped by the cluster systems after 30 days.
 

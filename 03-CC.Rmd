@@ -2,13 +2,13 @@
 *Note*: This section is under heavy work. For now, please refer to Compute 
 Canada's [Wiki](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation).
 
-### Setting up SSH on Compute Canada portal
+## Setting up SSH on Compute Canada portal
 From January 2022 forward, Compute Canada is enforcing that is mandatory to use 
 a key to use SSH with their premises (ex.: accessing login nodes). For this, you 
 need to create a public-private SSH key, and _drop_ the public key at the 
 Compute Canada user portal, under your account settings.
 
-#### Creating a SSH key
+### Creating a SSH key
 Some description of this is found at the Compute Canada documentation @CC_ssh_key . 
 Is good practice to read it, since it covers some specifics.
 
@@ -39,7 +39,7 @@ Once you hit the command, you should have on the folder you are running these tw
 *WARNING*: The private key is equal to a regular password to the system you are using it to access. Therefore, it is recommended that you assign a key password 
 (it will be requested when you are generating the key), to assure that if such key is lost/copied/etc, nobody would be able to access this system impersonating you. A series of good practices for ssh keys may be found at this [post](https://security.stackexchange.com/a/144044/275095).
 
-### Depositing the public key on Compute Canada
+## Depositing the public key on Compute Canada
 Once created the key pair, you need to deposit the *public key* on your Compute 
 Canada account. A main tutorial is provided [here](https://docs.computecanada.ca/wiki/SSH_Keys) 
 but you can proceed as follows:
@@ -66,7 +66,7 @@ To do so, you need to open your _.pub_ file with a simple text editor (ex.: Note
 
 - Then hit _Add Key_. This operation will put your public key on every machine of Compute Canada, and may take up to 30 minutes to be online.
 
-### Accessing a Compute Canada _login node_
+## Accessing a Compute Canada _login node_
 Once your public key is loaded and synchronized in all machines, you may login a compute node using a terminal (On Windows, you need to use PowerShell; on MacOS, Terminal; and on Linux, your preferred Shell, such as Bash):
 
 ```{bash, eval=FALSE}
@@ -88,7 +88,7 @@ The command opens a SSH terminal session with the following parameters:
 
 <!-- ### Basic Commands -->
 
-### Running batch jobs
+## Running batch jobs
 If you want to run a R-language batch job, please take a look on the 
 [CCrecipes repository](https://github.com/ricardobarroslourenco/CCrecipes). 
 
@@ -115,7 +115,6 @@ module load gcc/9.3.0 r/4.0.2
 #R install_script.R
 
 ### Export locally installed packages
-# TODO: check if this path holds
 export R_LIBS=~/local/R_libs/
 
 ### Run main_job.R - or any batch script necessary

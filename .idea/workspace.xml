@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.5 - Include Bash watch, with examples">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/03-Screen.Rmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_main.epub" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.epub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_main.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/bash.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/bash.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/compute-canada.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/compute-canada.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/jupyterhub-in-alliance-canada.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/jupyterhub-in-alliance-canada.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/reference-keys.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference-keys.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/rstudio-in-alliance-canada.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/rstudio-in-alliance-canada.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/search_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/search_index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/version-control-systems.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/version-control-systems.html" afterDir="false" />
-    </list>
+    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.5 - Include Bash watch, with examples" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +16,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2QCdpZGoO7rrMQVP5jlbriwSPaf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -107,6 +95,7 @@
       <workItem from="1686343955174" duration="15000" />
       <workItem from="1686671859982" duration="1840000" />
       <workItem from="1687207121765" duration="1276000" />
+      <workItem from="1697214783925" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="v0.2.1 - Fix broken links through rebuilding">
       <created>1684878056015</created>

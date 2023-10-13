@@ -20,7 +20,7 @@ _From the cluster login node_ you can build it with the following steps (it is a
 module load apptainer
 ```
 
-Pick up the most recent version of it, and accept.
+Pick up the most recent version of it (note that there may be different tags, each one with its own versioning), and accept.
 
 **2. Then run the build** (run this command at your _home_, _project_ or _scratch_ folder):
 ```{bash, eval=FALSE}
@@ -165,7 +165,7 @@ http://127.0.0.1:8888/lab?token=XXXXXXXXXXXXXXXXXXXXXXX
 
 Remember that this is an example, so you need to get the token URL provided by JupyterLab once launching the session.
 
-## Finishing your Running session.
+## Finishing your Running session
 
 Do not forget saving your work in partitions that enable saving (ex.: `/home`, `/project`, `/scratch`), because **if you save in a folder within the container, it will not be saved**, after your session ends. Remember that `/scratch` is meant for temporary save, being automatically wiped by the cluster systems after 30 days.
 

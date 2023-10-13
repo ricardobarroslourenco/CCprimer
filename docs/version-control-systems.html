@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Version Control Systems | CC Primer: Compute Canada for geoscientists in a rush</title>
+  <meta name="description" content="Descricao (campo)" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Version Control Systems | CC Primer: Compute Canada for geoscientists in a rush" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Descricao (campo)" />
+  <meta name="github-repo" content="ricardobarroslourenco/CCprimer" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Version Control Systems | CC Primer: Compute Canada for geoscientists in a rush" />
+  
+  <meta name="twitter:description" content="Descricao (campo)" />
+  
+
+<meta name="author" content="Ricardo Barros Lourenco" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="compute-canada.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4XJX7TX56"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W4XJX7TX56');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CC Primer</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Front Matter</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#copyright"><i class="fa fa-check"></i><b>1.1</b> Copyright</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i><b>1.1.1</b> How to cite this work</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#cronology"><i class="fa fa-check"></i><b>1.2</b> Cronology</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="version-control-systems.html"><a href="version-control-systems.html"><i class="fa fa-check"></i><b>2</b> Version Control Systems</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="version-control-systems.html"><a href="version-control-systems.html#vcs-local-repository-vs.-remote-repository"><i class="fa fa-check"></i><b>2.1</b> VCS: Local repository vs. Remote repository</a></li>
+<li class="chapter" data-level="2.2" data-path="version-control-systems.html"><a href="version-control-systems.html#git"><i class="fa fa-check"></i><b>2.2</b> Git</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="version-control-systems.html"><a href="version-control-systems.html#installing-a-git-client-on-your-machine"><i class="fa fa-check"></i><b>2.2.1</b> Installing a git client on your machine</a></li>
+<li class="chapter" data-level="2.2.2" data-path="version-control-systems.html"><a href="version-control-systems.html#setting-up-your-local-git-client"><i class="fa fa-check"></i><b>2.2.2</b> Setting up your local git client</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="version-control-systems.html"><a href="version-control-systems.html#github"><i class="fa fa-check"></i><b>2.3</b> GitHub</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="version-control-systems.html"><a href="version-control-systems.html#creating-an-account"><i class="fa fa-check"></i><b>2.3.1</b> Creating an account</a></li>
+<li class="chapter" data-level="2.3.2" data-path="version-control-systems.html"><a href="version-control-systems.html#insert-github-credentials-on-your-local-git"><i class="fa fa-check"></i><b>2.3.2</b> Insert GitHub credentials on your local Git</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="version-control-systems.html"><a href="version-control-systems.html#a-combined-usage-of-git-github"><i class="fa fa-check"></i><b>2.4</b> A combined usage of Git-GitHub</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="version-control-systems.html"><a href="version-control-systems.html#basic-commands-to-update-a-repository"><i class="fa fa-check"></i><b>2.4.1</b> Basic commands to update a repository</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="compute-canada.html"><a href="compute-canada.html"><i class="fa fa-check"></i><b>3</b> Compute Canada</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="compute-canada.html"><a href="compute-canada.html#setting-up-ssh-on-compute-canada-portal"><i class="fa fa-check"></i><b>3.0.1</b> Setting up SSH on Compute Canada portal</a></li>
+<li class="chapter" data-level="3.0.2" data-path="compute-canada.html"><a href="compute-canada.html#depositing-the-public-key-on-compute-canada"><i class="fa fa-check"></i><b>3.0.2</b> Depositing the public key on Compute Canada</a></li>
+<li class="chapter" data-level="3.0.3" data-path="compute-canada.html"><a href="compute-canada.html#accessing-a-compute-canada-login-node"><i class="fa fa-check"></i><b>3.0.3</b> Accessing a Compute Canada <em>login node</em></a></li>
+<li class="chapter" data-level="3.0.4" data-path="compute-canada.html"><a href="compute-canada.html#running-batch-jobs"><i class="fa fa-check"></i><b>3.0.4</b> Running batch jobs</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash.html"><a href="bash.html"><i class="fa fa-check"></i><b>4</b> BASH</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bash.html"><a href="bash.html#screen"><i class="fa fa-check"></i><b>4.1</b> Screen</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="bash.html"><a href="bash.html#how-to-use-it"><i class="fa fa-check"></i><b>4.1.1</b> How to use it</a></li>
+<li class="chapter" data-level="4.1.2" data-path="bash.html"><a href="bash.html#creating-a-session"><i class="fa fa-check"></i><b>4.1.2</b> Creating a session</a></li>
+<li class="chapter" data-level="4.1.3" data-path="bash.html"><a href="bash.html#see-all-available-sessions"><i class="fa fa-check"></i><b>4.1.3</b> See all available sessions</a></li>
+<li class="chapter" data-level="4.1.4" data-path="bash.html"><a href="bash.html#reattach-to-a-previously-established-session"><i class="fa fa-check"></i><b>4.1.4</b> Reattach to a previously established session</a></li>
+<li class="chapter" data-level="4.1.5" data-path="bash.html"><a href="bash.html#finishing-a-session"><i class="fa fa-check"></i><b>4.1.5</b> Finishing a session</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="bash.html"><a href="bash.html#watch"><i class="fa fa-check"></i><b>4.2</b> Watch</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="bash.html"><a href="bash.html#slurm-queue-example"><i class="fa fa-check"></i><b>4.2.1</b> Slurm queue example</a></li>
+<li class="chapter" data-level="4.2.2" data-path="bash.html"><a href="bash.html#nvidia-card-output"><i class="fa fa-check"></i><b>4.2.2</b> NVIDIA card output</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html"><i class="fa fa-check"></i><b>5</b> RStudio in Alliance Canada</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html#running-an-apptainer-hpc-container-as-an-interactive-session"><i class="fa fa-check"></i><b>5.2</b> Running an Apptainer HPC Container as an interactive session</a></li>
+<li class="chapter" data-level="5.3" data-path="rstudio-in-alliance-canada.html"><a href="rstudio-in-alliance-canada.html#finishing-your-running-session."><i class="fa fa-check"></i><b>5.3</b> Finishing your Running session.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="jupyterhub-in-alliance-canada.html"><a href="jupyterhub-in-alliance-canada.html"><i class="fa fa-check"></i><b>6</b> JupyterHub in Alliance Canada</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="jupyterhub-in-alliance-canada.html"><a href="jupyterhub-in-alliance-canada.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="jupyterhub-in-alliance-canada.html"><a href="jupyterhub-in-alliance-canada.html#running-an-apptainer-hpc-container-as-an-interactive-session-1"><i class="fa fa-check"></i><b>6.2</b> Running an Apptainer HPC Container as an interactive session</a></li>
+<li class="chapter" data-level="6.3" data-path="jupyterhub-in-alliance-canada.html"><a href="jupyterhub-in-alliance-canada.html#finishing-your-running-session.-1"><i class="fa fa-check"></i><b>6.3</b> Finishing your Running session.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li>   <a href="//creativecommons.org/licenses/by-nc-sa/4.0"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" alt="" width="88" height="31"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/454125724"><img src="https://zenodo.org/badge/454125724.svg" alt="DOI"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CC Primer: Compute Canada for geoscientists in a rush</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="version-control-systems" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Version Control Systems<a href="version-control-systems.html#version-control-systems" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Version Control Systems</em> <span class="citation"><a href="#ref-wiki_version_control" role="doc-biblioref">[1]</a></span> (VCS - also named as <em>Revision Control</em>,
+<em>Source Code Control</em>, <em>Source Code Management</em>) are Computer Systems
+traditionally used to manage the complexities of software development, majorly
+Computer Systems involving multiple software modules, and large development teams.</p>
+<p>Such systems help to organize such development, especially when collaboration of
+multiple developers is done, and several times people are doing code changes in
+a same, or close, part of the code, which may break it, or even generate
+unexpected results that would not be traceable.</p>
+<!-- ## Why using it (out of CS)? -->
+<!-- Science is becoming more collaborative everyday, with groups of people contributing within a  -->
+<!-- same research group, across groups and across institutions. At the same time, efforts on Open Science, and Reproducible Science are demanded by the scientific community as a way to measure progress in transparent and objective criteria, as well as providing accountability on such developments. Since  -->
+<!-- the interactions between academics and industries are becoming more frequent, scientists are also called -->
+<!-- to bring a same accountability level as if they were stakeholders of such companies. -->
+<!-- Given this scenario, CVS systems are often used in a way to provide towards the scientific method (when using computational resources): -->
+<!-- - Open Science -->
+<!-- -- Open data:  -->
+<!-- -- Open source-code: -->
+<!-- -- Open access: -->
+<!-- -- Open peer-review: -->
+<!-- -- Open educational resources: -->
+<!-- - FAIR data -->
+<!-- -- Data is Findable: -->
+<!-- -- Data is accessible: -->
+<!-- -- Data (and code) are interoperable: -->
+<!-- -- Data (and experiments) are reusable: -->
+<!-- - Reproducible experiments:  -->
+<div id="vcs-local-repository-vs.-remote-repository" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> VCS: Local repository vs. Remote repository<a href="version-control-systems.html#vcs-local-repository-vs.-remote-repository" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Common VCS’s (ex.: <a href="https://en.wikipedia.org/wiki/Concurrent_Versions_System">CVS</a>,
+<a href="https://en.wikipedia.org/wiki/Concurrent_Versions_System">SVN</a> and
+<a href="https://en.wikipedia.org/wiki/Git">Git</a>) always are client-server systems.</p>
+<p>The VCS client is not merely a means to access a central repository hosted
+at the VCS server, but actually is part of running checks and balances that are
+necessary when adding code to the central repository. A situation that demands that
+is when multiple users are doing a change in a same piece of code, and checking
+it only at the central repository may complicate more a situation already
+complicated (simultaneous contribution). Therefore, it hosts, locally
+a local copy of the codebase, which reflects a view of that codebase in time
+(more preciselly when that local user retrieved a copy from the central repository
+for editing).</p>
+<p>Once the changes are done, the user saves a local copy of these at the local repository,
+and if these meet the criteria for changes (and this may vary a lot among systems),
+the user is able to persist this change at the local repository, as a new version of
+the codebase. This process is known as <em>commit</em> (in this case, a local one).</p>
+</div>
+<div id="git" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Git<a href="version-control-systems.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://git-scm.com/">Git</a> is a contemporary VCS that is used as the backbone
+of operations run on GitHub. So, when planning to operate with GitHub, it is
+almost certain that you will need to install a Git client on your machine.</p>
+<p>We can say <em>almost</em> because GitHub provides an own client,
+<a href="https://desktop.github.com/">GitHub Desktop</a> which provides a Graphical User
+Interface(GUI) to a git client.</p>
+<p>We will not cover such GUI usage since on Compute Canada you will not have access
+to GitHub Desktop on their machines, but only to
+a regular Git client (that you can use to access either GitHub, or another Git
+compliant server such as a private repository built with
+<a href="https://about.gitlab.com/">GitLab</a>).</p>
+<div id="installing-a-git-client-on-your-machine" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Installing a git client on your machine<a href="version-control-systems.html#installing-a-git-client-on-your-machine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ubuntu-or-any-other-debian-based-environment" class="section level4 hasAnchor" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> Ubuntu (or any other Debian-based environment)<a href="version-control-systems.html#ubuntu-or-any-other-debian-based-environment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First update your Operating System (OS) repository indexes:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="version-control-systems.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span></code></pre></div>
+<p>Then proceed to install:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="version-control-systems.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git</span></code></pre></div>
+<p>Note: If you use Ubuntu, git is already provided as a base repository on this
+distribution. If you use another linux, and this does not work for you, please
+<a href="https://github.com/ricardobarroslourenco/CCprimer/issues">open an issue</a> on
+this project and use the label <em>requests</em>, and I will try to solve and include
+here for future reference.</p>
+</div>
+<div id="apple" class="section level4 hasAnchor" number="2.2.1.2">
+<h4><span class="header-section-number">2.2.1.2</span> Apple<a href="version-control-systems.html#apple" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Apple is an OS that not use repositories by default, and git is not provided in
+the main set of software. So you would have three main options to install git:</p>
+<ul>
+<li>Install Xcode (<em>Preferred</em>): Apple has a software development kit (SDK) named
+<a href="https://developer.apple.com/xcode/">XCode</a> which provides git among several other
+software for MacOS and iOS software development. The advantage of using XCode´s
+git distribution is that it comes adjusted for your OS and is supported by Apple,
+whcih avoids conflicts and security issues.
+<ul>
+<li>To install XCode (and git by consequence), open the App Store, and search
+XCode as a software developed by Apple, and install it. To test, open the
+Terminal App, and run <em>git</em>. You should receive an output of basic
+description of commands available on git.</li>
+</ul></li>
+<li>Install Homebrew, and then install Git (if you are a Homebrew user, or uses a
+lot of *.nix software not supported by Apple it is useful):
+<ul>
+<li><a href="https://brew.sh/">Download and install homebrew</a> from their website;</li>
+<li>Install git as:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="version-control-systems.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code></pre></div>
+<ul>
+<li>In the terminal, run <em>git</em> and you should receive an output of basic
+description of commands available on git.</li>
+</ul></li>
+<li>Install a standalone version of git (<em>not recommended</em>): You can download and
+install from git´s website a standalone client (I will not be covering this
+approach, because git will not be updated via this kind a install, posing a
+security risk and install this at your own risk - and effort!)</li>
+</ul>
+</div>
+<div id="windows" class="section level4 hasAnchor" number="2.2.1.3">
+<h4><span class="header-section-number">2.2.1.3</span> Windows<a href="version-control-systems.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since Windows works with standalone installations, the install follows as this:</p>
+<ul>
+<li>Go to the Git website and <a href="https://git-scm.com/download/win">download</a> the
+latest client (download the standalone version, unless you have severe storage
+limitations on your machine);</li>
+<li>Once downloaded, run the installer with admin permissions and follow the
+default installation;</li>
+<li>When installed, open PowerShell (PS) (or the command prompt, if you do not
+have PS installed), and run <em>git</em> and hit enter. You should receive an output of basic
+description of commands available on git.</li>
+</ul>
+</div>
+</div>
+<div id="setting-up-your-local-git-client" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Setting up your local git client<a href="version-control-systems.html#setting-up-your-local-git-client" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you have your git client up and running, you need to setup the access
+credentials to connect to a git repository, such as GitHub or GitLab for example.</p>
+<p>To do so, run on your bash terminal (or command-line if on windows):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="version-control-systems.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--</span> global user.name <span class="st">&quot;Your full name&quot;</span></span></code></pre></div>
+<p>Note: On quotes you need to specify a name (depending on the environment,
+it should be your full name, or an alias, such as employee number, for example). This
+command has a global scope, so all users on your machine would have the same setup.</p>
+<p>Then you need to specify an e-mail address (if on GitHub, it is preferred that
+is linked to your account):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="version-control-systems.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--</span> global user.email <span class="st">&quot;Your e-mail address&quot;</span></span></code></pre></div>
+<p>Then check, if all values were set:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="version-control-systems.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--list</span></span></code></pre></div>
+<p>You should see an output that reflects those previously set name and e-mail values.</p>
+<!-- https://docs.github.com/pt/get-started/getting-started-with-git/setting-your-username-in-git -->
+<!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
+</div>
+</div>
+<div id="github" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> GitHub<a href="version-control-systems.html#github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- GitHub is a web.... --- Describe -->
+<p>GitHub is a Web collaborative Version Control service based on a Git platform. It was
+created in 2008, and as of today is the largest repository of source code in the World.
+Aside of VCS capabilities, it provides other computational services, such as
+Continuous Integration (CI) and Continuous Deployment (CD), Web Page Hosting on GitHub
+Pages, security solutions, a software marketplace, among many others. It was recently
+acquired by Microsoft, as one of the largest transactions in the tech domain.</p>
+<p>GitHub has several different <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#about-githubs-products">tiers of access</a>,
+from basic free accounts up to corporate ones.</p>
+<p>A main advantage for academic users would be using the <a href="https://education.github.com">GitHub Education</a> which includes a free <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-products#github-pro">GitHub PRO</a>
+account and several software for free (or services credit hours) while you are
+enrolled in an academic institution. GitHub Education also have <a href="https://education.github.com/benefits">different tiers of users</a>
+aiming students, teachers, and the academic institutions itselves. Once you
+create a simple free GitHub account, you can return back to GitHub Education,
+and request to be enrolled in the program.</p>
+<div id="creating-an-account" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Creating an account<a href="version-control-systems.html#creating-an-account" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To create an account is simple:</p>
+<ul>
+<li>Go to <a href="https://github.com/pricing">GitHub pricing page</a>, select the Free tier,
+and click <em>Join for Free</em>;</li>
+<li>Just follow the prompts to create your personal account.</li>
+<li>You should receive an e-mail from them on the registered e-mail account, to
+verify your identity. If you fail to do so, your account would be basically <a href="https://docs.github.com/en/get-started/signing-up-for-github/verifying-your-email-address#about-email-verification">useless</a>.</li>
+</ul>
+<p>Note: Since I have created my account some years ago, I am just using GitHub’s
+user documentation as reference. If things get complicated in this step, please
+let me know, and I will expand here.</p>
+</div>
+<div id="insert-github-credentials-on-your-local-git" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Insert GitHub credentials on your local Git<a href="version-control-systems.html#insert-github-credentials-on-your-local-git" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you have your GitHub account created, and verified, it is time to setup these
+credentials on your local Git client. While logged on your GitHub account you should:</p>
+<ul>
+<li>Click on your <em>name/avatar/photo at the upper right corner of the screen</em>, and
+then click on <em>Settings</em>;</li>
+<li>Then click on <em>Developer Settings</em> (it is the last item on the bottom of
+items at the left panel);</li>
+<li>Now click on the bottom item, <em>Personal access tokens</em>;</li>
+<li>Then, click on <em>Generate new token</em>, you will be requested again for your
+password on this step;</li>
+<li>Now you will be required to fill in some info:
+<ul>
+<li><em>Note</em>: This will be a name of this Token. I often create a Token per
+software+device I use, then someone can write “Rstudio on Laptop”, to
+differentiate from “Rstudio on laboratory desktop”.
+<ul>
+<li>Isolating tokens on different (software,device) pairs helps isolating
+accesses to your GitHub account, and is important to contain a security
+breach. If someone is able to fetch one of your tokens, you will know from
+which machine and which software on it came from.</li>
+</ul></li>
+<li><em>Expiration</em>: You should define a expiration date for your token. Choosing
+a date is an open ended question, but ideally systems exposed to the Web, or
+multiple users such an HPC cluster, should be changed frequently.
+<ul>
+<li><em>Avoid at all means to use the No expiration</em> mode, because you never
+want to forget unattended keys of your GitHub (ex. You graduate, and your
+key is left on a machine that another student will use in the lab).</li>
+</ul></li>
+<li><em>Select scopes</em>: Perhaps this is the trickiest setup. The definition of a
+Token is actually a definition of a <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>
+Token. On GitHub, this implies on being able to select all options that a user
+has in terms of operations on the platform, and actually, narrowing down to
+what a user wants to grant permission for in such Token.
+<ul>
+<li>Note: It is tempting to grant <em>all permissions</em> to a single Token, but the user
+should ask it that is really necessary. In one end, granting all permissions
+is too permissive, and being as problematic as having a token with no
+expiration data.</li>
+<li>To look into what each scope covers, please look into this
+<a href="https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes">page</a>.</li>
+</ul></li>
+</ul></li>
+<li>Once you have generated your token, treat is as a password (even in terms of
+security/sharing/etc.). You should not persist a copy of it, but only use for your
+local git setup. Even if you loose access to it, you can always revoke that
+token, and create a new one.</li>
+<li>To set your local git to access GitHub (remind that you need first to set <a href="https://ricardobarroslourenco.github.io/CCprimer/version-control-systems.html#setting-up-your-local-git-client">global variables</a>),
+you just need to access GitHub with it. A simple way, that will be further
+explained in more detail would be making a local copy of a repository using <em>git clone</em>:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="version-control-systems.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/a_very_weird_user_name/a_more_weird_user_project_name.git</span></code></pre></div>
+<p>A concrete example would be the source-code of this document:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="version-control-systems.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ricardobarroslourenco/CCprimer.git</span></code></pre></div>
+<ul>
+<li>Once done, your local git should request:
+<ul>
+<li>User-name: The one you have set for your GitHub account;</li>
+<li>Password: Your token.</li>
+</ul></li>
+<li>After this, it should make a local copy of that cloned repository (more
+especifically this copy will be stored at the directory path you have run the
+clone command - in bash / terminal / command line).
+<ul>
+<li>Note: If you have not been requested a username/password, maybe you have already
+a GitHub account already set on your machine (so please note if any errors occur
+when trying to access GitHub with git, no username + password is required -
+if these occur, they will be output on your bash / terminal / command line)</li>
+</ul></li>
+<li>Finally, to persist the token on your local install, run:</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="version-control-systems.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper cache</span></code></pre></div>
+<ul>
+<li>If you need to clean-up the token(s) installed:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="version-control-systems.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> <span class="at">--unset</span> credential.helper</span></code></pre></div>
+<!-- https://www.edgoad.com/2021/02/using-personal-access-tokens-with-git-and-github.html -->
+</div>
+</div>
+<div id="a-combined-usage-of-git-github" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> A combined usage of Git-GitHub<a href="version-control-systems.html#a-combined-usage-of-git-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section describes a usage of Git-GitHub intended for scientific usage. Therefore,
+is important to remark that there is still no consolidated practice on such application,
+considering that these tools were not meant for academic usage, but rather for a software
+engineering one. Such application varies across research groups and scientific domains, and on a best effort, we will summarize some good practices and update as needed.</p>
+<div id="basic-commands-to-update-a-repository" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Basic commands to update a repository<a href="version-control-systems.html#basic-commands-to-update-a-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After cloning a public repository, a user may want to update it in several ways.
+A very common HPC scenario is when the user is testing code in production,
+in a cluster environment, while debugging. Other scenarios are related to persist
+small data outputs - considering the repository storage limitations.</p>
+<p>Given that, users should do, once saved their changes to the local git is to
+<em>add</em>, <em>commit</em> and then <em>push</em> changes.</p>
+<div id="git-add" class="section level4 hasAnchor" number="2.4.1.1">
+<h4><span class="header-section-number">2.4.1.1</span> Git Add<a href="version-control-systems.html#git-add" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When the user create or delete file(s) it is necessary to inform <code>git</code> that such
+addition/deletion happened via:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="version-control-systems.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add folder_url</span></code></pre></div>
+<p>If you want to update the entire project, you need to go via bash to the root of
+the git project, and then:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="version-control-systems.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code></pre></div>
+</div>
+<div id="git-commit" class="section level4 hasAnchor" number="2.4.1.2">
+<h4><span class="header-section-number">2.4.1.2</span> Git commit<a href="version-control-systems.html#git-commit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>After eventual addition/deletion(s) are informed to git, then, it is necessary
+to inform updates and the nature of these. This can be done via:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="version-control-systems.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;message describing the commit&quot;</span></span></code></pre></div>
+<p>Ideally the message would describe what was done. Important to note that this
+could be done multiple times, because this is only persisting local changes (on
+the machine which the client is installed), not global changes. It is good practice
+to group “same topic” commits, as it is easier to do a rollback of such changes,
+avoiding to impact changes not related to a found issue.</p>
+</div>
+<div id="git-push" class="section level4 hasAnchor" number="2.4.1.3">
+<h4><span class="header-section-number">2.4.1.3</span> Git push<a href="version-control-systems.html#git-push" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Once the local repository changes are finalized, the user needs to synchronize
+these local changes with the main git(like)/GitHub repository. Only after this,
+these changes would become available to all users.</p>
+<p>Often the repository on github has a <code>main</code> branch, therefore, the command is:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="version-control-systems.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div>
+<p>In which <code>origin</code> is the local repository, and <code>main</code> is the branch you want to
+update in the git server. These may be different, depending on your project
+characteristics.
+<!-- ### Creating a repository -->
+<!-- A _repository_ is a collection of code, stored on a git server (in this case,  -->
+<!-- a GitHub Repository). As any intellectual task, you may split your information/code -->
+<!--  as desired.  --></p>
+<!-- In CS, people often keep a same service (a part of a system) at a  -->
+<!-- same repository.  -->
+<!-- In academia, is a consensus that researchers tend to keep all the codebase used  -->
+<!-- in a publication at a same repository. Then some variation occurs across communities. -->
+<!-- The GIScience community, more especifically the R GIScience community, developed a  -->
+<!-- Depending on how you set your environment, there are some options to crea -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init -->
+<!-- ### Retrieving code from a repository -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/syncing/git-pull -->
+<!-- ### Submitting code to a repository -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/saving-changes/git-commit -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/syncing/git-push -->
+<!-- ### Conciliating _"conflicts"_ -->
+<!-- #### Git Merge -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/using-branches/git-merge -->
+<!-- #### Git Rebase -->
+<!-- <!-- https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase -->
+<!-- ### Contributing to open-source projects -->
+<!-- #### Creating a pull request -->
+<!-- <!-- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests -->
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-wiki_version_control" class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Wikipedia contributors, <span>“Version control — <span>W</span>ikipedia<span>,</span> the free encyclopedia.”</span> 2002.Available: <a href="https://en.wikipedia.org/wiki/Version_control">https://en.wikipedia.org/wiki/Version_control</a></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="compute-canada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ricardobarroslourenco/CCprimer/edit/master/01-vc.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

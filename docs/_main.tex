@@ -120,7 +120,7 @@
 
 \title{CC Primer: Compute Canada for geoscientists in a rush}
 \author{Ricardo Barros Lourenco}
-\date{Last revision: 2023-10-13}
+\date{Last revision: 2023-10-14}
 
 \begin{document}
 \maketitle
@@ -866,7 +866,6 @@ More specifically at the \texttt{slurm/R/r\_batch\_standalone.sh} file, we have:
 \CommentTok{\#R install\_script.R}
 
 \CommentTok{\#\#\# Export locally installed packages}
-\CommentTok{\# }\AlertTok{TODO}\CommentTok{: check if this path holds}
 \BuiltInTok{export} \VariableTok{R\_LIBS}\OperatorTok{=}\NormalTok{\textasciitilde{}/local/R\_libs/}
 
 \CommentTok{\#\#\# Run main\_job.R {-} or any batch script necessary}
@@ -1424,7 +1423,7 @@ Some details:
   \emph{\href{mailto:username@graham.computecanada.ca}{\nolinkurl{username@graham.computecanada.ca}}}: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.
 \end{itemize}
 
-After this, you should be able to access the rstudio server by using this url
+After this, you should be able to access the JupyterLab server by using this url
 in your browser:
 
 \begin{Shaded}

@@ -156,7 +156,7 @@ Some details:
   - *-L 8888:graXXX:8888*: the *ssh tunnel* in fact. It forwards node port 8888 to your localhost at port 8888. Note that **you must replace graXXX with the node name of the machine assigned to you** after running *salloc*. If you use Dask in your jobs, it is available within the 8888, not needing to open aditional ports for the dashboards;
   - *username@graham.computecanada.ca*: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.
   
-After this, you should be able to access the rstudio server by using this url 
+After this, you should be able to access the JupyterLab server by using this url 
 in your browser:
 
 ```{bash, eval=FALSE}

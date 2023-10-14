@@ -374,7 +374,7 @@ running any job on it). You can do as this (similar to what we described in the 
 <li><em>-L 8888:graXXX:8888</em>: the <em>ssh tunnel</em> in fact. It forwards node port 8888 to your localhost at port 8888. Note that <strong>you must replace graXXX with the node name of the machine assigned to you</strong> after running <em>salloc</em>. If you use Dask in your jobs, it is available within the 8888, not needing to open aditional ports for the dashboards;</li>
 <li><em><a href="mailto:username@graham.computecanada.ca" class="email">username@graham.computecanada.ca</a></em>: your username, followed by the cluster url. Note that our lab research allocation is available in Graham for now.</li>
 </ul>
-<p>After this, you should be able to access the rstudio server by using this url
+<p>After this, you should be able to access the JupyterLab server by using this url
 in your browser:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="jupyterhub-in-alliance-canada.html#cb50-1" tabindex="-1"></a><span class="ex">http://127.0.0.1:8888/lab?token=XXXXXXXXXXXXXXXXXXXXXXX</span></span></code></pre></div>
 <p>Remember that this is an example, so you need to get the token URL provided by JupyterLab once launching the session.</p>

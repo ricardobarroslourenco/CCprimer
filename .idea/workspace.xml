@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v0.3.5 - Include Bash watch, with examples" />
+    <list default="true" id="21c63995-c750-4bf5-bb6f-aad573743853" name="Changes" comment="v1.0 - First official release" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +96,7 @@
       <workItem from="1686671859982" duration="1840000" />
       <workItem from="1687207121765" duration="1276000" />
       <workItem from="1697214783925" duration="6000" />
+      <workItem from="1697224981670" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="v0.2.1 - Fix broken links through rebuilding">
       <created>1684878056015</created>
@@ -146,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687208894559</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v1.0 - First official release">
+      <option name="closed" value="true" />
+      <created>1697225177150</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697225177150</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +180,7 @@
     <MESSAGE value="v0.3.3 - Rebuild site (fix formatting)" />
     <MESSAGE value="v0.3.4 - Include alternate folder mapping for Jupyter on apptainer call. Fix slurm cpu call that may lead to subutilization by default." />
     <MESSAGE value="v0.3.5 - Include Bash watch, with examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.3.5 - Include Bash watch, with examples" />
+    <MESSAGE value="v1.0 - First official release" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.0 - First official release" />
   </component>
 </project>

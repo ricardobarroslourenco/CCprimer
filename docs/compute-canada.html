@@ -372,11 +372,10 @@ To do so, you need to open your <em>.pub</em> file with a simple text editor (ex
 <span id="cb18-18"><a href="compute-canada.html#cb18-18" tabindex="-1"></a><span class="co">#R install_script.R</span></span>
 <span id="cb18-19"><a href="compute-canada.html#cb18-19" tabindex="-1"></a></span>
 <span id="cb18-20"><a href="compute-canada.html#cb18-20" tabindex="-1"></a><span class="co">### Export locally installed packages</span></span>
-<span id="cb18-21"><a href="compute-canada.html#cb18-21" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: check if this path holds</span></span>
-<span id="cb18-22"><a href="compute-canada.html#cb18-22" tabindex="-1"></a><span class="bu">export</span> <span class="va">R_LIBS</span><span class="op">=</span>~/local/R_libs/</span>
-<span id="cb18-23"><a href="compute-canada.html#cb18-23" tabindex="-1"></a></span>
-<span id="cb18-24"><a href="compute-canada.html#cb18-24" tabindex="-1"></a><span class="co">### Run main_job.R - or any batch script necessary</span></span>
-<span id="cb18-25"><a href="compute-canada.html#cb18-25" tabindex="-1"></a><span class="ex">R</span> CMD BATCH <span class="at">--no-save</span> <span class="at">--no-restore</span> ~/main_job.R</span></code></pre></div>
+<span id="cb18-21"><a href="compute-canada.html#cb18-21" tabindex="-1"></a><span class="bu">export</span> <span class="va">R_LIBS</span><span class="op">=</span>~/local/R_libs/</span>
+<span id="cb18-22"><a href="compute-canada.html#cb18-22" tabindex="-1"></a></span>
+<span id="cb18-23"><a href="compute-canada.html#cb18-23" tabindex="-1"></a><span class="co">### Run main_job.R - or any batch script necessary</span></span>
+<span id="cb18-24"><a href="compute-canada.html#cb18-24" tabindex="-1"></a><span class="ex">R</span> CMD BATCH <span class="at">--no-save</span> <span class="at">--no-restore</span> ~/main_job.R</span></code></pre></div>
 <p>Some requirements:</p>
 <ul>
 <li>The R file <code>main_job.R</code> needs to be at the root of your user folder.</li>
